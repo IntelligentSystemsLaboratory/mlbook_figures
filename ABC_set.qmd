@@ -1,0 +1,81 @@
+---
+title: "ABC Set"
+---
+
+
+```{r}
+#| echo: false
+
+# Plot and grid
+h <- 500 # height of plot
+w <- 500 # width of plot
+grid.step <- 100
+
+plot( c(0,w), c(0,h),  
+     xaxs = "i",yaxs = "i",
+     xaxt = "n", yaxt = "n",
+     type = "n",
+     xlab = "Negatives", ylab = "Positives")
+     
+gx <- grid.step
+while (gx <= w) {
+  abline(v = gx, col="gray", lty="dotted")
+  gx <- gx + grid.step
+}
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, col="gray", lty="dotted")
+  gy <- gy + grid.step
+}
+
+# Data
+# A: p2; n2,n4,n5
+# B: p1,p2,p3,p4,p5; n1,n2,n5
+# C: p4,p5; n1,n3
+
+## Rule-tree curve
+#x <- c(0,0,100,300,400,500,500)
+#y <- c(0,200,400,500,500,500,500)
+#col <- "red"
+#lines( x, y, lwd=5, type="o",col=col)
+## Predicted probability: 1
+#text( (x[1]+x[2])/2+10, (y[1]+y[2])/2-10, "-B-",col=col)
+## Predicted probability: 0.666667
+#text( (x[2]+x[3])/2+10, (y[2]+y[3])/2-10, "-BC",col=col)
+## Predicted probability: 0.333333
+#text( (x[3]+x[4])/2+10, (y[3]+y[4])/2-10, "AB-",col=col)
+## Predicted probability: 0
+#text( (x[4]+x[5])/2+10, (y[4]+y[5])/2-10, "--C",col=col)
+## Predicted probability: 0
+#text( (x[5]+x[6])/2+10, (y[5]+y[6])/2-10, "A--",col=col)
+
+# Rule-list curve
+a <- c(0,100,400,500,500)
+b <- c(0,400,500,500,500)
+col <- "blue"
+lines( a, b, lwd=3, type="o",col=col)
+# Predicted probability: 0.8
+text( (a[1]+a[2])/2+20, (b[1]+b[2])/2-0, "B\\A",col=col)
+# Predicted probability: 0.25
+text( (a[2]+a[3])/2-0, (b[2]+b[3])/2-20, "A",col=col)
+# Predicted probability: 0
+text( (a[3]+a[4])/2+0, (b[3]+b[4])/2-30, "C\\B\\A",col=col)
+
+# Rule-set curve
+# Probability estimation: cn2 without Laplace correction
+c <- c(0,0,100,100,400,500,500)
+d <- c(0,200,400,400,500,500,500)
+col <- "orange"
+lines( c, d, lwd=3, type="o",col=col)
+# Predicted probability: 0.625
+text( (c[1]+c[2])/2+10, (d[1]+d[2])/2-0, "B",col=col)
+# Predicted probability: 0.583333
+text( (c[2]+c[3])/2-10, (d[2]+d[3])/2+10, "BC",col=col)
+## Predicted probability: 0.5
+#text( (c[3]+c[4])/2+0, (d[3]+d[4])/2-10, "C",col=col)
+# Predicted probability: 0.5
+text( (c[4]+c[5])/2-10, (d[3]+d[5])/2+15, "AB, C",col=col)
+# Predicted probability: 0.25
+text( (c[5]+c[6])/2+0, (d[5]+d[6])/2-10, "A",col=col)
+
+```

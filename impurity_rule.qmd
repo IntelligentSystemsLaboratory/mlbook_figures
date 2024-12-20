@@ -1,0 +1,157 @@
+---
+title: "Impurity Rule"
+---
+
+
+```{r}
+#| echo: false
+
+c <- 1/2  # class ratio
+pos <- c*100  # positive examples
+neg <- 100  # negative examples
+
+rocgrid <- function() {
+	plot( c(0,neg), c(0,pos),
+		 xlim=c(0,neg),ylim=c(0,pos),
+		 #asp = pos/neg,
+		 xaxs = "i",yaxs = "i",
+		 xaxt = 'n', yaxt = 'n',
+		 type = "n",
+		 xlab = "Negatives", ylab = "Positives")
+	
+	# add a grid
+	grid.step <- 10
+	grid (nx = neg/grid.step, ny = pos/grid.step, col = gray(0.5))
+	
+	# draw diagonals
+	abline(0,pos/(c*neg),lty="1F")	# ascending
+	#abline(pos,-pos/neg,lty="dotted")	# descending
+	
+	# draw axes
+	axis(2,c(0,pos),labels=c('0','Pos'))
+	axis(1,c(0,neg),labels=c('0','Neg'))
+}
+
+metric <- function(tp,fp,m) {
+  if (tp+fp == 0) { return(0) }
+  else {
+    Pos = pos
+    Neg = neg
+    N = Pos+Neg
+    TP = tp
+    FP = fp
+    FN = Pos-TP
+    TN = Neg-FP
+    if (m=='accuracy') return( (TP+TN)/N ) 
+    if (m=='wracc') return( TP/N - (TP+FP)*(TP+FN)/N^2 ) 
+    if (m=='confirmation') return( ((TP+FP)*(FP+TN)/N^2 - FP/N)/(sqrt((TP+FP)*(FP+TN)/N^2) - (TP+FP)*(FP+TN)/N^2) ) 
+    if (m=='generality') return( (TP+FP)/N ) 
+    if (m=='precision') return( TP/(TP+FP) ) 
+    if (m=='laplace-precision') return( (TP+1)/(TP+FP+2) ) 
+    if (m=='f-measure') return( 2*TP/(2*TP+FP+FN) ) 
+    if (m=='g-measure') return( TP/(FP+Pos) ) 
+    if (m=='precision*recall') return( TP^2/((TP+FP)*(TP+FN)) ) 
+    if (m=='avg-precision-recall') return( TP/(2*(TP+FP)) + TP/(2*(TP+FN)) ) 
+    if (m=='aucsplit') return( (TP*Neg+Pos*TN)/(2*Pos*Neg) ) 
+    if (m=='balanced-aucsplit') return( TP/Pos - FP/Neg ) 
+    if (m=='chi2') return( (TP*TN - FP*FN)^2 / ((TP+FP)*(TP+FN)*(FP+TN)*(FN+TN)) ) 
+    if (m=='info-gain') return( entropy(Pos,Neg) - (TP+FP)/N*entropy(TP,FP) - (FN+TN)/N*entropy(FN,TN) )
+    if (m=='gini') return( gini(Pos,Neg) - (TP+FP)/N*gini(TP,FP) - (FN+TN)/N*gini(FN,TN) )
+    if (m=='dkm') return( dkm(Pos,Neg) - (TP+FP)/N*dkm(TP,FP) - (FN+TN)/N*dkm(FN,TN) )
+    if (m=='entropy') return( entropy(TP,FP)/2 )
+    if (m=='giniimp') return( gini(TP,FP) )
+    if (m=='dkmimp') return( dkm(TP,FP) )
+    if (m=='minacc') return( minacc(TP,FP) )
+  }
+}
+
+entropy <- function(P,N) {
+  p <- P/(P+N)
+  n <- N/(P+N)
+  if (P==0 || N==0) { return( 0 ) }
+  else { return( -p*log2(p) -n*log2(n) ) }
+}
+
+gini <- function(P,N) {
+  p <- P/(P+N)
+  n <- N/(P+N)
+  return( 2*p*n )	
+}
+
+dkm <- function(P,N) {
+  return( sqrt(gini(P,N)) )	
+}
+
+minacc <- function(P,N) {
+  p <- P/(P+N)
+  n <- N/(P+N)
+  return( min(p,n) )	
+}
+
+x <- seq(0,neg)
+y <- seq(0,pos)
+z <- matrix(nrow=neg+1,ncol=pos+1)
+
+save = FALSE
+
+if (save==FALSE) {colour1="red"; colour2="blue"} else {colour1="black"; colour2="black"}
+
+contours <- function(m,col,lty,nlevels) {
+	for (i in x) {
+	  for (j in y) {
+		z[i+1,j+1] = metric(j,i,m)
+	  }
+	}
+	contour(x,y,z,nlevels=nlevels,add=TRUE,col=col,lty="solid",method='edge')
+}
+
+contour1 <- function(m,col,lty,tp,fp) {
+	for (i in x) {
+	  for (j in y) {
+		z[i+1,j+1] = metric(j,i,m)
+	  }
+	}
+	v <- metric(tp,fp,m)
+	points(fp,tp,type='p')
+	contour(x,y,z,level=v,add=TRUE,col=col,lty=lty,labels="")
+}
+
+contour2 <- function(m,col,lty,levels) {
+	for (i in x) {
+	  for (j in y) {
+		z[i+1,j+1] = metric(j,i,m)
+	  }
+	}
+	contour(x,y,z,level=levels,add=TRUE,col=col,lty=lty,method="edge")
+}
+
+plotmetric <- function(m,label) {
+	rocgrid()
+	contours(m,label)
+	if (save==TRUE) dev2bitmap(file=paste(m,".png",sep=""),type="pngmono",res=300)
+}
+
+plotmetrics <- function() {
+	plotmetric('accuracy',1,1/2,"edge")
+	plotmetric('precision',1,1/2,"edge")
+	plotmetric('f-measure',1,5,"edge")
+	plotmetric('precision*recall',1,5,"edge")
+	plotmetric('info-gain',1,1/10,"flattest")
+	plotmetric('gini',1,1/10,"flattest")
+	plotmetric('dkm',1,1/10,"flattest")
+}
+p1 <-  c*80; n1 <- 20
+p2 <- c*100; n2 <- 60
+rocgrid()
+values <- c(0.1,0.4)
+#contours('entropy','blue','solid',2)
+contour2('entropy','blue','solid',values)
+#contour1('entropy','blue','dotted',p2, n2)
+#contours('giniimp','violet','solid',2)
+contour2('giniimp','violet',"2C",values)
+#contour1('giniimp','violet','dotted',p2, n2)
+#contours('dkmimp','red','solid',2)
+contour2('minacc','red',"16",values)
+#contour1('dkmimp','red','dotted',p2, n2)
+
+```

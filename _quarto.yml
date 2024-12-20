@@ -1,0 +1,82 @@
+project:
+  type: website
+
+website:
+  title: "MLbook Figures"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 2
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/flach/mlbook-figs
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: coverage_left.qmd
+        text: coverage left
+      - href: coverage_right.qmd
+        text: coverage right
+      - href: roc_left.qmd
+        text: roc left
+      - href: roc_right.qmd
+        text: roc right
+      - href: covroc_left.qmd
+        text: covroc left
+      - href: covroc_right.qmd
+        text: covroc right 
+      - href: covrank_left.qmd
+        text: covrank left
+      - href: covrank_right.qmd
+        text: covrank right
+      - href: racc_unbalanced_left.qmd
+        text: racc unbalanced left
+      - href: racc_unbalanced_right.qmd
+        text: racc unbalanced right
+      - href: covgrad_left.qmd
+        text: covgrad left
+      - href: covgrad_right.qmd
+        text: covgrad right
+      - href: covgrad2.qmd
+        text: covgrad 2
+      - href: threshold.qmd
+        text: threshold
+      - href: convexhull_left.qmd
+        text: convex hull left
+      - href: convexhull_right.qmd
+        text: convex hull right 
+      - href: labelings.qmd
+        text: labelings
+      - href: dt_cost.qmd
+        text: dt cost
+      - href: impurity_rule.qmd
+        text: impurity rule
+      - href: ABBA.qmd
+        text: ABBA
+      - href: ABBA_right.qmd
+        text: ABBA Right
+      - href: ABC_set.qmd
+        text: ABC Set
+      - href: ABC.qmd
+        text: ABC
+      - href: subgroups.qmd
+        text: subgroups
+      - href: subgroups_right.qmd
+        text: subgroups right
+      - href: weightedcovering.qmd
+        text: weighted covering
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

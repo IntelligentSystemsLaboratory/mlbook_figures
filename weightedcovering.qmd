@@ -1,0 +1,122 @@
+---
+title: "Weighted Covering"
+---
+
+
+```{r}
+#| echo: false
+
+# Set the class ratios and example counts
+c <- 1  # class ratio (dt-cost-right)
+pos <- c * 50  # positive examples
+neg <- 50  # negative examples
+Pos <- pos
+Neg <- neg
+
+# Define the ROC grid for plotting
+rocgrid <- function() {
+  plot(c(0, neg), c(0, pos),
+       xlim = c(0, neg), ylim = c(0, pos),
+       xaxs = "i", yaxs = "i",
+       xaxt = 'n', yaxt = 'n',
+       type = "n",
+       xlab = "Negatives", ylab = "Positives")
+  
+  # Add a grid
+  grid(nx = neg / 10, ny = pos / 10, col = gray(0.5))
+}
+
+# Metric functions to calculate performance metrics
+metric <- function(tp, fp, m) {
+  if (tp + fp == 0) { return(0) }
+  N <- Pos + Neg
+  FN <- Pos - tp
+  TN <- Neg - fp
+  if (m == 'accuracy') return((tp + TN) / N)
+  if (m == 'wracc') return(tp / N - (tp + fp) * (tp + FN) / N^2)
+  if (m == 'precision') return(tp / (tp + fp))
+  if (m == 'f-measure') return(2 * tp / (2 * tp + fp + FN))
+  # Add other metrics as needed
+}
+
+# Define entropy, gini, and other metric helpers
+entropy <- function(P, N) {
+  p <- P / (P + N)
+  n <- N / (P + N)
+  if (P == 0 || N == 0) { return(0) }
+  else { return(-p * log2(p) - n * log2(n)) }
+}
+
+gini <- function(P, N) {
+  p <- P / (P + N)
+  n <- N / (P + N)
+  return(4 * p * n)
+}
+
+# Function to plot the contours
+contour1 <- function(m, col, lty, tp, fp) {
+  v <- metric(tp, fp, m)
+  if (m == 'wracc') {
+    col = rgb(max(0, min(1 - 4 * v, 1)), max(0, 2 * v + 0.5), 0)
+  } else {
+    col = rgb(min(2 - 2 * v, 1), v, 0)
+  }
+  lwd = ifelse(lty == 'solid', 4, ifelse(lty == 0, 1, 3))
+  points(fp, tp, col = col, type = 'p', lwd = lwd)
+  
+  if (tp == 0 || fp == 0) {
+    return()
+  }
+  
+  x <- seq(0, fp)
+  y <- seq(0, tp)
+  z <- matrix(nrow = fp + 1, ncol = tp + 1)
+  
+  for (i in x) {
+    for (j in y) {
+      z[i + 1, j + 1] = metric(j, i, m)
+    }
+  }
+  contour(x, y, z, level = v, lwd = lwd - 1, add = TRUE, col = col, lty = lty, labels = "")
+}
+
+# Define contour function for two sets of points
+contour2 <- function(m, col, lty, tp, fp, tpc, fpc) {
+  Pos1 = Pos; Pos = 50; Neg1 = Neg; Neg = 50
+  contour1(m, col, 0, tp, fp)
+  
+  w = 0.5
+  fp1 = fp - (1 - w) * fpc
+  tp1 = tp - (1 - w) * tpc
+  
+  dx = ifelse(fp == 0, 0.4, 0)
+  dy = ifelse(tp == 0, 0.4, 0)
+  
+  arrows(fp + dx, tp + dy, fp1 + dx, tp1 + dy, col = 'violet', length = 0.1, lwd = 3)
+  Pos = Pos1; Neg = Neg1
+  
+  contour1(m, col, lty, tp1, fp1)
+}
+
+# Plot grid and contours
+rocgrid()
+
+# Choose method and color for plotting
+method <- 'wracc'  # Set the method for calculating metrics
+colour = 'black'  # Color for plotting
+p = 0; n = 40
+
+# Plot positive and negative examples
+Pos = 45; Neg = 35
+colour = 'blue'
+
+# Drawing a box (boundary for Pos and Neg)
+rect(0, 0, Neg, Pos, border = colour)
+
+# Add some contours (you can adjust parameters as needed)
+contour2(method, colour, 'dotted', 50, 50, 10, 30)
+contour2(method, colour, 'dotted', 50, 30, 10, 20)
+contour2(method, colour, 'dotted', 50, 10, 10, 10)
+
+
+```

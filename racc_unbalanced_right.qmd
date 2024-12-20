@@ -1,0 +1,65 @@
+---
+title: "Racc unbalanced right"
+---
+
+
+```{r}
+#| echo: false
+
+h <- 500 # height of plot
+w <- 500 # width of plot
+# w <- 360 # width of plot
+grid.step <- 50
+
+# print to a file
+# png(height = h, width = w, filename = "pn-nested.png")
+# windows(height = h, width = w)
+
+plot( c(0,w), c(0,h),  
+     xaxs = "i",yaxs = "i",
+     xaxt = 'n', yaxt = 'n',
+     type = "n",
+     xlab = "False positive rate", ylab = "True positive rate")
+     
+x <- c(0,  50,  100,  500)
+y <- c(0, 200,  300,  500)
+
+# draw axes
+axis(2,y,labels=c('0','tpr1','tpr2','1'))
+axis(1,x,labels=c('0','fpr1','fpr2','1'))
+
+# add a grid
+# grid seems to be buggy
+#grid (nx = w/grid.step, ny = h/grid.step)
+gx <- grid.step/2
+while (gx <= w) {
+  abline(v = gx, col="gray", lty="dotted")
+  gx <- gx + grid.step/2
+}
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, col="gray", lty="dotted")
+  gy <- gy + grid.step
+}
+
+# draw diagonal
+# abline(c(0,h/w),lty=3)
+
+# label the points
+#text( x[1]+10, y[1]+10, "A")
+#text( x[2:3]+10, y[2:3], labels=c("B","C"))
+#text( x[4]-10, y[4]-15, "D")
+
+
+# now draw nested grids
+for (i in 2:3) {
+  abline(v=x[i],lty='dashed')
+  abline(h=y[i],lty='dashed')
+}
+
+# draw curve
+lines( x, y, lty=1, type='o')
+
+# close file
+#dev.off()
+```
