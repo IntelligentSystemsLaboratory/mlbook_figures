@@ -7,6 +7,48 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
+    "objectID": "chapter_2/covroc_right.html",
+    "href": "chapter_2/covroc_right.html",
+    "title": "2.5 Covroc right",
+    "section": "",
+    "text": "In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set."
+  },
+  {
+    "objectID": "chapter_2/roc_right.html",
+    "href": "chapter_2/roc_right.html",
+    "title": "2.3 Roc right",
+    "section": "",
+    "text": "C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall."
+  },
+  {
+    "objectID": "chapter_2/covroc_left.html",
+    "href": "chapter_2/covroc_left.html",
+    "title": "2.5 Covroc left",
+    "section": "",
+    "text": "In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set."
+  },
+  {
+    "objectID": "chapter_2/coverage_right.html",
+    "href": "chapter_2/coverage_right.html",
+    "title": "2.2 Coverage Right",
+    "section": "",
+    "text": "A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3."
+  },
+  {
+    "objectID": "chapter_2/roc_left.html",
+    "href": "chapter_2/roc_left.html",
+    "title": "2.3 Roc left",
+    "section": "",
+    "text": "C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall."
+  },
+  {
+    "objectID": "chapter_2/coverage_left.html",
+    "href": "chapter_2/coverage_left.html",
+    "title": "2.2 Coverage Left",
+    "section": "",
+    "text": "A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
