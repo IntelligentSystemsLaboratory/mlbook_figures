@@ -49,10 +49,66 @@
     "text": "A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3."
   },
   {
+    "objectID": "chapter_8/mlmethods2-complete.html",
+    "href": "chapter_8/mlmethods2-complete.html",
+    "title": "ML Methods",
+    "section": "",
+    "text": "k = 2, Sum of squared distances (inertia): 560.625\nCluster 1:\n['naive Bayes' 'kNN' 'Linear Classifier' 'Linear Regression'\n 'Logistic Regression' 'SVM' 'Kmeans' 'GMM']\nCluster 2:\n['Trees' 'Rules' 'Associations']\nk = 3, Sum of squared distances (inertia): 293.5\nCluster 1:\n['naive Bayes' 'GMM']\nCluster 2:\n['Trees' 'Rules' 'Associations']\nCluster 3:\n['kNN' 'Linear Classifier' 'Linear Regression' 'Logistic Regression' 'SVM'\n 'Kmeans']\nk = 4, Sum of squared distances (inertia): 207.5\nCluster 1:\n['kNN' 'Linear Classifier' 'Linear Regression' 'Logistic Regression' 'SVM'\n 'Kmeans']\nCluster 2:\n['naive Bayes']\nCluster 3:\n['Trees' 'Rules' 'Associations']\nCluster 4:\n['GMM']\nk = 5, Sum of squared distances (inertia): 148.0\nCluster 1:\n['kNN' 'Linear Regression' 'Logistic Regression' 'SVM' 'Kmeans']\nCluster 2:\n['naive Bayes']\nCluster 3:\n['Trees' 'Rules' 'Associations']\nCluster 4:\n['GMM']\nCluster 5:\n['Linear Classifier']"
+  },
+  {
+    "objectID": "chapter_8/twonex.html",
+    "href": "chapter_8/twonex.html",
+    "title": "Twonex",
+    "section": "",
+    "text": "/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+  },
+  {
+    "objectID": "chapter_8/randomdendrogram.html",
+    "href": "chapter_8/randomdendrogram.html",
+    "title": "Random Dendogram",
+    "section": "",
+    "text": "Spearman correlation for complete: 0.6864312171419101"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "chapter_6/ABBA.html",
+    "href": "chapter_6/ABBA.html",
+    "title": "ABBA",
+    "section": "",
+    "text": "# Plot and grid\nh &lt;- 500 # height of plot\nw &lt;- 500 # width of plot\ngrid.step &lt;- 100\n\nplot( c(0,w), c(0,h),  \n     xaxs = \"i\",yaxs = \"i\",\n     xaxt = \"n\", yaxt = \"n\",\n     type = \"n\",\n     xlab = \"Negatives\", ylab = \"Positives\")\n     \ngx &lt;- grid.step\nwhile (gx &lt;= w) {\n  abline(v = gx, col=\"gray\", lty=\"dotted\")\n  gx &lt;- gx + grid.step\n}\ngy &lt;- grid.step\nwhile (gy &lt;= h) {\n  abline(h = gy, col=\"gray\", lty=\"dotted\")\n  gy &lt;- gy + grid.step\n}\n\n# Data\n# A: p2; n2,n4,n5\n# B: p1,p2,p3,p4,p5; n1,n2,n5\n\n# Rule-list curve AB\na &lt;- c(0,100,400,500)\nb &lt;- c(0,400,500,500)\ncol &lt;- \"blue\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.8\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\\\\A\",col=col)\n# Predicted probability: 0.25\ntext( (a[2]+a[3])/2-20, (b[2]+b[3])/2-30, \"A\",col=col)\n# Predicted probability: 0\ntext( (a[3]+a[4])/2+20, (b[3]+b[4])/2-20, \"-\",col=col)\n\n# Rule-list curve BA\na &lt;- c(0,300,500)\nb &lt;- c(0,500,500)\ncol &lt;- \"violet\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.625\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\",col=col)\n# Predicted probability: 0\ntext( (a[2]+a[3])/2+20, (b[2]+b[3])/2-20, \"A\\\\B, -\",col=col)\n\n# convex hull segment\nx &lt;- c(0,100,300,500)\ny &lt;- c(0,400,500,500)\ncol &lt;- \"red\"\nlines( x[2:3], y[2:3], lty=\"dotted\",col=col)\ntext( (x[2]+x[3])/2-15, (y[2]+y[3])/2+15, \"\",col=col)"
+  },
+  {
+    "objectID": "chapter_9/gmm.html",
+    "href": "chapter_9/gmm.html",
+    "title": "GMM",
+    "section": "",
+    "text": "Final means: [56 67]\nFinal variances: [8 1]\nInitial means: [56 67]"
+  },
+  {
+    "objectID": "chapter_9/linclass2.html",
+    "href": "chapter_9/linclass2.html",
+    "title": "Linear Classifier 2",
+    "section": "",
+    "text": "Error for BLC: 7\nError for LSC: 8\nOptimization terminated successfully.\n         Current function value: 0.071371\n         Iterations 11\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Fri, 28 Feb 2025   Pseudo R-squ.:                  0.8970\nTime:                        17:31:45   Log-Likelihood:                -14.274\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 9.846e-55\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          2.4635      1.314      1.875      0.061      -0.111       5.038\nx1             2.5196      0.637      3.954      0.000       1.271       3.768\nx2             6.2784      1.716      3.659      0.000       2.915       9.641\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.37 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 6\nBinary Logistic Regression Error: 0.021435446194237092"
+  },
+  {
+    "objectID": "chapter_9/logreg.html",
+    "href": "chapter_9/logreg.html",
+    "title": "Logreg",
+    "section": "",
+    "text": "Error Rate Logistic Calibration: 0.12844556591641743\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.1261291702282697"
+  },
+  {
+    "objectID": "chapter_7/linkernel.html",
+    "href": "chapter_7/linkernel.html",
+    "title": "Lin Kernel",
+    "section": "",
+    "text": "&lt;module 'matplotlib.pyplot' from '/home/ck22122/.local/share/virtualenvs/superbook2-Q63KuxOb/lib/python3.10/site-packages/matplotlib/pyplot.py'&gt;"
   }
 ]

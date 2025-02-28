@@ -2,170 +2,274 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/index.html</loc>
-    <lastmod>2025-02-18T10:35:22.233Z</lastmod>
+    <lastmod>2025-02-28T17:30:50.475Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/racc_unbalanced_right.html</loc>
-    <lastmod>2025-02-18T10:35:22.908Z</lastmod>
+    <lastmod>2025-02-28T17:30:51.300Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covroc_right.html</loc>
-    <lastmod>2025-02-18T10:35:23.724Z</lastmod>
+    <lastmod>2025-02-28T17:30:52.066Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/racc_unbalanced_left.html</loc>
-    <lastmod>2025-02-18T10:35:24.630Z</lastmod>
+    <lastmod>2025-02-28T17:30:52.774Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/roc_right.html</loc>
-    <lastmod>2025-02-18T10:35:25.424Z</lastmod>
+    <lastmod>2025-02-28T17:30:53.482Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covrank_right.html</loc>
-    <lastmod>2025-02-18T10:35:26.186Z</lastmod>
+    <lastmod>2025-02-28T17:30:54.202Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covroc_left.html</loc>
-    <lastmod>2025-02-18T10:35:26.989Z</lastmod>
+    <lastmod>2025-02-28T17:30:54.914Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/convexhull_left.html</loc>
-    <lastmod>2025-02-18T10:35:27.766Z</lastmod>
+    <lastmod>2025-02-28T17:30:55.609Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covrank_left.html</loc>
-    <lastmod>2025-02-18T10:35:28.538Z</lastmod>
+    <lastmod>2025-02-28T17:30:56.353Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/convexhull_right.html</loc>
-    <lastmod>2025-02-18T10:35:29.258Z</lastmod>
+    <lastmod>2025-02-28T17:30:57.083Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/threshold.html</loc>
-    <lastmod>2025-02-18T10:35:30.007Z</lastmod>
+    <lastmod>2025-02-28T17:30:57.806Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/coverage_right.html</loc>
-    <lastmod>2025-02-18T10:35:30.644Z</lastmod>
+    <lastmod>2025-02-28T17:30:58.528Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covgrad2.html</loc>
-    <lastmod>2025-02-18T10:35:31.422Z</lastmod>
+    <lastmod>2025-02-28T17:30:59.244Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covgrad_left.html</loc>
-    <lastmod>2025-02-18T10:35:31.952Z</lastmod>
+    <lastmod>2025-02-28T17:30:59.796Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/covgrad_right.html</loc>
-    <lastmod>2025-02-18T10:35:32.596Z</lastmod>
+    <lastmod>2025-02-28T17:31:00.494Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/roc_left.html</loc>
-    <lastmod>2025-02-18T10:35:33.366Z</lastmod>
+    <lastmod>2025-02-28T17:31:01.211Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_2/coverage_left.html</loc>
-    <lastmod>2025-02-18T10:35:34.019Z</lastmod>
+    <lastmod>2025-02-28T17:31:01.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/mlmethods2-complete.html</loc>
+    <lastmod>2025-02-28T17:31:05.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/kmeans.html</loc>
+    <lastmod>2025-02-28T17:31:05.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/medoids.html</loc>
+    <lastmod>2025-02-28T17:31:08.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/nonmondendrogram.html</loc>
+    <lastmod>2025-02-28T17:31:10.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/blcdis.html</loc>
+    <lastmod>2025-02-28T17:31:14.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/twonex.html</loc>
+    <lastmod>2025-02-28T17:31:18.810Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/randomdendrogram.html</loc>
+    <lastmod>2025-02-28T17:31:21.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/knn-probdist.html</loc>
+    <lastmod>2025-02-28T17:31:21.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/1nex.html</loc>
+    <lastmod>2025-02-28T17:31:23.930Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/kmeans-sub.html</loc>
+    <lastmod>2025-02-28T17:31:24.142Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/silhouette.html</loc>
+    <lastmod>2025-02-28T17:31:24.340Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/knn-prob.html</loc>
+    <lastmod>2025-02-28T17:31:26.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_8/mlkmeans3.html</loc>
+    <lastmod>2025-02-28T17:31:29.398Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/about.html</loc>
-    <lastmod>2025-02-18T10:35:34.184Z</lastmod>
+    <lastmod>2025-02-28T17:31:29.603Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_5/labelings.html</loc>
-    <lastmod>2025-02-18T10:35:35.149Z</lastmod>
+    <lastmod>2025-02-28T17:31:30.490Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_5/dt_cost.html</loc>
-    <lastmod>2025-02-18T10:35:38.520Z</lastmod>
+    <lastmod>2025-02-28T17:31:33.931Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/subgroups_right.html</loc>
-    <lastmod>2025-02-18T10:35:39.240Z</lastmod>
+    <lastmod>2025-02-28T17:31:34.818Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/subgroups.html</loc>
-    <lastmod>2025-02-18T10:35:40.036Z</lastmod>
+    <lastmod>2025-02-28T17:31:35.723Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/impurity_rule.html</loc>
-    <lastmod>2025-02-18T10:35:40.865Z</lastmod>
+    <lastmod>2025-02-28T17:31:36.679Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/ABBA_right.html</loc>
-    <lastmod>2025-02-18T10:35:41.515Z</lastmod>
+    <lastmod>2025-02-28T17:31:37.555Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/ABC.html</loc>
-    <lastmod>2025-02-18T10:35:42.234Z</lastmod>
+    <lastmod>2025-02-28T17:31:38.379Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/weightedcovering.html</loc>
-    <lastmod>2025-02-18T10:35:42.888Z</lastmod>
+    <lastmod>2025-02-28T17:31:39.243Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/ABBA.html</loc>
-    <lastmod>2025-02-18T10:35:43.540Z</lastmod>
+    <lastmod>2025-02-28T17:31:40.246Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_6/ABC_set.html</loc>
-    <lastmod>2025-02-18T10:35:44.260Z</lastmod>
+    <lastmod>2025-02-28T17:31:41.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_9/gmm.html</loc>
+    <lastmod>2025-02-28T17:31:43.806Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_9/linclass2.html</loc>
+    <lastmod>2025-02-28T17:31:46.647Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_9/logreg.html</loc>
+    <lastmod>2025-02-28T17:31:49.363Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_9/density_right.html</loc>
-    <lastmod>2025-02-18T10:35:44.907Z</lastmod>
+    <lastmod>2025-02-28T17:31:50.040Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_9/density_left.html</loc>
-    <lastmod>2025-02-18T10:35:45.549Z</lastmod>
+    <lastmod>2025-02-28T17:31:50.751Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/logcallin.html</loc>
+    <lastmod>2025-02-28T17:31:53.713Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/linclass.html</loc>
-    <lastmod>2025-02-18T10:35:48.613Z</lastmod>
+    <lastmod>2025-02-28T17:31:55.985Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/slrclass.html</loc>
+    <lastmod>2025-02-28T17:31:58.596Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/slr1.html</loc>
-    <lastmod>2025-02-18T10:35:50.754Z</lastmod>
+    <lastmod>2025-02-28T17:32:00.758Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/slr.html</loc>
-    <lastmod>2025-02-18T10:35:53.446Z</lastmod>
+    <lastmod>2025-02-28T17:32:03.946Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/roccallin.html</loc>
+    <lastmod>2025-02-28T17:32:06.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/regression.html</loc>
+    <lastmod>2025-02-28T17:32:08.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_7/linkernel.html</loc>
+    <lastmod>2025-02-28T17:32:11.727Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_1/diabetes.html</loc>
-    <lastmod>2025-02-18T10:35:55.648Z</lastmod>
+    <lastmod>2025-02-28T17:32:14.053Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_1/mlmethods.html</loc>
-    <lastmod>2025-02-18T10:35:57.965Z</lastmod>
+    <lastmod>2025-02-28T17:32:16.362Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_1/kernel.html</loc>
-    <lastmod>2025-02-18T10:36:00.154Z</lastmod>
+    <lastmod>2025-02-28T17:32:18.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/roccal.html</loc>
+    <lastmod>2025-02-28T17:32:20.614Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/rp_middle.html</loc>
-    <lastmod>2025-02-18T10:36:00.333Z</lastmod>
+    <lastmod>2025-02-28T17:32:20.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/isocal.html</loc>
+    <lastmod>2025-02-28T17:32:20.982Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/rp_left.html</loc>
-    <lastmod>2025-02-18T10:36:00.844Z</lastmod>
+    <lastmod>2025-02-28T17:32:21.498Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/thresholding_right.html</loc>
-    <lastmod>2025-02-18T10:36:01.368Z</lastmod>
+    <lastmod>2025-02-28T17:32:21.995Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/thresholding_left.html</loc>
-    <lastmod>2025-02-18T10:36:01.941Z</lastmod>
+    <lastmod>2025-02-28T17:32:22.496Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/logcal.html</loc>
+    <lastmod>2025-02-28T17:32:24.735Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_10/rp_right.html</loc>
-    <lastmod>2025-02-18T10:36:02.122Z</lastmod>
+    <lastmod>2025-02-28T17:32:24.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_11/boosting.html</loc>
+    <lastmod>2025-02-28T17:32:28.065Z</lastmod>
+  </url>
+  <url>
+    <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_11/bagging.html</loc>
+    <lastmod>2025-02-28T17:32:30.856Z</lastmod>
   </url>
   <url>
     <loc>https://IntelligentSystemsLaboratory.github.io/mlbook_figures/chapter_3/clustering.html</loc>
-    <lastmod>2025-02-18T10:36:04.868Z</lastmod>
+    <lastmod>2025-02-28T17:32:33.718Z</lastmod>
   </url>
 </urlset>
