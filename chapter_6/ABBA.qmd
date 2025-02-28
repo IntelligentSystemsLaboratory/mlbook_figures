@@ -4,7 +4,6 @@ title: "ABBA"
 
 
 ```{r}
-#| echo: false
 
 # Plot and grid
 h <- 500 # height of plot
