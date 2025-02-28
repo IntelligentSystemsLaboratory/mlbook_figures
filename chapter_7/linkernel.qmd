@@ -1,0 +1,67 @@
+---
+title: "Lin Kernel"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import multivariate_normal
+
+# Generate data
+mupos, sigpos, rhopos = [1, 1], [3, 3], 0
+muneg, signeg, rhoneg = [-1, -1], [3, 3], 0
+
+covpos = rhopos * np.sqrt(sigpos[0] * sigpos[1])
+sigmapos = [[sigpos[0], covpos], [covpos, sigpos[1]]]
+covneg = rhoneg * np.sqrt(signeg[0] * signeg[1])
+sigmaneg = [[signeg[0], covneg], [covneg, signeg[1]]]
+
+Npos, Nneg = 50, 50
+N = Npos + Nneg
+
+pos = multivariate_normal.rvs(mean=mupos, cov=sigmapos, size=Npos)
+neg = multivariate_normal.rvs(mean=muneg, cov=sigmaneg, size=Nneg)
+
+# Move to feature space
+posF = pos ** 2
+negF = neg ** 2
+
+# Homogeneous coordinates
+pos1F = np.column_stack((np.ones(Npos), posF))
+neg1F = np.column_stack((np.ones(Nneg), negF))
+
+# Basic linear classifier
+emupos1F, emuneg1F = np.mean(pos1F, axis=0), np.mean(neg1F, axis=0)
+t = (np.dot(emupos1F, emupos1F) - np.dot(emuneg1F, emuneg1F)) / 2
+blc = (emupos1F - emuneg1F).T + np.array([-t, 0, 0])
+
+dpos = np.dot(posF, blc[1:])
+dneg = np.dot(negF, blc[1:])
+mdpos, mdneg = np.mean(dpos), np.mean(dneg)
+vard = np.var(np.concatenate((dpos - mdpos, dneg - mdneg)), ddof=1)
+a = (mdpos - mdneg) / vard
+d0 = 0
+
+# Logistic calibration
+step, mn, mx = 0.02, 0, 5
+x_vals = np.arange(mn, mx, step)
+y_vals = np.arange(mn, mx, step)
+PblcF = np.zeros((len(y_vals), len(x_vals)))
+
+for i, x in enumerate(x_vals):
+    for j, y in enumerate(y_vals):
+        LR = np.exp(a * (np.dot([1, x, y], blc) - d0))
+        PblcF[j, i] = LR / (LR + 1)
+
+# Plot feature space
+grid_x, grid_y = np.meshgrid(x_vals, y_vals)
+plt.figure()
+plt.contour(grid_x, grid_y, PblcF, levels=[0.5], colors='r')
+plt.scatter(posF[:, 0], posF[:, 1], marker='+', color='k')
+plt
+
+```

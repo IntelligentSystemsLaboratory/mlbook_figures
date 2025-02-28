@@ -1,0 +1,65 @@
+---
+title: "Log Callin"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import multivariate_normal
+
+# Generate data
+mupos, sigpos, rhopos = [1, 1], [3, 3], 0
+muneg, signeg, rhoneg = [-1, -1], [3, 3], 0
+
+covpos = rhopos * np.sqrt(sigpos[0] * sigpos[1])
+sigmapos = [[sigpos[0], covpos], [covpos, sigpos[1]]]
+covneg = rhoneg * np.sqrt(signeg[0] * signeg[1])
+sigmaneg = [[signeg[0], covneg], [covneg, signeg[1]]]
+
+Npos, Nneg = 50, 50
+N = Npos + Nneg
+
+pos = multivariate_normal.rvs(mean=mupos, cov=sigmapos, size=Npos)
+neg = multivariate_normal.rvs(mean=muneg, cov=sigmaneg, size=Nneg)
+
+# Homogeneous coordinates
+pos1 = np.column_stack((np.ones(Npos), pos))
+neg1 = np.column_stack((np.ones(Nneg), neg))
+
+# Basic linear classifier
+emupos1, emuneg1 = np.mean(pos1, axis=0), np.mean(neg1, axis=0)
+blc = (emupos1 - emuneg1).T
+
+dpos = pos @ blc[1:]
+dneg = neg @ blc[1:]
+mdpos, mdneg = np.mean(dpos), np.mean(dneg)
+vard = np.var(np.concatenate((dpos - mdpos, dneg - mdneg)), ddof=1)
+a = (mdpos - mdneg) / vard
+d0 = (mdpos + mdneg) / 2
+
+# Logistic calibration
+mn, mx = -5, 5
+x_vals = np.arange(mn, mx, 0.1)
+y_vals = np.arange(mn, mx, 0.1)
+Plog = np.zeros((len(y_vals), len(x_vals)))
+
+for i, x in enumerate(x_vals):
+    for j, y in enumerate(y_vals):
+        LR = np.exp(a * (np.dot([1, x, y], blc) - d0))
+        Plog[j, i] = LR / (LR + 1)
+
+# Plot data and decision boundary
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(pos[:, 0], pos[:, 1], color='k', marker='+')
+ax.scatter(neg[:, 0], neg[:, 1], color='k', marker='.')
+X, Y = np.meshgrid(x_vals, y_vals)
+ax.plot_surface(X, Y, Plog, cmap='coolwarm', alpha=0.5)
+plt.show()
+
+
+```

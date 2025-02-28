@@ -1,0 +1,44 @@
+---
+title: "SLR Class"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm, multivariate_normal
+
+# Parameters
+mupos, muneg = 1, -1
+Pos, Neg = 20, 10
+
+# Generate data
+px = np.random.normal(mupos, 1, Pos)
+nx = np.random.normal(muneg, 1, Neg)
+x = np.concatenate((px, nx))
+y = np.concatenate((np.ones(Pos), -np.ones(Neg)))
+
+xmin, xmax = np.min(x), np.max(x)
+x = np.column_stack((np.ones_like(x), x))
+
+# Compute estimators
+B = np.linalg.inv(x.T @ x) @ x.T @ y
+
+# Plot results
+plt.figure()
+plt.scatter(x[:, 1], y, color='r', label='Data')
+plt.scatter(np.mean(px), 1, color='r', marker='o')
+plt.scatter(np.mean(nx), -1, color='r', marker='o')
+
+xaxis = np.arange(xmin, xmax, 0.1)
+ymin, ymax = B[0] + B[1] * xmin, B[0] + B[1] * xmax
+plt.plot([xmin, xmax], [ymin, ymax], 'b-')
+plt.axhline(0, linestyle=':', color='k')
+plt.axvline(np.mean(x[:, 1]) - np.mean(y) / B[1], linestyle=':', color='k')
+plt.xlim([xmin, xmax])
+plt.ylim([-1, 1])
+plt.show()
+```

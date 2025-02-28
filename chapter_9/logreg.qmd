@@ -1,0 +1,121 @@
+---
+title: "Logreg"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn.isotonic import IsotonicRegression
+from sklearn.metrics import roc_curve, auc
+
+# Parameters
+mupos = 1
+muneg = -1
+Npos = 20
+Nneg = 20
+clr = Npos / Nneg
+
+# Generate random data
+px = np.random.normal(mupos, 1, Npos)
+nx = np.random.normal(muneg, 1, Nneg)
+x = np.concatenate([px, nx])
+
+# Correcting the creation of y (target variable)
+py = np.ones(Npos)
+ny = np.zeros(Nneg)  # Use 0 for negative class, not 1
+y = np.concatenate([py, ny])
+
+ymin = 0
+ymax = 1
+y0 = (ymin + ymax) / 2
+
+xmin = np.min(x)
+xmax = np.max(x)
+
+# Adding homogeneous coordinate (bias term)
+X = np.vstack([np.ones_like(x), x]).T
+
+# Basic linear classifier
+emupos1 = np.mean(np.vstack([np.ones_like(px), px]), axis=1)
+emuneg1 = np.mean(np.vstack([np.ones_like(nx), nx]), axis=1)
+blc = (emupos1 - emuneg1)
+blc = blc[:, np.newaxis]
+blc[0] = -(emupos1 + emuneg1).dot(blc) / 2
+B = blc.flatten()
+x0 = np.mean([np.mean(px), np.mean(nx)])
+
+# Plotting
+plt.figure(figsize=(8, 6))
+xaxis = np.arange(xmin, xmax, 0.1)
+yminB = B[0] + B[1] * xmin
+ymaxB = B[0] + B[1] * xmax
+plt.plot(xaxis, B[0] + B[1] * xaxis, linestyle='--', color='b')
+plt.axis([xmin, xmax, ymin, ymax])
+plt.axhline(y0, linestyle=':', color='k')
+
+# Logistic calibration
+w = B[1]
+dpos = w * (px - x0)
+dneg = w * (nx - x0)
+d = np.concatenate([dpos, dneg])
+mdpos = np.mean(dpos)
+mdneg = np.mean(dneg)
+vard = np.var(np.concatenate([dpos - mdpos, dneg - mdneg]), ddof=1)
+a = (mdpos - mdneg) / vard
+d0 = (mdpos + mdneg) / 2
+
+plt.axvline(x0, linestyle=':', color='b')
+LR = np.exp(a * (d - d0))
+P = LR / (LR + Nneg / Npos)
+plt.scatter(x, P, color='b', s=20, label='Logistic Calibration')
+
+# Isotonic calibration
+scoresPN = B[0] + np.concatenate([px, nx]) * B[1]
+sortedScores = np.sort(scoresPN)[::-1]
+index = np.argsort(scoresPN)[::-1]
+CHprobs = np.interp(sortedScores, np.sort(sortedScores), np.linspace(0, 1, Npos + Nneg))
+PCH = CHprobs
+plt.scatter(x[index], PCH, color='g', s=20, label='Isotonic Calibration')
+
+# Logistic regression (using sklearn)
+X_reg = np.vstack([np.ones_like(x), x]).T  # Add bias term to the feature matrix
+y_reg = y  # Target variable
+
+lr = LogisticRegression(fit_intercept=False)
+lr.fit(X_reg, y_reg)
+PLR = lr.predict_proba(X_reg)[:, 1]
+
+# Find decision boundary
+yup2 = np.min(PLR[PLR > 0.5])
+xup2 = x[np.min(np.where(PLR == yup2))]
+ydn2 = np.max(PLR[PLR < 0.5])
+xdn2 = x[np.max(np.where(PLR == ydn2))]
+x2 = xdn2 + (xup2 - xdn2) * (1 / 2 - ydn2) / (yup2 - ydn2)
+
+plt.axvline(x2, linestyle=':', color='r')
+
+# Error calculation
+fp2 = Npos - np.sum(y_reg[X_reg[:, 1] > x2] == 1)
+fn2 = np.sum(y_reg[X_reg[:, 1] > x2] == 0)
+err2 = fp2 + fn2
+BS2 = np.mean((PLR - y_reg) ** 2)
+
+# Plot points
+plt.scatter(x, y, color='k', label='Data Points')
+plt.scatter(np.mean(px), ymax, label='Mean Positive')
+plt.scatter(np.mean(nx), ymin, label='Mean Negative')
+
+plt.legend()
+plt.show()
+
+# Results
+print(f"Error Rate Logistic Calibration: {np.mean((P - y) ** 2)}")
+print(f"Error Rate Isotonic Calibration: {np.mean((PCH - y) ** 2)}")
+print(f"Error Rate Logistic Regression: {BS2}")
+
+```

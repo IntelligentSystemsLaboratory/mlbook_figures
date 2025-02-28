@@ -1,0 +1,62 @@
+---
+title: "2.2 Coverage Left"
+---
+
+A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3.
+
+```{r}
+#| echo: false
+
+
+h <- 50 # height of plot
+w <- 50 # width of plot
+# w <- 360 # width of plot
+grid.step <- 10
+
+TP1 <- 30
+FP1 <- 10
+TP2 <- 20
+FP2 <- 20
+
+# print to a file
+# pdf(height = h, width = w, file = "coverage-left.pdf")
+# windows(height = h, width = w)
+
+plot( c(0,w), c(0,h),  
+     xaxs = "i",yaxs = "i",
+     xaxt = 'n', yaxt = 'n',
+     type = "n",
+     xlab = "Negatives", ylab = "Positives")
+
+# draw axes
+axis(2,c(0,TP2,TP1,h),labels=c('0','TP2','TP1','Pos'))
+axis(1,c(0,FP1,FP2,w),labels=c('0','FP1','FP2','Neg'))
+
+# add a grid
+# grid seems to be buggy
+#grid (nx = w/grid.step, ny = h/grid.step)
+gx <- grid.step
+while (gx <= w) {
+  abline(v = gx, col="gray", lty="dotted")
+  gx <- gx + grid.step
+}
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, col="gray", lty="dotted")
+  gy <- gy + grid.step
+}
+
+# draw diagonal
+# abline(c(0,h/w),lty=3)
+
+# draw points
+col1 <- "blue"
+points( FP1, TP1, col=col1, type="o")
+text( FP1, TP1, "C1", pos=3)
+abline(h=TP1, v=FP1, col=col1, lty="dotted")
+
+col2 <- "red"
+points( FP2, TP2, col=col2, type="o")
+text( FP2, TP2, "C2", pos=3)
+abline(h=TP2, v=FP2, col=col2, lty="dotted")
+```

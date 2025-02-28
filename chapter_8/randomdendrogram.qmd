@@ -1,0 +1,70 @@
+---
+title: "Random Dendogram"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.spatial.distance import pdist
+from scipy.cluster.hierarchy import linkage, dendrogram, cophenet
+from scipy.stats import spearmanr
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.metrics import silhouette_samples
+
+# Load the data (simulating load from file here)
+filename = 'randomdendrogram'
+D = np.random.rand(20, 2)  # Example: random data generation if the data is not loaded
+# np.savetxt(filename, D)  # Save data (if needed)
+# D = np.loadtxt(filename)  # Load data from a file if it's already saved
+
+# Hierarchical clustering methods
+methods = ['complete']  # Only complete method used as per the original code
+f = 1  # Figure counter
+
+# Loop over clustering methods
+for method in methods:
+    # Dendrogram plotting
+    plt.figure(f)
+    f += 1
+    L = linkage(D, method)
+    
+    # Cophenetic correlation and Spearman correlation
+    PD = pdist(D)
+    c, d = cophenet(L, PD)
+    r, _ = spearmanr(PD, d)
+    print(f'Spearman correlation for {method}: {r}')
+    
+    # Create and plot dendrogram
+    dendrogram(L, color_threshold='default')
+    plt.title(f'{filename}-middle')
+    plt.show()
+    
+    # Clustering and scatter plot
+    plt.figure(f)
+    f += 1
+    clustering = AgglomerativeClustering(n_clusters=3, linkage=method)
+    T = clustering.fit_predict(D)
+    
+    plt.scatter(D[:, 0], D[:, 1], s=20, c=T, cmap='coolwarm', marker='o')
+    d = 0.01
+    for i in range(D.shape[0]):
+        plt.text(D[i, 0] + d, D[i, 1] + d, str(i + 1), fontsize=12)
+    plt.title(f'{filename}-left')
+    plt.axis([0, 1, 0, 1])
+    plt.gca().set_box_aspect(1)  # Keep aspect ratio square
+    plt.show()
+    
+    # Silhouette plot
+    plt.figure(f)
+    f += 1
+    silhouette_vals = silhouette_samples(D, T, metric='euclidean')
+    plt.bar(range(D.shape[0]), silhouette_vals)
+    plt.title(f'{filename}-right')
+    plt.show()
+
+
+```

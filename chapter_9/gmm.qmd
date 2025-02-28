@@ -1,0 +1,92 @@
+---
+title: "GMM"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+def gmm(mu1=55, sigmasq1=9, mu2=65, sigmasq2=16):
+    # Number of samples per Gaussian
+    N1 = 5
+    N2 = 5
+    N = N1 + N2
+
+    # Generate samples from two Gaussian distributions
+    samples1 = np.random.normal(mu1, np.sqrt(sigmasq1), N1)
+    samples2 = np.random.normal(mu2, np.sqrt(sigmasq2), N2)
+    
+    # Combine and sort the samples
+    samples = np.sort(np.concatenate([samples1, samples2]))
+
+    # Define the range for plotting the Gaussian distributions
+    x = np.arange(40, 80, 0.1)
+
+    # Initialize the posterior probabilities (responsibilities)
+    z = np.zeros((2, N))
+
+    # Plotting the initial Gaussian distributions
+    P1 = (1/np.sqrt(2 * np.pi * sigmasq1)) * np.exp(-((x - mu1)**2) / (2 * sigmasq1))
+    P2 = (1/np.sqrt(2 * np.pi * sigmasq2)) * np.exp(-((x - mu2)**2) / (2 * sigmasq2))
+
+    plt.figure()
+    plt.plot(samples1, np.zeros(len(samples1)), 'k.', label='Samples from Gaussian 1')
+    plt.plot(samples2, np.zeros(len(samples2)), 'r.', label='Samples from Gaussian 2')
+    plt.plot(x, P1 + P2, label='Sum of Gaussians')
+
+    # Initialize means for the two components (mu0)
+    # Ensure mu0 is a valid set of integers between 50 and 70
+    mu0 = np.sort(np.random.randint(50, 71, 2))
+    while np.any(np.isnan(mu0)):  # Check if there are any NaN values in mu0
+        mu0 = np.sort(np.random.randint(50, 71, 2))
+
+    mu = mu0
+    sigmasq = np.array([1, 1])  # Initial variances
+
+    # Number of iterations for the EM algorithm
+    iterations = 10
+
+    # EM algorithm
+    for k in range(1, iterations + 1):
+        # E-step: Compute the responsibilities (posterior probabilities)
+        for i in range(N):
+            z1 = (1 / np.sqrt(2 * np.pi * sigmasq[0])) * np.exp(-((samples[i] - mu[0])**2) / (2 * sigmasq[0]))
+            z2 = (1 / np.sqrt(2 * np.pi * sigmasq[1])) * np.exp(-((samples[i] - mu[1])**2) / (2 * sigmasq[1]))
+            z[0, i] = z1 / (z1 + z2)
+            z[1, i] = z2 / (z1 + z2)
+
+        # M-step: Update the means and variances
+        mu[0] = np.sum(samples * z[0]) / np.sum(z[0])
+        mu[1] = np.sum(samples * z[1]) / np.sum(z[1])
+
+        sigmasq[0] = np.sum(z[0] * (samples - mu[0])**2) / np.sum(z[0])
+        sigmasq[1] = np.sum(z[1] * (samples - mu[1])**2) / np.sum(z[1])
+
+        # Plot the updated Gaussian distributions
+        P1 = (1 / np.sqrt(2 * np.pi * sigmasq[0])) * np.exp(-((x - mu[0])**2) / (2 * sigmasq[0]))
+        P2 = (1 / np.sqrt(2 * np.pi * sigmasq[1])) * np.exp(-((x - mu[1])**2) / (2 * sigmasq[1]))
+        plt.plot(x, P1 + P2, color=[1, 1 - k/iterations, 0])
+
+    # Show plot
+    plt.legend()
+    plt.show()
+
+    # Return the final parameters
+    return mu, sigmasq, mu0
+
+
+# Call the function with default values (or you can specify values for mu1, sigmasq1, mu2, sigmasq2)
+mu, sigmasq, mu0 = gmm(mu1=55, sigmasq1=9, mu2=65, sigmasq2=16)
+
+# Print the resulting parameters
+print("Final means:", mu)
+print("Final variances:", sigmasq)
+print("Initial means:", mu0)
+
+
+```

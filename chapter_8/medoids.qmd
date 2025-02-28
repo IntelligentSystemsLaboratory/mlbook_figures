@@ -1,0 +1,71 @@
+---
+title: "Medoids"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import multivariate_normal
+
+# Generate data
+mu = [0, 0]
+sig = [1, 1]
+rho = -0.3
+
+cov = rho * np.sqrt(sig[0] * sig[1])
+sigma = [[sig[0], cov], [cov, sig[1]]]
+
+N = 10
+
+points = multivariate_normal.rvs(mean=mu, cov=sigma, size=N)
+points = np.sort(points, axis=0)
+
+mn, mx = np.floor(points.min()), np.ceil(points.max())
+
+distances = np.zeros((N, 3))
+for i in range(N):
+    dv = points - points[i]
+    d = np.sum(dv**2, axis=1)  # Squared Euclidean distance
+    d1 = np.sqrt(d)  # Euclidean distance
+    d2 = np.sum(np.abs(dv), axis=1)  # Manhattan distance
+    distances[i, 0] = np.sum(d)
+    distances[i, 1] = np.sum(d1)
+    distances[i, 2] = np.sum(d2)
+
+dmu = points[np.argmin(distances[:, 0])]
+dmu1 = points[np.argmin(distances[:, 1])]
+dmu2 = points[np.argmin(distances[:, 2])]
+
+emu = np.mean(points, axis=0)
+
+# Compute geometric median
+emu1, emu2 = emu.copy(), emu.copy()
+for _ in range(100):
+    dv1 = points - emu1
+    dv2 = points - emu2
+    d1 = np.linalg.norm(dv1, axis=1)
+    d2 = np.sum(np.abs(dv2), axis=1)
+    emu1 = np.sum(points / d1[:, None], axis=0) / np.sum(1 / d1)
+    emu2 = np.sum(points / d2[:, None], axis=0) / np.sum(1 / d2)
+
+# Plot results
+plt.figure()
+plt.scatter(points[:, 0], points[:, 1], marker='+', color='k', label='Data Points')
+plt.scatter(*emu, color='r', marker='o', label='Mean')
+plt.scatter(*emu1, color='b', marker='o', label='Geometric Median')
+plt.scatter(*dmu, color='r', marker='s', label='Squared Euclidean Medoid')
+plt.scatter(*dmu1, color='b', marker='s', label='Euclidean Medoid')
+plt.scatter(*dmu2, color='g', marker='s', label='Manhattan Medoid')
+plt.legend(loc='lower left')
+plt.xlim(mn, mx)
+plt.ylim(mn, mx)
+plt.gca().set_aspect('equal', adjustable='box')
+plt.grid()
+plt.show()
+
+
+```

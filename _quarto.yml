@@ -20,58 +20,108 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: coverage_left.qmd
-        text: coverage left
-      - href: coverage_right.qmd
-        text: coverage right
-      - href: roc_left.qmd
-        text: roc left
-      - href: roc_right.qmd
-        text: roc right
-      - href: covroc_left.qmd
-        text: covroc left
-      - href: covroc_right.qmd
-        text: covroc right 
-      - href: covrank_left.qmd
-        text: covrank left
-      - href: covrank_right.qmd
-        text: covrank right
-      - href: racc_unbalanced_left.qmd
-        text: racc unbalanced left
-      - href: racc_unbalanced_right.qmd
-        text: racc unbalanced right
-      - href: covgrad_left.qmd
-        text: covgrad left
-      - href: covgrad_right.qmd
-        text: covgrad right
-      - href: covgrad2.qmd
-        text: covgrad 2
-      - href: threshold.qmd
-        text: threshold
-      - href: convexhull_left.qmd
-        text: convex hull left
-      - href: convexhull_right.qmd
-        text: convex hull right 
-      - href: labelings.qmd
-        text: labelings
-      - href: dt_cost.qmd
-        text: dt cost
-      - href: impurity_rule.qmd
-        text: impurity rule
-      - href: ABBA.qmd
-        text: ABBA
-      - href: ABBA_right.qmd
-        text: ABBA Right
-      - href: ABC_set.qmd
-        text: ABC Set
-      - href: ABC.qmd
-        text: ABC
-      - href: subgroups.qmd
-        text: subgroups
-      - href: subgroups_right.qmd
-        text: subgroups right
-      - href: weightedcovering.qmd
-        text: weighted covering
+      - href: chapter_1/mlmethods.qmd
+        text: 1.7 ML Methods
+      - href: chapter_1/diabetes.qmd
+        text: 1.10 Diabetes
+      - href: chapter_1/kernel.qmd
+        text: 1.11 Kernel
+      - href: chapter_2/coverage_left.qmd
+        text: 2.2 coverage left
+      - href: chapter_2/coverage_right.qmd
+        text: 2.2 coverage right
+      - href: chapter_2/roc_left.qmd
+        text: 2.3 roc left
+      - href: chapter_2/roc_right.qmd
+        text: 2.3 roc right
+      - href: chapter_2/covroc_left.qmd
+        text: 2.4 covroc left
+      - href: chapter_2/covroc_right.qmd
+        text: 2.4 covroc right 
+      - href: chapter_2/covrank_left.qmd
+        text: 2.7 covrank left
+      - href: chapter_2/covrank_right.qmd
+        text: 2.7 covrank right
+      - href: chapter_2/racc_unbalanced_left.qmd
+        text: 2.8 racc unbalanced left
+      - href: chapter_2/racc_unbalanced_right.qmd
+        text: 2.8 racc unbalanced right
+      - href: chapter_2/covgrad_left.qmd
+        text: 2.9 covgrad left
+      - href: chapter_2/covgrad_right.qmd
+        text: 2.9 covgrad right
+      - href: chapter_2/covgrad2.qmd
+        text: 2.10 covgrad 2
+      - href: chapter_2/threshold.qmd
+        text: 2.11 threshold
+      - href: chapter_2/convexhull_left.qmd
+        text: 2.13 convex hull left
+      - href: chapter_2/convexhull_right.qmd
+        text: 2.13 convex hull right 
+      - href: chapter_3/clustering.qmd
+        text: 3.5 Clustering
+      - href: chapter_5/labelings.qmd
+        text: 5.5 labelings
+      - href: chapter_5/dt_cost.qmd
+        text: 5.7 dt cost
+      - href: chapter_6/impurity_rule.qmd
+        text: 6.1 impurity rule
+      - href: chapter_6/ABBA.qmd
+        text: 6.6 ABBA
+      - href: chapter_6/ABBA_right.qmd
+        text: 6.6 ABBA Right
+      - href: chapter_6/ABC_set.qmd
+        text: 6.11 ABC Set
+      - href: chapter_6/ABC.qmd
+        text: 6.13 ABC
+      - href: chapter_6/subgroups.qmd
+        text: 6.15 subgroups
+      - href: chapter_6/subgroups_right.qmd
+        text: 6.15 subgroups right
+      - href: chapter_6/weightedcovering.qmd
+        text: 6.16 weighted covering
+      - href: chapter_7/slr.qmd
+        text: 7.1 SLR
+      - href: chapter_7/regression.qmd
+        text: 7.3 Regression
+      - href: chapter_7/slrclass.qmd
+        text: 7.4 SLR Class
+      - herf: chapter_7/linclass.qmd
+        text: 7.6 Linclass
+      - herf: chapter_7/logcallin.qmd
+        text: 7.12 Log Callin
+      - herf: chapter_7/linkernel.qmd
+        text: 7.14 Linear Kernal  
+      - href: chapter_8/medoids.qmd
+        text: 8.5 Modoids
+      - href: chapter_8/blcdis.qmd
+        text: 8.5 Blcdis
+      - href: chapter_8/twonex.qmd
+        text: 8.8 Twonex
+      - href: chapter_8/mlkmeans3.qmd
+        text: 8.13 Ml Kmeans 3
+      - href: chapter_8/mlmethods-complete.qmd
+        text: 8.13 Ml Methods
+      - href: chapter_8/nonmondendrogram.qmd
+        text: 8.17 Nonmondendrogram
+      - href: chapter_8/randomdendrogram.qmd
+        text: 8.18 Random Dendrogram
+      - href: chapter_9/density_right.qmd
+        text: 9.5 Density Right
+      - href: chapter_9/linclass2.qmd
+        text: 9.6 Linear Classifier 2
+      - href: chapter_9/logreg.qmd
+        text: 9.7 Logreg
+      - href: chapter_9/gmm.qmd
+        text: 9.8 GMM
+      - href: chapter_9/density_left.qmd
+        text: 9.5 Density Left
+      - href: chapter_10/logcal.qmd
+        text: 10.5 Logcal
+      - href: chapter_11/bagging.qmd
+        text: 11.1 Bagging
+      - href: chapter_11/boosting.qmd
+        text: 11.2 Boosting
 format:
   html:
     theme: cosmo

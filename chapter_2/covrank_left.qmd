@@ -1,0 +1,58 @@
+---
+title: "2.7 Covrank left"
+---
+
+
+```{r}
+#| echo: false
+
+h <- 500 # altura do gráfico
+w <- 500 # largura do gráfico
+grid.step <- 10
+
+# Defina os limites do plot
+plot(c(0, w), c(0, h),  
+     xaxs = "i", yaxs = "i",
+     xaxt = 'n', yaxt = 'n',
+     type = "n",
+     xlab = "Negatives sorted on decreasing score", 
+     ylab = "Positives sorted on decreasing score")
+
+# Desenhe os eixos
+axis(2, c(0, h), labels = c('0', 'Pos'))
+axis(1, c(0, w), labels = c('0', 'Neg'))
+
+# Defina os pontos iniciais para `x` e `y`
+x <- seq(0, w, length.out = 4)  # Dividindo a largura em 4 partes
+y <- seq(0, h, length.out = 4)  # Dividindo a altura em 4 partes
+
+# Agora desenhe as grades aninhadas
+for (i in 1:3) {
+  for (j in 1:3) {
+    if (i < j) { col <- 'red' }
+    if (i == j) { col <- 'orange' }
+    if (i > j) { col <- 'green' }
+    rect(x[i], y[j], x[i + 1], y[j + 1], col = col)
+  }
+}
+
+# Desenhe a curva
+x_curve <- c(0,  50,  100,  500)
+y_curve <- c(0, 200,  300,  500)
+lines(x_curve, y_curve, lty = 2)
+
+# Adicione a grade pontilhada
+gx <- grid.step
+while (gx <= w) {
+  abline(v = gx, lty = "dotted")
+  gx <- gx + grid.step
+}
+
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, lty = "dotted")
+  gy <- gy + grid.step
+}
+
+
+```

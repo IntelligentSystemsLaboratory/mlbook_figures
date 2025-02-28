@@ -1,0 +1,12 @@
+---
+title: "1nex"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+
+
+```

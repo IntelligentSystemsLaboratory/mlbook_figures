@@ -1,0 +1,12 @@
+---
+title: "KNN Prob"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+
+
+```

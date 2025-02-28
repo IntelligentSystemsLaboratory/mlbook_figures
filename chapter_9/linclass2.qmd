@@ -1,0 +1,109 @@
+---
+title: "Linear Classifier 2"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+def linclass():
+    # Default settings
+    mupos = np.array([1, 1])
+    sigpos = np.array([0.1, 0.6])
+    rhopos = 0.1
+    mupos2 = np.array([2, -1])
+    sigpos2 = np.array([0.2, 0.2])
+    rhopos2 = 0
+    muneg = np.array([-1, -1])
+    signeg = np.array([0.6, 0.1])
+    rhoneg = 0.1
+    muneg2 = mupos2
+    signeg2 = sigpos2
+    rhoneg2 = rhopos2
+
+    # Covariance matrices for positive and negative classes
+    covpos = rhopos * np.sqrt(sigpos[0] * sigpos[1])
+    sigmapos = np.array([[sigpos[0], covpos], [covpos, sigpos[1]]])
+    
+    covpos2 = rhopos2 * np.sqrt(sigpos2[0] * sigpos2[1])
+    sigmapos2 = np.array([[sigpos2[0], covpos2], [covpos2, sigpos2[1]]])
+    
+    covneg = rhoneg * np.sqrt(signeg[0] * signeg[1])
+    sigmaneg = np.array([[signeg[0], covneg], [covneg, signeg[1]]])
+    
+    covneg2 = rhoneg2 * np.sqrt(signeg2[0] * signeg2[1])
+    sigmaneg2 = np.array([[signeg2[0], covneg2], [covneg2, signeg2[1]]])
+
+    # Number of samples for positive and negative classes
+    Npos = 100
+    Npos2 = 5
+    Nneg = 100
+    Nneg2 = 5
+
+    # Generate data using multivariate normal distribution
+    pos = np.vstack([np.random.multivariate_normal(mupos, sigmapos, Npos - Npos2),
+                     np.random.multivariate_normal(mupos2, sigmapos2, Npos2)])
+    
+    neg = np.vstack([np.random.multivariate_normal(muneg, sigmaneg, Nneg - Nneg2),
+                     np.random.multivariate_normal(muneg2, sigmaneg2, Nneg2)])
+
+    # Plot data
+    plt.figure(1)
+    plt.scatter(pos[:, 0], pos[:, 1], c='k', marker='+', label='Positive')
+    plt.scatter(neg[:, 0], neg[:, 1], c='k', marker='.', label='Negative')
+    plt.axis([-3, 3, -3, 3])
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.legend()
+
+    # Homogeneous coordinates
+    pos1 = np.hstack([np.ones((Npos, 1)), pos])
+    neg1 = np.hstack([np.ones((Nneg, 1)), neg])
+    x = np.vstack([pos1, neg1])
+    y = np.hstack([np.ones(Npos), np.zeros(Nneg)])
+
+    xx = 2.8
+
+    # Basic Linear Classifier (BLC)
+    emupos1 = np.mean(pos1, axis=0)
+    emuneg1 = np.mean(neg1, axis=0)
+    blc = (emupos1 - emuneg1)
+    blc[0] = -(emupos1 + emuneg1) @ blc / 2
+    plt.plot(emupos1[1], emupos1[2], 'ro')
+    plt.plot(emuneg1[1], emuneg1[2], 'ro')
+    plt.plot([emupos1[1], emuneg1[1]], [emupos1[2], emuneg1[2]], 'r:', lw=2)
+    plt.plot([-xx, xx], [(-blc[0] + xx * blc[1]) / blc[2], (-blc[0] - xx * blc[1]) / blc[2]], 'r-', lw=2)
+    errblc = np.sum(pos1 @ blc < 0) + np.sum(neg1 @ blc > 0)
+    print(f'Error for BLC: {errblc}')
+
+    # Least-Squares Classifier (LSC)
+    lsc = np.linalg.inv(np.vstack([pos1, neg1]).T @ np.vstack([pos1, neg1])) @ (Npos * emupos1 - Nneg * emuneg1)
+    plt.plot([-xx, xx], [(-lsc[0] + xx * lsc[1]) / lsc[2], (-lsc[0] - xx * lsc[1]) / lsc[2]], 'y-', lw=2)
+    errlsc = np.sum(pos1 @ lsc < 0) + np.sum(neg1 @ lsc > 0)
+    print(f'Error for LSC: {errlsc}')
+
+    # Logistic Regression
+    x_logit = sm.add_constant(x)  # Add constant for intercept
+    log_reg = sm.Logit(y, x_logit).fit()
+    print(log_reg.summary())
+
+    plt.plot([-xx, xx], [(-log_reg.params[0] + xx * log_reg.params[1]) / log_reg.params[2], 
+                         (-log_reg.params[0] - xx * log_reg.params[1]) / log_reg.params[2]], 'b-', lw=2)
+
+    errblr = np.sum(pos1 @ log_reg.params < 0) + np.sum(neg1 @ log_reg.params > 0)
+    print(f'Error for Logistic Regression: {errblr}')
+
+    # Calculate probabilities
+    Plr = log_reg.predict(x_logit)
+    BSlr = np.mean((Plr - y) ** 2)
+    print(f'Binary Logistic Regression Error: {BSlr}')
+
+    plt.show()
+
+# Call the function to execute the logic
+linclass()
+```

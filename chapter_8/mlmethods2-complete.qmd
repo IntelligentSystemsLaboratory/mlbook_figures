@@ -1,0 +1,67 @@
+---
+title: "ML Methods"
+engine: jupyter
+---
+
+```{python}
+
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import linkage, dendrogram
+from sklearn.cluster import KMeans
+
+# Data setup
+filename = 'mlmethods2'
+Names = ['Trees', 'Rules', 'naive Bayes', 'kNN', 'Linear Classifier', 'Linear Regression', 'Logistic Regression', 'SVM', 'Kmeans', 'GMM', 'Associations']
+Features = ['geom', 'stat', 'rule', 'split', 'grad', 'symb', 'real', 'sup', 'unsup', 'multi']
+
+M = np.array([
+    [1, 0, 3, 3, 0, 3, 2, 3, 2, 3],  # Trees
+    [0, 0, 3, 3, 1, 3, 2, 3, 0, 2],  # Rules
+    [1, 3, 1, 3, 1, 3, 1, 3, 0, 3],  # naive Bayes
+    [3, 1, 0, 2, 2, 1, 3, 3, 0, 3],  # kNN
+    [3, 0, 0, 0, 3, 1, 3, 3, 0, 0],  # Linear Classifier
+    [3, 1, 0, 0, 3, 0, 3, 3, 0, 1],  # Linear Regression
+    [3, 2, 0, 0, 3, 1, 3, 3, 0, 0],  # Logistic Regression
+    [2, 2, 0, 0, 3, 2, 3, 3, 0, 0],  # SVM
+    [3, 2, 0, 1, 2, 1, 3, 0, 3, 1],  # Kmeans
+    [1, 3, 0, 0, 3, 1, 3, 0, 3, 1],  # GMM
+    [0, 0, 3, 3, 0, 3, 1, 0, 3, 1]   # Associations
+])
+
+# Weight vector W
+w1 = 5
+w2 = 3
+w3 = 1
+W = np.array([w1, w1, w1, w2, w2, w3, w3, w3, w3, w3])
+
+# Compute the weighted matrix
+D = M * W
+
+# Methods for hierarchical clustering
+methods = ['single', 'complete', 'average', 'centroid']
+
+# Perform hierarchical clustering and plot dendrograms
+for m in methods:
+    plt.figure()
+    method = m
+    L = linkage(D, method)
+    dendrogram(L, color_threshold='default', orientation='left', labels=Names)
+    plt.title(f'{filename}-{method}')
+    plt.show()
+
+# Perform k-means clustering for k = 2 to 5
+for k in range(2, 6):
+    kmeans = KMeans(n_clusters=k, n_init=5, random_state=0)
+    idx = kmeans.fit_predict(D)
+    sumd = np.sum(kmeans.inertia_)
+    
+    print(f'k = {k}, Sum of squared distances (inertia): {sumd}')
+    for i in range(k):
+        print(f"Cluster {i + 1}:")
+        print(np.array(Names)[idx == i])  # Print names of the points in each cluster
+
+
+```
