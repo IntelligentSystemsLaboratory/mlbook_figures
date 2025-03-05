@@ -1,0 +1,34 @@
+---
+title: "Logcal"
+---
+
+```{mermaid}
+graph TD;
+    N0["grading"] -->|a bit| N1["logical"];
+    N0 -->|a lot| N2["geometric"];
+
+    N1 -->|yes| N11["supervised"];
+    N1 -->|"not so\nmuch"| L12["naive\nBayes"]:::orange;
+    N11 -->|no| L111["association\nrules"]:::red;
+    N11 -->|"yes"| L112["trees & \nrules"]:::red;
+
+    N2 -->|yes| N21["splitting"];
+    N2 -->|"not\ncom-\npletely"| N22["supervised"];
+    
+    N21 -->|"some"| N212["supervised"];
+    N21 -->|no| L211["linear\nclassifiers"]:::purple;
+    N212 -->|no| L2121["K-means"]:::purple;
+    N212 -->|yes| L2122["k-NN"]:::purple;
+
+    N22 -->|no| L221["GMM"]:::orange;
+    N22 -->|yes| L222["SVM"]:::purple;
+
+    classDef red fill:#ff9999,stroke:#000,color:#000;
+    classDef orange fill:#ffcc99,stroke:#000,color:#000;
+    classDef purple fill:#cc99ff,stroke:#000,color:#000;
+
+    class L111,L112 red;
+    class L12,L221 orange;
+    class L211,L2121,L2122,L222 purple;
+
+```
