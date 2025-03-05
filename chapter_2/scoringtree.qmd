@@ -1,0 +1,18 @@
+---
+title: "Scoring Tree"
+---
+
+```{mermaid}
+
+graph TD;
+    N0["‘Viagra’"] -->|"=0"| N11["‘lottery’"];
+    N0 -->|"=1"| L3["ŝ(x)=4"]:::filled;
+    N11 -->|"=0"| L1["ŝ(x)=1/2"]:::filled;
+    N11 -->|"=1"| L2["ŝ(x)=2"]:::filled;
+
+    classDef filled fill:#cccccc,stroke:#000,color:#000;
+    class L1,L2,L3 filled;
+
+
+
+```
