@@ -60,14 +60,14 @@
     "href": "chapter_8/twonex.html",
     "title": "Twonex",
     "section": "",
-    "text": "/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_483769/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+    "text": "/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
   },
   {
     "objectID": "chapter_8/randomdendrogram.html",
     "href": "chapter_8/randomdendrogram.html",
     "title": "Random Dendogram",
     "section": "",
-    "text": "Spearman correlation for complete: 0.6864312171419101"
+    "text": "Spearman correlation for complete: 0.6495033933998509"
   },
   {
     "objectID": "about.html",
@@ -88,21 +88,21 @@
     "href": "chapter_9/gmm.html",
     "title": "GMM",
     "section": "",
-    "text": "Final means: [56 67]\nFinal variances: [8 1]\nInitial means: [56 67]"
+    "text": "Final means: [54 67]\nFinal variances: [15  6]\nInitial means: [54 67]"
   },
   {
     "objectID": "chapter_9/linclass2.html",
     "href": "chapter_9/linclass2.html",
     "title": "Linear Classifier 2",
     "section": "",
-    "text": "Error for BLC: 7\nError for LSC: 8\nOptimization terminated successfully.\n         Current function value: 0.071371\n         Iterations 11\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Fri, 28 Feb 2025   Pseudo R-squ.:                  0.8970\nTime:                        17:31:45   Log-Likelihood:                -14.274\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 9.846e-55\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          2.4635      1.314      1.875      0.061      -0.111       5.038\nx1             2.5196      0.637      3.954      0.000       1.271       3.768\nx2             6.2784      1.716      3.659      0.000       2.915       9.641\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.37 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 6\nBinary Logistic Regression Error: 0.021435446194237092"
+    "text": "Error for BLC: 6\nError for LSC: 7\nOptimization terminated successfully.\n         Current function value: 0.075276\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8914\nTime:                        01:46:26   Log-Likelihood:                -15.055\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 2.150e-54\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          1.2697      0.938      1.354      0.176      -0.569       3.108\nx1             1.9269      0.529      3.643      0.000       0.890       2.964\nx2             5.0529      1.252      4.037      0.000       2.600       7.506\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.23 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 5\nBinary Logistic Regression Error: 0.022666213005389194"
   },
   {
     "objectID": "chapter_9/logreg.html",
     "href": "chapter_9/logreg.html",
     "title": "Logreg",
     "section": "",
-    "text": "Error Rate Logistic Calibration: 0.12844556591641743\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.1261291702282697"
+    "text": "Error Rate Logistic Calibration: 0.10959817706737454\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.10992358826299661"
   },
   {
     "objectID": "chapter_7/linkernel.html",
@@ -110,5 +110,12 @@
     "title": "Lin Kernel",
     "section": "",
     "text": "&lt;module 'matplotlib.pyplot' from '/home/ck22122/.local/share/virtualenvs/superbook2-Q63KuxOb/lib/python3.10/site-packages/matplotlib/pyplot.py'&gt;"
+  },
+  {
+    "objectID": "chapter_1/mlmethodstree1.html",
+    "href": "chapter_1/mlmethodstree1.html",
+    "title": "Logcal",
+    "section": "",
+    "text": "graph TD;\n    N0[\"grading\"] --&gt;|a bit| N1[\"logical\"];\n    N0 --&gt;|a lot| N2[\"geometric\"];\n\n    N1 --&gt;|yes| N11[\"supervised\"];\n    N1 --&gt;|\"not so\\nmuch\"| L12[\"naive\\nBayes\"]:::orange;\n    N11 --&gt;|no| L111[\"association\\nrules\"]:::red;\n    N11 --&gt;|\"yes\"| L112[\"trees & \\nrules\"]:::red;\n\n    N2 --&gt;|yes| N21[\"splitting\"];\n    N2 --&gt;|\"not\\ncom-\\npletely\"| N22[\"supervised\"];\n    \n    N21 --&gt;|\"some\"| N212[\"supervised\"];\n    N21 --&gt;|no| L211[\"linear\\nclassifiers\"]:::purple;\n    N212 --&gt;|no| L2121[\"K-means\"]:::purple;\n    N212 --&gt;|yes| L2122[\"k-NN\"]:::purple;\n\n    N22 --&gt;|no| L221[\"GMM\"]:::orange;\n    N22 --&gt;|yes| L222[\"SVM\"]:::purple;\n\n    classDef red fill:#ff9999,stroke:#000,color:#000;\n    classDef orange fill:#ffcc99,stroke:#000,color:#000;\n    classDef purple fill:#cc99ff,stroke:#000,color:#000;\n\n    class L111,L112 red;\n    class L12,L221 orange;\n    class L211,L2121,L2122,L222 purple;"
   }
 ]

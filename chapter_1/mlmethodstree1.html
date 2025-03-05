@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MLbook Figures - Twonex</title>
+<title>MLbook Figures - Logcal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,6 +58,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -99,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapter_8/twonex.html">8.8 Twonex</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapter_1/mlmethodstree1.html">1.8 ML Methods Tree 1</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapter_1/mlmethodstree1.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapter_1/mlmethodstree1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1.8 ML Methods Tree 1</span></a>
   </div>
 </li>
@@ -364,7 +367,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapter_8/twonex.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapter_8/twonex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8.8 Twonex</span></a>
   </div>
 </li>
@@ -453,7 +456,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Twonex</h1>
+<h1 class="title">Logcal</h1>
 </div>
 
 
@@ -468,23 +471,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
-  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))
-/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
-  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))
-/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
-  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))</code></pre>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TD;
+    N0["grading"] --&gt;|a bit| N1["logical"];
+    N0 --&gt;|a lot| N2["geometric"];
+
+    N1 --&gt;|yes| N11["supervised"];
+    N1 --&gt;|"not so\nmuch"| L12["naive\nBayes"]:::orange;
+    N11 --&gt;|no| L111["association\nrules"]:::red;
+    N11 --&gt;|"yes"| L112["trees &amp; \nrules"]:::red;
+
+    N2 --&gt;|yes| N21["splitting"];
+    N2 --&gt;|"not\ncom-\npletely"| N22["supervised"];
+    
+    N21 --&gt;|"some"| N212["supervised"];
+    N21 --&gt;|no| L211["linear\nclassifiers"]:::purple;
+    N212 --&gt;|no| L2121["K-means"]:::purple;
+    N212 --&gt;|yes| L2122["k-NN"]:::purple;
+
+    N22 --&gt;|no| L221["GMM"]:::orange;
+    N22 --&gt;|yes| L222["SVM"]:::purple;
+
+    classDef red fill:#ff9999,stroke:#000,color:#000;
+    classDef orange fill:#ffcc99,stroke:#000,color:#000;
+    classDef purple fill:#cc99ff,stroke:#000,color:#000;
+
+    class L111,L112 red;
+    class L12,L221 orange;
+    class L211,L2121,L2122,L222 purple;
+
+</pre>
 </div>
-<div class="cell-output cell-output-display">
-<p><img src="twonex_files/figure-html/cell-2-output-2.png" width="396" height="409"></p>
 </div>
-<div class="cell-output cell-output-display">
-<p><img src="twonex_files/figure-html/cell-2-output-3.png" width="396" height="409"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="twonex_files/figure-html/cell-2-output-4.png" width="396" height="409"></p>
 </div>
 </div>
 

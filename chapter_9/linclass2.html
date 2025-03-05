@@ -145,6 +145,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapter_1/mlmethodstree1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.8 ML Methods Tree 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapter_1/diabetes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.10 Diabetes</span></a>
   </div>
@@ -464,33 +470,33 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error for BLC: 7
-Error for LSC: 8
+<pre><code>Error for BLC: 6
+Error for LSC: 7
 Optimization terminated successfully.
-         Current function value: 0.071371
-         Iterations 11
+         Current function value: 0.075276
+         Iterations 10
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  200
 Model:                          Logit   Df Residuals:                      197
 Method:                           MLE   Df Model:                            2
-Date:                Fri, 28 Feb 2025   Pseudo R-squ.:                  0.8970
-Time:                        17:31:45   Log-Likelihood:                -14.274
+Date:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8914
+Time:                        01:46:26   Log-Likelihood:                -15.055
 converged:                       True   LL-Null:                       -138.63
-Covariance Type:            nonrobust   LLR p-value:                 9.846e-55
+Covariance Type:            nonrobust   LLR p-value:                 2.150e-54
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          2.4635      1.314      1.875      0.061      -0.111       5.038
-x1             2.5196      0.637      3.954      0.000       1.271       3.768
-x2             6.2784      1.716      3.659      0.000       2.915       9.641
+const          1.2697      0.938      1.354      0.176      -0.569       3.108
+x1             1.9269      0.529      3.643      0.000       0.890       2.964
+x2             5.0529      1.252      4.037      0.000       2.600       7.506
 ==============================================================================
 
-Possibly complete quasi-separation: A fraction 0.37 of observations can be
+Possibly complete quasi-separation: A fraction 0.23 of observations can be
 perfectly predicted. This might indicate that there is complete
 quasi-separation. In this case some parameters will not be identified.
-Error for Logistic Regression: 6
-Binary Logistic Regression Error: 0.021435446194237092</code></pre>
+Error for Logistic Regression: 5
+Binary Logistic Regression Error: 0.022666213005389194</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="linclass2_files/figure-html/cell-2-output-2.png" width="422" height="416"></p>
