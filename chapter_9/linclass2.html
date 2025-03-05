@@ -163,6 +163,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapter_2/decisiontree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Decision Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapter_2/coverage_left.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.2 coverage left</span></a>
   </div>
@@ -195,6 +201,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../chapter_2/covroc_right.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.4 covroc right</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter_2/scoringtree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Scoring Tree</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -376,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapter_8/mlmethods-complete.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../chapter_8/mlmethods2-complete.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8.13 Ml Methods</span></a>
   </div>
 </li>
@@ -470,33 +482,33 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error for BLC: 6
-Error for LSC: 7
+<pre><code>Error for BLC: 7
+Error for LSC: 8
 Optimization terminated successfully.
-         Current function value: 0.075276
+         Current function value: 0.094586
          Iterations 10
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  200
 Model:                          Logit   Df Residuals:                      197
 Method:                           MLE   Df Model:                            2
-Date:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8914
-Time:                        01:46:26   Log-Likelihood:                -15.055
+Date:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8635
+Time:                        10:10:42   Log-Likelihood:                -18.917
 converged:                       True   LL-Null:                       -138.63
-Covariance Type:            nonrobust   LLR p-value:                 2.150e-54
+Covariance Type:            nonrobust   LLR p-value:                 1.022e-52
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          1.2697      0.938      1.354      0.176      -0.569       3.108
-x1             1.9269      0.529      3.643      0.000       0.890       2.964
-x2             5.0529      1.252      4.037      0.000       2.600       7.506
+const          0.2741      0.670      0.409      0.682      -1.038       1.587
+x1             2.1033      0.489      4.299      0.000       1.144       3.062
+x2             4.2211      0.944      4.471      0.000       2.371       6.071
 ==============================================================================
 
-Possibly complete quasi-separation: A fraction 0.23 of observations can be
+Possibly complete quasi-separation: A fraction 0.17 of observations can be
 perfectly predicted. This might indicate that there is complete
 quasi-separation. In this case some parameters will not be identified.
-Error for Logistic Regression: 5
-Binary Logistic Regression Error: 0.022666213005389194</code></pre>
+Error for Logistic Regression: 7
+Binary Logistic Regression Error: 0.028329507824345602</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="linclass2_files/figure-html/cell-2-output-2.png" width="422" height="416"></p>

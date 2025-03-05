@@ -21,6 +21,13 @@
     "text": "C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall."
   },
   {
+    "objectID": "chapter_2/scoringtree.html",
+    "href": "chapter_2/scoringtree.html",
+    "title": "Scoring Tree",
+    "section": "",
+    "text": "graph TD;\n    N0[\"‘Viagra’\"] --&gt;|\"=0\"| N11[\"‘lottery’\"];\n    N0 --&gt;|\"=1\"| L3[\"ŝ(x)=4\"]:::filled;\n    N11 --&gt;|\"=0\"| L1[\"ŝ(x)=1/2\"]:::filled;\n    N11 --&gt;|\"=1\"| L2[\"ŝ(x)=2\"]:::filled;\n\n    classDef filled fill:#cccccc,stroke:#000,color:#000;\n    class L1,L2,L3 filled;"
+  },
+  {
     "objectID": "chapter_2/covroc_left.html",
     "href": "chapter_2/covroc_left.html",
     "title": "2.5 Covroc left",
@@ -33,6 +40,13 @@
     "title": "2.2 Coverage Right",
     "section": "",
     "text": "A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3."
+  },
+  {
+    "objectID": "chapter_2/decisiontree.html",
+    "href": "chapter_2/decisiontree.html",
+    "title": "Decision Tree",
+    "section": "",
+    "text": "graph TD;\n    N0[\"‘Viagra’\"] --&gt;|\"=0\"| N11[\"‘lottery’\"];\n    N0 --&gt;|\"=1\"| L3[\"ĉ(x)=spam\"]:::filled;\n    N11 --&gt;|\"=0\"| L1[\"ĉ(x)=ham\"]:::filled;\n    N11 --&gt;|\"=1\"| L2[\"ĉ(x)=spam\"]:::filled;\n\n    classDef filled fill:#cccccc,stroke:#000,color:#000;\n    class L1,L2,L3 filled;"
   },
   {
     "objectID": "chapter_2/roc_left.html",
@@ -60,14 +74,14 @@
     "href": "chapter_8/twonex.html",
     "title": "Twonex",
     "section": "",
-    "text": "/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_123152/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+    "text": "/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
   },
   {
     "objectID": "chapter_8/randomdendrogram.html",
     "href": "chapter_8/randomdendrogram.html",
     "title": "Random Dendogram",
     "section": "",
-    "text": "Spearman correlation for complete: 0.6495033933998509"
+    "text": "Spearman correlation for complete: 0.5932406095618669"
   },
   {
     "objectID": "about.html",
@@ -88,21 +102,21 @@
     "href": "chapter_9/gmm.html",
     "title": "GMM",
     "section": "",
-    "text": "Final means: [54 67]\nFinal variances: [15  6]\nInitial means: [54 67]"
+    "text": "Final means: [56 68]\nFinal variances: [7 6]\nInitial means: [56 68]"
   },
   {
     "objectID": "chapter_9/linclass2.html",
     "href": "chapter_9/linclass2.html",
     "title": "Linear Classifier 2",
     "section": "",
-    "text": "Error for BLC: 6\nError for LSC: 7\nOptimization terminated successfully.\n         Current function value: 0.075276\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8914\nTime:                        01:46:26   Log-Likelihood:                -15.055\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 2.150e-54\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          1.2697      0.938      1.354      0.176      -0.569       3.108\nx1             1.9269      0.529      3.643      0.000       0.890       2.964\nx2             5.0529      1.252      4.037      0.000       2.600       7.506\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.23 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 5\nBinary Logistic Regression Error: 0.022666213005389194"
+    "text": "Error for BLC: 7\nError for LSC: 8\nOptimization terminated successfully.\n         Current function value: 0.094586\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8635\nTime:                        10:10:42   Log-Likelihood:                -18.917\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.022e-52\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          0.2741      0.670      0.409      0.682      -1.038       1.587\nx1             2.1033      0.489      4.299      0.000       1.144       3.062\nx2             4.2211      0.944      4.471      0.000       2.371       6.071\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.17 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 7\nBinary Logistic Regression Error: 0.028329507824345602"
   },
   {
     "objectID": "chapter_9/logreg.html",
     "href": "chapter_9/logreg.html",
     "title": "Logreg",
     "section": "",
-    "text": "Error Rate Logistic Calibration: 0.10959817706737454\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.10992358826299661"
+    "text": "Error Rate Logistic Calibration: 0.0760741981613174\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.07198299064780771"
   },
   {
     "objectID": "chapter_7/linkernel.html",

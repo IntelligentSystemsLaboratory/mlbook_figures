@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MLbook Figures - 2.5 Covroc left</title>
+<title>MLbook Figures - Decision Tree</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,6 +58,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -99,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapter_2/covroc_left.html">2.4 covroc left</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapter_2/decisiontree.html">2.1 Decision Tree</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapter_2/decisiontree.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapter_2/decisiontree.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2.1 Decision Tree</span></a>
   </div>
 </li>
@@ -193,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapter_2/covroc_left.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapter_2/covroc_left.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.4 covroc left</span></a>
   </div>
 </li>
@@ -465,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2.5 Covroc left</h1>
+<h1 class="title">Decision Tree</h1>
 </div>
 
 
@@ -480,10 +483,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="covroc_left_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TD;
+    N0["‘Viagra’"] --&gt;|"=0"| N11["‘lottery’"];
+    N0 --&gt;|"=1"| L3["ĉ(x)=spam"]:::filled;
+    N11 --&gt;|"=0"| L1["ĉ(x)=ham"]:::filled;
+    N11 --&gt;|"=1"| L2["ĉ(x)=spam"]:::filled;
+
+    classDef filled fill:#cccccc,stroke:#000,color:#000;
+    class L1,L2,L3 filled;
+
+
+</pre>
+</div>
+</div>
 </div>
 </div>
 
