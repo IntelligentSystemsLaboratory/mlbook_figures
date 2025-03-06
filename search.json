@@ -81,14 +81,14 @@
     "href": "chapter_8/twonex.html",
     "title": "Twonex",
     "section": "",
-    "text": "/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+    "text": "/tmp/ipykernel_170716/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_170716/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_170716/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
   },
   {
     "objectID": "chapter_8/randomdendrogram.html",
     "href": "chapter_8/randomdendrogram.html",
     "title": "Random Dendogram",
     "section": "",
-    "text": "Spearman correlation for complete: 0.8124939519768778"
+    "text": "Spearman correlation for complete: 0.5969881370101351"
   },
   {
     "objectID": "chapter_4/dolphins3.html",
@@ -182,18 +182,25 @@
     "text": "# Plot and grid\nh &lt;- 500 # height of plot\nw &lt;- 500 # width of plot\ngrid.step &lt;- 100\n\nplot( c(0,w), c(0,h),  \n     xaxs = \"i\",yaxs = \"i\",\n     xaxt = \"n\", yaxt = \"n\",\n     type = \"n\",\n     xlab = \"Negatives\", ylab = \"Positives\")\n     \ngx &lt;- grid.step\nwhile (gx &lt;= w) {\n  abline(v = gx, col=\"gray\", lty=\"dotted\")\n  gx &lt;- gx + grid.step\n}\ngy &lt;- grid.step\nwhile (gy &lt;= h) {\n  abline(h = gy, col=\"gray\", lty=\"dotted\")\n  gy &lt;- gy + grid.step\n}\n\n# Data\n# A: p2; n2,n4,n5\n# B: p1,p2,p3,p4,p5; n1,n2,n5\n\n# Rule-list curve AB\na &lt;- c(0,100,400,500)\nb &lt;- c(0,400,500,500)\ncol &lt;- \"blue\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.8\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\\\\A\",col=col)\n# Predicted probability: 0.25\ntext( (a[2]+a[3])/2-20, (b[2]+b[3])/2-30, \"A\",col=col)\n# Predicted probability: 0\ntext( (a[3]+a[4])/2+20, (b[3]+b[4])/2-20, \"-\",col=col)\n\n# Rule-list curve BA\na &lt;- c(0,300,500)\nb &lt;- c(0,500,500)\ncol &lt;- \"violet\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.625\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\",col=col)\n# Predicted probability: 0\ntext( (a[2]+a[3])/2+20, (b[2]+b[3])/2-20, \"A\\\\B, -\",col=col)\n\n# convex hull segment\nx &lt;- c(0,100,300,500)\ny &lt;- c(0,400,500,500)\ncol &lt;- \"red\"\nlines( x[2:3], y[2:3], lty=\"dotted\",col=col)\ntext( (x[2]+x[3])/2-15, (y[2]+y[3])/2+15, \"\",col=col)"
   },
   {
+    "objectID": "chapter_9/gmm.html",
+    "href": "chapter_9/gmm.html",
+    "title": "GMM",
+    "section": "",
+    "text": "(array([56, 67]), array([2.57805976, 3.88057843]), array([53, 67]))"
+  },
+  {
     "objectID": "chapter_9/linclass2.html",
     "href": "chapter_9/linclass2.html",
     "title": "Linear Classifier 2",
     "section": "",
-    "text": "Error for BLC: 6\nError for LSC: 6\nOptimization terminated successfully.\n         Current function value: 0.071676\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Thu, 06 Mar 2025   Pseudo R-squ.:                  0.8966\nTime:                        19:52:18   Log-Likelihood:                -14.335\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.046e-54\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          1.2495      0.920      1.358      0.174      -0.554       3.053\nx1             2.5711      0.664      3.869      0.000       1.269       3.873\nx2             5.6055      1.407      3.984      0.000       2.848       8.363\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.33 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 5\nBinary Logistic Regression Error: 0.02156848115347131"
+    "text": "Error for BLC: 8\nError for LSC: 9\nOptimization terminated successfully.\n         Current function value: 0.141538\n         Iterations 9\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Thu, 06 Mar 2025   Pseudo R-squ.:                  0.7958\nTime:                        20:03:01   Log-Likelihood:                -28.308\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.224e-48\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          0.3417      0.507      0.674      0.500      -0.652       1.336\nx1             1.8376      0.369      4.984      0.000       1.115       2.560\nx2             2.8781      0.626      4.599      0.000       1.651       4.105\n==============================================================================\nError for Logistic Regression: 10\nBinary Logistic Regression Error: 0.039819568493449024"
   },
   {
     "objectID": "chapter_9/logreg.html",
     "href": "chapter_9/logreg.html",
     "title": "Logreg",
     "section": "",
-    "text": "Error Rate Logistic Calibration: 0.1330725878297716\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.13946314562569734"
+    "text": "Error Rate Logistic Calibration: 0.08568144247538614\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.0867661489251437"
   },
   {
     "objectID": "chapter_7/linkernel.html",
