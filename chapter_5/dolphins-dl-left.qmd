@@ -1,0 +1,26 @@
+---
+title: "Dolphins-dl-left"
+---
+
+```{mermaid}
+
+graph TD;
+    N1["Gills"];
+    N2["Beak"];
+    N3["Length"];
+    N4["Teeth"];
+    N5["Length"];
+
+    N1 -- "=yes" --> L1["+ve: 0\n -ve: 4"];
+    N1 -- "=no" --> N2;
+    N2 -- "=no" --> L2["+ve: 0\n -ve: 0"];
+    N2 -- "=yes" --> N3;
+    N3 -- "≠[3,5]" --> L3["+ve: 1\n -ve: 1"];
+    N3 -- "=[3,5]" --> N4;
+    N4 -- "=many" --> L4["+ve: 2\n -ve: 0"];
+    N4 -- "=few" --> N5;
+    N5 -- "=3" --> L6["+ve: 1\n -ve: 0"];
+    N5 -- "=5" --> L5["+ve: 1\n -ve: 0"];
+
+
+```

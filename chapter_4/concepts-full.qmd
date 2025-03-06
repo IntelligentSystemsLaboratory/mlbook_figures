@@ -1,0 +1,81 @@
+---
+title: "Concepts Full"
+---
+
+```{mermaid}
+
+graph TD;
+    classDef filled fill:#cccccc,stroke:#000,color:#000;
+
+    subgraph Length=3
+        subgraph Gills=yes
+            subgraph Beak=yes
+                L3_GY_BY_TM["Teeth=many"]:::filled
+                L3_GY_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L3_GY_BN_TM["Teeth=many"]:::filled
+                L3_GY_BN_TF["Teeth=few"]:::filled
+            end
+        end
+        subgraph Gills=no
+            subgraph Beak=yes
+                L3_GN_BY_TM["Teeth=many"]:::filled
+                L3_GN_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L3_GN_BN_TM["Teeth=many"]:::filled
+                L3_GN_BN_TF["Teeth=few"]:::filled
+            end
+        end
+    end
+
+    subgraph Length=4
+        subgraph Gills=yes
+            subgraph Beak=yes
+                L4_GY_BY_TM["Teeth=many"]:::filled
+                L4_GY_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L4_GY_BN_TM["Teeth=many"]:::filled
+                L4_GY_BN_TF["Teeth=few"]:::filled
+            end
+        end
+        subgraph Gills=no
+            subgraph Beak=yes
+                L4_GN_BY_TM["Teeth=many"]:::filled
+                L4_GN_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L4_GN_BN_TM["Teeth=many"]:::filled
+                L4_GN_BN_TF["Teeth=few"]:::filled
+            end
+        end
+    end
+
+    subgraph Length=5
+        subgraph Gills=yes
+            subgraph Beak=yes
+                L5_GY_BY_TM["Teeth=many"]:::filled
+                L5_GY_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L5_GY_BN_TM["Teeth=many"]:::filled
+                L5_GY_BN_TF["Teeth=few"]:::filled
+            end
+        end
+        subgraph Gills=no
+            subgraph Beak=yes
+                L5_GN_BY_TM["Teeth=many"]:::filled
+                L5_GN_BY_TF["Teeth=few"]:::filled
+            end
+            subgraph Beak=no
+                L5_GN_BN_TM["Teeth=many"]:::filled
+                L5_GN_BN_TF["Teeth=few"]:::filled
+            end
+        end
+    end
+
+
+
+```

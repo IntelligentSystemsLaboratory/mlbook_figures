@@ -1,0 +1,65 @@
+---
+title: "Dolphins-dl-left"
+---
+
+```{mermaid}
+
+graph TD
+    classDef dotted stroke:#000,stroke-width:2px,stroke-dasharray:5,5;
+    classDef dashed stroke:#000,stroke-width:2px,stroke-dasharray:3,3;
+    classDef solid stroke:#000,stroke-width:2px;
+    classDef green fill:#008000,stroke:#fff;
+    
+    1["{Nappies, Beer, Crisps, Apples}"]:::dotted
+    2["{Beer, Crisps}"]:::green
+    3["{Nappies, Apples}"]:::dashed
+    4["{Nappies, Beer, Crisps}"]:::dashed
+    5["{Crisps, Apples}"]:::dashed
+    7["{Nappies}"]:::green
+    8["{Apples}"]:::green
+    9["{Beer, Crisps, Apples}"]:::dotted
+    10["{Nappies, Crisps, Apples}"]:::dotted
+    11["{Nappies, Beer, Apples}"]:::dotted
+    12["{Beer, Apples}"]:::dotted
+    13["{}"]:::solid
+    14["{Beer}"]:::green
+    15["{Nappies, Crisps}"]:::dashed
+    16["{Nappies, Beer}"]:::dashed
+    6["{Crisps}"]:::green
+
+    9 --> 1
+    10 --> 1
+    11 --> 1
+    4 --> 1
+    5 --> 9
+    12 --> 9
+    2 --> 9
+    8 --> 5
+    6 --> 5
+    13 --> 8
+    13 --> 6
+    8 --> 12
+    14 --> 12
+    13 --> 14
+    6 --> 2
+    14 --> 2
+    5 --> 10
+    3 --> 10
+    15 --> 10
+    8 --> 3
+    7 --> 3
+    13 --> 7
+    6 --> 15
+    7 --> 15
+    12 --> 11
+    3 --> 11
+    16 --> 11
+    14 --> 16
+    7 --> 16
+    2 --> 4
+    15 --> 4
+    16 --> 4
+
+
+
+```

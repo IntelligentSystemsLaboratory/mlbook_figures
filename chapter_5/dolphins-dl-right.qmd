@@ -1,0 +1,21 @@
+---
+title: "Dolphins-dl-right"
+---
+
+```{mermaid}
+
+graph TD;
+    N1["Gills"];
+    N2["Length"];
+    N3["Teeth"];
+
+    N1 -- "=yes" --> L1["ĉ(x) = -ve"];
+    N1 -- "=no" --> N2;
+    N2 -- "=5" --> L3["ĉ(x) = +ve"];
+    N2 -- "=3" --> L2["ĉ(x) = +ve"];
+    N2 -- "=4" --> N3;
+    N3 -- "=few" --> L4["ĉ(x) = -ve"];
+    N3 -- "=many" --> L5["ĉ(x) = +ve"];
+
+
+```

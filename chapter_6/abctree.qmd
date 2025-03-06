@@ -1,0 +1,45 @@
+---
+title: "ABC Tree"
+---
+
+```{mermaid}
+
+graph TD
+    classDef dotted stroke:#000,stroke-width:2px,stroke-dasharray:5,5;
+    classDef solid stroke:#000,stroke-width:2px;
+    classDef blue fill:#00f,stroke:#fff;
+    
+    3["[0+, 0-]"]:::dotted
+    4["[1+, 2-]"]:::solid
+    2["[1+, 2-]"]
+    6["[0+, 0-]"]:::dotted
+    7["[0+, 1-]"]:::solid
+    5["[0+, 1-]"]
+    1["[1+, 3-]"]:::blue
+    10["[2+, 1-]"]:::solid
+    11["[2+, 0-]"]:::solid
+    9["[4+, 1-]"]:::blue
+    13["[0+, 1-]"]:::blue
+    14["[0+, 0-]"]:::blue:::dotted
+    12["[0+, 1-]"]
+    8["[4+, 2-]"]
+    0["[5+, 5-]"]
+
+    2 -->|ABC| 3
+    2 -->|AB-| 4
+    5 -->|A-C| 6
+    5 -->|A--| 7
+    1 -->|AB| 2
+    1 -->|A-| 5
+    9 -->| -BC| 10
+    9 -->| -B-| 11
+    12 -->|--C| 13
+    12 -->|---| 14
+    8 -->| -B| 9
+    8 -->| --| 12
+    0 -->|A| 1
+    0 -->|-| 8
+
+
+
+```

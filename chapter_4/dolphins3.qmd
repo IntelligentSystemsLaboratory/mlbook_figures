@@ -1,0 +1,27 @@
+---
+title: "Dolphins 3"
+---
+
+```{mermaid}
+
+graph TD;
+    bottom["Length=[3,4] & Gills=no & Beak=yes"];
+    A["Length=[3,4] & Gills=no"];
+    B["Length=[3,4] & Beak=yes"];
+    C["Gills=no & Beak=yes"];
+    AB["Length=[3,4]"];
+    AC["Gills=no"];
+    BC["Beak=yes"];
+
+    A --> bottom;
+    B --> bottom;
+    C --> bottom;
+    AB --> A;
+    AB --> B;
+    AC --> A;
+    AC --> C;
+    BC --> B;
+    BC --> C;
+
+
+```
