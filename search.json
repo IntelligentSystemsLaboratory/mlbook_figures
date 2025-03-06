@@ -35,6 +35,13 @@
     "text": "In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set."
   },
   {
+    "objectID": "chapter_2/pet.html",
+    "href": "chapter_2/pet.html",
+    "title": "PET",
+    "section": "",
+    "text": "graph TD;\n    N0[\"‘Viagra’\"] --&gt;|\"=0\"| N11[\"‘lottery’\"];\n    N0 --&gt;|\"=1\"| L3[\"p̂(x)=0.80\"]:::filled;\n    N11 --&gt;|\"=0\"| L1[\"p̂(x)=0.33\"]:::filled;\n    N11 --&gt;|\"=1\"| L2[\"p̂(x)=0.67\"]:::filled;\n\n    classDef filled fill:#cccccc,stroke:#000,color:#000;\n    class L1,L2,L3 filled;"
+  },
+  {
     "objectID": "chapter_2/coverage_right.html",
     "href": "chapter_2/coverage_right.html",
     "title": "2.2 Coverage Right",
@@ -74,14 +81,49 @@
     "href": "chapter_8/twonex.html",
     "title": "Twonex",
     "section": "",
-    "text": "/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_166209/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+    "text": "/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_164683/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
   },
   {
     "objectID": "chapter_8/randomdendrogram.html",
     "href": "chapter_8/randomdendrogram.html",
     "title": "Random Dendogram",
     "section": "",
-    "text": "Spearman correlation for complete: 0.5932406095618669"
+    "text": "Spearman correlation for complete: 0.8124939519768778"
+  },
+  {
+    "objectID": "chapter_4/dolphins3.html",
+    "href": "chapter_4/dolphins3.html",
+    "title": "Dolphins 3",
+    "section": "",
+    "text": "graph TD;\n    bottom[\"Length=[3,4] & Gills=no & Beak=yes\"];\n    A[\"Length=[3,4] & Gills=no\"];\n    B[\"Length=[3,4] & Beak=yes\"];\n    C[\"Gills=no & Beak=yes\"];\n    AB[\"Length=[3,4]\"];\n    AC[\"Gills=no\"];\n    BC[\"Beak=yes\"];\n\n    A --&gt; bottom;\n    B --&gt; bottom;\n    C --&gt; bottom;\n    AB --&gt; A;\n    AB --&gt; B;\n    AC --&gt; A;\n    AC --&gt; C;\n    BC --&gt; B;\n    BC --&gt; C;"
+  },
+  {
+    "objectID": "chapter_4/dolphins.html",
+    "href": "chapter_4/dolphins.html",
+    "title": "Dolphins",
+    "section": "",
+    "text": "graph TD;\n    1[\"Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    2[\"Length=4 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    3[\"Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    4[\"Gills=no & Beak=yes & Teeth=many\"];\n    5[\"Length=3 & Beak=yes & Teeth=many\"];\n    6[\"Length=3 & Gills=no & Teeth=many\"];\n    7[\"Length=3 & Gills=no & Beak=yes\"];\n    8[\"Beak=yes & Teeth=many\"];\n    9[\"Gills=no & Teeth=many\"];\n    10[\"Gills=no & Beak=yes\"]:::green;\n    11[\"Teeth=many\"];\n    12[\"Beak=yes\"]:::green;\n    13[\"true\"]:::green;\n    14[\"Gills=no\"]:::green;\n    15[\"Length=3 & Teeth=many\"];\n    16[\"Length=3 & Beak=yes\"];\n    17[\"Length=3\"];\n    18[\"Length=3 & Gills=no\"];\n    19[\"Length=4 & Beak=yes & Teeth=many\"];\n    20[\"Length=4 & Gills=no & Teeth=many\"];\n    21[\"Length=4 & Gills=no & Beak=yes\"];\n    22[\"Length=4 & Teeth=many\"];\n    23[\"Length=4 & Beak=yes\"];\n    24[\"Length=4\"];\n    25[\"Length=4 & Gills=no\"];\n    26[\"Gills=no & Beak=yes & Teeth=few\"];\n    27[\"Length=3 & Beak=yes & Teeth=few\"];\n    28[\"Length=3 & Gills=no & Teeth=few\"];\n    29[\"Beak=yes & Teeth=few\"];\n    30[\"Gills=no & Teeth=few\"];\n    31[\"Teeth=few\"];\n    32[\"Length=3 & Teeth=few\"];\n    \n    4 --&gt; 1;\n    5 --&gt; 1;\n    6 --&gt; 1;\n    7 --&gt; 1;\n    8 --&gt; 4;\n    9 --&gt; 4;\n    10 --&gt; 4;\n    11 --&gt; 8;\n    12 --&gt; 8;\n    13 --&gt; 11;\n    13 --&gt; 12;\n    11 --&gt; 9;\n    14 --&gt; 9;\n    13 --&gt; 14;\n    12 --&gt; 10;\n    14 --&gt; 10;\n    8 --&gt; 5;\n    15 --&gt; 5;\n    16 --&gt; 5;\n    11 --&gt; 15;\n    17 --&gt; 15;\n    13 --&gt; 17;\n    12 --&gt; 16;\n    17 --&gt; 16;\n    9 --&gt; 6;\n    15 --&gt; 6;\n    18 --&gt; 6;\n    14 --&gt; 18;\n    17 --&gt; 18;\n    10 --&gt; 7;\n    16 --&gt; 7;\n    18 --&gt; 7;\n    4 --&gt; 2;\n    19 --&gt; 2;\n    20 --&gt; 2;\n    21 --&gt; 2;\n    8 --&gt; 19;\n    22 --&gt; 19;\n    23 --&gt; 19;\n    11 --&gt; 22;\n    24 --&gt; 22;\n    13 --&gt; 24;\n    12 --&gt; 23;\n    24 --&gt; 23;\n    9 --&gt; 20;\n    22 --&gt; 20;\n    25 --&gt; 20;\n    14 --&gt; 25;\n    24 --&gt; 25;\n    10 --&gt; 21;\n    23 --&gt; 21;\n    25 --&gt; 21;\n    26 --&gt; 3;\n    27 --&gt; 3;\n    28 --&gt; 3;\n    7 --&gt; 3;\n    29 --&gt; 26;\n    30 --&gt; 26;\n    10 --&gt; 26;\n    31 --&gt; 29;\n    12 --&gt; 29;\n    13 --&gt; 31;\n    31 --&gt; 30;\n    14 --&gt; 30;\n    29 --&gt; 27;\n    32 --&gt; 27;\n    16 --&gt; 27;\n    31 --&gt; 32;\n    17 --&gt; 32;\n    30 --&gt; 28;\n    32 --&gt; 28;\n    18 --&gt; 28;\n    \n    classDef green fill:#90EE90,stroke:#008000;"
+  },
+  {
+    "objectID": "chapter_4/concepts-closed.html",
+    "href": "chapter_4/concepts-closed.html",
+    "title": "Concepts closed",
+    "section": "",
+    "text": "graph TD;\n    25[\"true\"]:::green;\n    25 --&gt;|\" \"| 23;\n    23[\"Teeth=many\"];\n    23 --&gt;|\" \"| 20;\n    20[\"Beak=yes & Teeth=many\"];\n    20 --&gt; 16;\n    16[\"Gills=no & Beak=yes & Teeth=many\"]:::orange;\n    16 --&gt; 11;\n    11[\"Length=[3,4] & Gills=no & Beak=yes & Teeth=many\"];\n    11 --&gt; 1;\n    1[\"Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    11 --&gt; 2;\n    2[\"Length=4 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    16 --&gt; 12;\n    12[\"Length=[3,5] & Gills=no & Beak=yes & Teeth=many\"];\n    12 --&gt; 1;\n    12 --&gt; 4;\n    4[\"Length=5 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    16 --&gt; 42;\n    42[\"Length=[4,5] & Gills=no & Beak=yes & Teeth=many\"];\n    42 --&gt; 2;\n    42 --&gt; 4;\n    20 --&gt;|\" \"| 17;\n    17[\"Length=[3,4] & Beak=yes & Teeth=many\"];\n    17 --&gt; 11;\n    17 --&gt;|\" \"| 43;\n    43[\"Length=4 & Beak=yes & Teeth=many\"];\n    43 --&gt; 2;\n    43 --&gt;|\" \"| 7;\n    7[\"Length=4 & Gills=yes & Beak=yes & Teeth=many\"]:::red;\n    20 --&gt;|\" \"| 31;\n    31[\"Length=[3,5] & Beak=yes & Teeth=many\"];\n    31 --&gt; 12;\n    31 --&gt;|\" \"| 72;\n    72[\"Length=5 & Beak=yes & Teeth=many\"];\n    72 --&gt; 4;\n    72 --&gt;|\" \"| 6;\n    6[\"Length=5 & Gills=yes & Beak=yes & Teeth=many\"]:::red;\n    20 --&gt;|\" \"| 46;\n    46[\"Length=[4,5] & Beak=yes & Teeth=many\"];\n    46 --&gt; 42;\n    46 --&gt;|\" \"| 43;\n    46 --&gt;|\" \"| 72;\n    46 --&gt;|\" \"| 87;\n    87[\"Length=[4,5] & Gills=yes & Beak=yes & Teeth=many\"];\n    87 --&gt;|\" \"| 6;\n    87 --&gt;|\" \"| 7;\n    25 --&gt;|\" \"| 24;\n    24[\"Beak=yes\"]:::green;\n    24 --&gt;|\" \"| 20;\n    24 --&gt;|\" \"| 22;\n    22[\"Gills=no & Beak=yes\"]:::green;\n    22 --&gt; 16;\n    22 --&gt;|\" \"| 19;\n    19[\"Length=[3,4] & Gills=no & Beak=yes\"];\n    19 --&gt; 11;\n    19 --&gt; 15;\n    15[\"Length=3 & Gills=no & Beak=yes\"];\n    15 --&gt; 1;\n    15 --&gt; 3;\n    3[\"Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    19 --&gt;|\" \"| 45;\n    45[\"Length=4 & Gills=no & Beak=yes\"];\n    45 --&gt; 2;\n    45 --&gt;|\" \"| 10;\n    10[\"Length=4 & Gills=no & Beak=yes & Teeth=few\"]:::red;\n    22 --&gt; 33;\n    33[\"Length=[3,5] & Gills=no & Beak=yes\"]:::orange;\n    33 --&gt; 12;\n    33 --&gt; 15;\n    33 --&gt; 58;\n    58[\"Length=[3,5] & Gills=no & Beak=yes & Teeth=few\"];\n    58 --&gt; 3;\n    58 --&gt; 5;\n    5[\"Length=5 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    22 --&gt;|\" \"| 48;\n    48[\"Length=[4,5] & Gills=no & Beak=yes\"];\n    48 --&gt; 42;\n    48 --&gt;|\" \"| 45;\n    48 --&gt; 74;\n    74[\"Length=5 & Gills=no & Beak=yes\"];\n    74 --&gt; 4;\n    74 --&gt; 5;\n    25 --&gt;|\" \"| 29;\n    29[\"Length=[3,4]\"];\n    29 --&gt;|\" \"| 27;\n    27[\"Length=[3,4] & Teeth=many\"];\n    27 --&gt;|\" \"| 17;\n    29 --&gt;|\" \"| 28;\n    28[\"Length=[3,4] & Beak=yes\"];\n    28 --&gt;|\" \"| 17;\n    28 --&gt;|\" \"| 19;\n    25 --&gt;|\" \"| 36;\n    36[\"Length=[3,5]\"];\n    36 --&gt;|\" \"| 34;\n    34[\"Length=[3,5] & Teeth=many\"];\n    34 --&gt;|\" \"| 31;\n    34 --&gt;|\" \"| 75;\n    75[\"Length=5 & Teeth=many\"];\n    75 --&gt;|\" \"| 72;\n    75 --&gt;|\" \"| 88;\n    88[\"Length=5 & Gills=yes & Teeth=many\"];\n    88 --&gt;|\" \"| 6;\n    88 --&gt;|\" \"| 8;\n    8[\"Length=5 & Gills=yes & Beak=no & Teeth=many\"]:::red;\n    classDef green fill:#90EE90,stroke:#008000;\n    classDef red fill:#FF6347,stroke:#8B0000;\n    classDef orange fill:#FFA500,stroke:#FF8C00;"
+  },
+  {
+    "objectID": "chapter_4/concepts-full.html",
+    "href": "chapter_4/concepts-full.html",
+    "title": "Concepts Full",
+    "section": "",
+    "text": "graph TD;\n    classDef filled fill:#cccccc,stroke:#000,color:#000;\n\n    subgraph Length=3\n        subgraph Gills=yes\n            subgraph Beak=yes\n                L3_GY_BY_TM[\"Teeth=many\"]:::filled\n                L3_GY_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L3_GY_BN_TM[\"Teeth=many\"]:::filled\n                L3_GY_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n        subgraph Gills=no\n            subgraph Beak=yes\n                L3_GN_BY_TM[\"Teeth=many\"]:::filled\n                L3_GN_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L3_GN_BN_TM[\"Teeth=many\"]:::filled\n                L3_GN_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n    end\n\n    subgraph Length=4\n        subgraph Gills=yes\n            subgraph Beak=yes\n                L4_GY_BY_TM[\"Teeth=many\"]:::filled\n                L4_GY_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L4_GY_BN_TM[\"Teeth=many\"]:::filled\n                L4_GY_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n        subgraph Gills=no\n            subgraph Beak=yes\n                L4_GN_BY_TM[\"Teeth=many\"]:::filled\n                L4_GN_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L4_GN_BN_TM[\"Teeth=many\"]:::filled\n                L4_GN_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n    end\n\n    subgraph Length=5\n        subgraph Gills=yes\n            subgraph Beak=yes\n                L5_GY_BY_TM[\"Teeth=many\"]:::filled\n                L5_GY_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L5_GY_BN_TM[\"Teeth=many\"]:::filled\n                L5_GY_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n        subgraph Gills=no\n            subgraph Beak=yes\n                L5_GN_BY_TM[\"Teeth=many\"]:::filled\n                L5_GN_BY_TF[\"Teeth=few\"]:::filled\n            end\n            subgraph Beak=no\n                L5_GN_BN_TM[\"Teeth=many\"]:::filled\n                L5_GN_BN_TF[\"Teeth=few\"]:::filled\n            end\n        end\n    end"
+  },
+  {
+    "objectID": "chapter_4/dolphins2.html",
+    "href": "chapter_4/dolphins2.html",
+    "title": "Dolphins 2",
+    "section": "",
+    "text": "```mermaid\ngraph TD;\n    classDef green fill:#90EE90,stroke:#008000;\n    classDef red fill:#FF6347,stroke:#8B0000;\n    \n    1[\"Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    2[\"Length=4 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    3[\"Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    4[\"Length=5 & Gills=yes & Beak=yes & Teeth=many\"]:::red;\n    5[\"Gills=no & Beak=yes & Teeth=many\"];\n    6[\"Length=3 & Beak=yes & Teeth=many\"];\n    7[\"Length=3 & Gills=no & Teeth=many\"];\n    8[\"Length=3 & Gills=no & Beak=yes\"];\n    9[\"Beak=yes & Teeth=many\"];\n    10[\"Gills=no & Teeth=many\"];\n    11[\"Gills=no & Beak=yes\"]:::green;\n    12[\"Teeth=many\"];\n    13[\"Beak=yes\"]:::green;\n    14[\"true\"]:::green;\n    15[\"Gills=no\"]:::green;\n    16[\"Length=3 & Teeth=many\"];\n    17[\"Length=3 & Beak=yes\"];\n    18[\"Length=3\"];\n    19[\"Length=3 & Gills=no\"];\n    20[\"Length=4 & Beak=yes & Teeth=many\"];\n    21[\"Length=4 & Gills=no & Teeth=many\"];\n    22[\"Length=4 & Gills=no & Beak=yes\"];\n    23[\"Length=4 & Teeth=many\"];\n    24[\"Length=4 & Beak=yes\"];\n    25[\"Length=4\"];\n    26[\"Length=4 & Gills=no\"];\n    27[\"Gills=no & Beak=yes & Teeth=few\"];\n    28[\"Length=3 & Beak=yes & Teeth=few\"];\n    29[\"Length=3 & Gills=no & Teeth=few\"];\n    30[\"Beak=yes & Teeth=few\"];\n    31[\"Gills=no & Teeth=few\"];\n    32[\"Teeth=few\"];\n    33[\"Length=3 & Teeth=few\"];\n    34[\"Gills=yes & Beak=yes & Teeth=many\"];\n    35[\"Length=5 & Beak=yes & Teeth=many\"];\n    36[\"Length=5 & Gills=yes & Teeth=many\"];\n    37[\"Length=5 & Gills=yes & Beak=yes\"];\n    38[\"Gills=yes & Teeth=many\"];\n    39[\"Gills=yes & Beak=yes\"];\n    40[\"Gills=yes\"];\n    41[\"Length=5 & Teeth=many\"];\n    42[\"Length=5 & Beak=yes\"];\n    43[\"Length=5\"];\n    44[\"Length=5 & Gills=yes\"];\n    \n    5 --&gt; 1;\n    6 --&gt; 1;\n    7 --&gt; 1;\n    8 --&gt; 1;\n    9 --&gt; 5;\n    10 --&gt; 5;\n    11 --&gt; 5;\n    12 --&gt; 9;\n    13 --&gt; 9;\n    14 --&gt; 12;\n    14 --&gt; 13;\n    12 --&gt; 10;\n    15 --&gt; 10;\n    14 --&gt; 15;\n    13 --&gt; 11;\n    15 --&gt; 11;\n    9 --&gt; 6;\n    16 --&gt; 6;\n    17 --&gt; 6;\n    12 --&gt; 16;\n    18 --&gt; 16;\n    14 --&gt; 18;\n    13 --&gt; 17;\n    18 --&gt; 17;\n    10 --&gt; 7;\n    16 --&gt; 7;\n    19 --&gt; 7;\n    15 --&gt; 19;\n    18 --&gt; 19;\n    11 --&gt; 8;\n    17 --&gt; 8;\n    19 --&gt; 8;\n    5 --&gt; 2;\n    20 --&gt; 2;\n    21 --&gt; 2;\n    22 --&gt; 2;\n    9 --&gt; 20;\n    23 --&gt; 20;\n    24 --&gt; 20;\n    12 --&gt; 23;\n    25 --&gt; 23;\n    14 --&gt; 25;\n    13 --&gt; 24;\n    25 --&gt; 24;\n    10 --&gt; 21;\n    23 --&gt; 21;\n    26 --&gt; 21;\n    15 --&gt; 26;\n    25 --&gt; 26;\n    11 --&gt; 22;\n    24 --&gt; 22;\n    26 --&gt; 22;\n    27 --&gt; 3;\n    28 --&gt; 3;\n    29 --&gt; 3;\n    8 --&gt; 3;\n    30 --&gt; 27;\n    31 --&gt; 27;\n    11 --&gt; 27;\n    32 --&gt; 30;\n    13 --&gt; 30;\n    14 --&gt; 32;\n    32 --&gt; 31;\n    15 --&gt; 31;\n    30 --&gt; 28;\n    33 --&gt; 28;\n    17 --&gt; 28;\n    32 --&gt; 33;\n    18 --&gt; 33;\n    31 --&gt; 29;\n    33 --&gt; 29;\n    19 --&gt; 29;\n    34 --&gt; 4;\n    35 --&gt; 4;\n    36 --&gt; 4;\n    37 --&gt; 4;\n    9 --&gt; 34;\n    38 --&gt; 34;\n    39 --&gt; 34;\n    12 --&gt; 38;\n    40 --&gt; 38;\n    14 --&gt; 40;\n    13 --&gt; 39;\n    40 --&gt; 39;\n    9 --&gt; 35;\n    41 --&gt; 35;\n    42 --&gt; 35;\n    12 --&gt; 41;\n    43 --&gt; 41;\n    14 --&gt; 43;\n    13 --&gt; 42;\n    43 --&gt; 42;\n    38 --&gt; 36;\n    41 --&gt; 36;\n    44 --&gt; 36;\n    40 --&gt; 44;\n    43 --&gt; 44;\n    39 --&gt; 37;\n    42 --&gt; 37;\n    44 --&gt; 37;\n\n\n\n\n\n```"
   },
   {
     "objectID": "about.html",
@@ -91,6 +133,48 @@
     "text": "About this site"
   },
   {
+    "objectID": "chapter_5/dolphins-dl-left.html",
+    "href": "chapter_5/dolphins-dl-left.html",
+    "title": "Dolphins-dl-left",
+    "section": "",
+    "text": "graph TD;\n    N1[\"Gills\"];\n    N2[\"Beak\"];\n    N3[\"Length\"];\n    N4[\"Teeth\"];\n    N5[\"Length\"];\n\n    N1 -- \"=yes\" --&gt; L1[\"+ve: 0\\n -ve: 4\"];\n    N1 -- \"=no\" --&gt; N2;\n    N2 -- \"=no\" --&gt; L2[\"+ve: 0\\n -ve: 0\"];\n    N2 -- \"=yes\" --&gt; N3;\n    N3 -- \"≠[3,5]\" --&gt; L3[\"+ve: 1\\n -ve: 1\"];\n    N3 -- \"=[3,5]\" --&gt; N4;\n    N4 -- \"=many\" --&gt; L4[\"+ve: 2\\n -ve: 0\"];\n    N4 -- \"=few\" --&gt; N5;\n    N5 -- \"=3\" --&gt; L6[\"+ve: 1\\n -ve: 0\"];\n    N5 -- \"=5\" --&gt; L5[\"+ve: 1\\n -ve: 0\"];"
+  },
+  {
+    "objectID": "chapter_5/regtree.html",
+    "href": "chapter_5/regtree.html",
+    "title": "Regtree",
+    "section": "",
+    "text": "graph TD;\n    N0[\"Model\"];\n    N11[\"Leslie\"];\n    N12[\"Leslie\"];\n\n    L1[\"f̂(x)=4513\"];\n    L2[\"f̂(x)=77\"];\n    L3[\"f̂(x)=870\"];\n    L4[\"f̂(x)=1900\"];\n    L5[\"f̂(x)=1411\"];\n    L6[\"f̂(x)=625\"];\n    L7[\"f̂(x)=185\"];\n\n    N0 -- \"=A100\" --&gt; N11;\n    N0 -- \"=B3\" --&gt; L1;\n    N0 -- \"=E122\" --&gt; L2;\n    N0 -- \"=M102\" --&gt; L3;\n    N0 -- \"=T202\" --&gt; N12;\n\n    N11 -- \"=yes\" --&gt; L4;\n    N11 -- \"=no\" --&gt; L5;\n    \n    N12 -- \"=yes\" --&gt; L6;\n    N12 -- \"=no\" --&gt; L7;"
+  },
+  {
+    "objectID": "chapter_5/clustree2.html",
+    "href": "chapter_5/clustree2.html",
+    "title": "Clustree",
+    "section": "",
+    "text": "graph TD;\n    N0[\"Model\"];\n\n    L1[\"(16, 14, 9.7)\"];\n    L2[\"(45, 30, 22)\"];\n    L3[\"(1, 0, 5)\"];\n    L4[\"(9, 5, 2)\"];\n    L5[\"(3.3, 0, 4.3)\"];\n\n    N0 -- \"=A100\" --&gt; L1;\n    N0 -- \"=B3\" --&gt; L2;\n    N0 -- \"=E122\" --&gt; L3;\n    N0 -- \"=M102\" --&gt; L4;\n    N0 -- \"=T202\" --&gt; L5;"
+  },
+  {
+    "objectID": "chapter_5/dolphins-dl-right.html",
+    "href": "chapter_5/dolphins-dl-right.html",
+    "title": "Dolphins-dl-right",
+    "section": "",
+    "text": "graph TD;\n    N1[\"Gills\"];\n    N2[\"Length\"];\n    N3[\"Teeth\"];\n\n    N1 -- \"=yes\" --&gt; L1[\"ĉ(x) = -ve\"];\n    N1 -- \"=no\" --&gt; N2;\n    N2 -- \"=5\" --&gt; L3[\"ĉ(x) = +ve\"];\n    N2 -- \"=3\" --&gt; L2[\"ĉ(x) = +ve\"];\n    N2 -- \"=4\" --&gt; N3;\n    N3 -- \"=few\" --&gt; L4[\"ĉ(x) = -ve\"];\n    N3 -- \"=many\" --&gt; L5[\"ĉ(x) = +ve\"];"
+  },
+  {
+    "objectID": "chapter_6/items.html",
+    "href": "chapter_6/items.html",
+    "title": "Dolphins-dl-left",
+    "section": "",
+    "text": "graph TD\n    classDef dotted stroke:#000,stroke-width:2px,stroke-dasharray:5,5;\n    classDef dashed stroke:#000,stroke-width:2px,stroke-dasharray:3,3;\n    classDef solid stroke:#000,stroke-width:2px;\n    classDef green fill:#008000,stroke:#fff;\n    \n    1[\"{Nappies, Beer, Crisps, Apples}\"]:::dotted\n    2[\"{Beer, Crisps}\"]:::green\n    3[\"{Nappies, Apples}\"]:::dashed\n    4[\"{Nappies, Beer, Crisps}\"]:::dashed\n    5[\"{Crisps, Apples}\"]:::dashed\n    7[\"{Nappies}\"]:::green\n    8[\"{Apples}\"]:::green\n    9[\"{Beer, Crisps, Apples}\"]:::dotted\n    10[\"{Nappies, Crisps, Apples}\"]:::dotted\n    11[\"{Nappies, Beer, Apples}\"]:::dotted\n    12[\"{Beer, Apples}\"]:::dotted\n    13[\"{}\"]:::solid\n    14[\"{Beer}\"]:::green\n    15[\"{Nappies, Crisps}\"]:::dashed\n    16[\"{Nappies, Beer}\"]:::dashed\n    6[\"{Crisps}\"]:::green\n\n    9 --&gt; 1\n    10 --&gt; 1\n    11 --&gt; 1\n    4 --&gt; 1\n    5 --&gt; 9\n    12 --&gt; 9\n    2 --&gt; 9\n    8 --&gt; 5\n    6 --&gt; 5\n    13 --&gt; 8\n    13 --&gt; 6\n    8 --&gt; 12\n    14 --&gt; 12\n    13 --&gt; 14\n    6 --&gt; 2\n    14 --&gt; 2\n    5 --&gt; 10\n    3 --&gt; 10\n    15 --&gt; 10\n    8 --&gt; 3\n    7 --&gt; 3\n    13 --&gt; 7\n    6 --&gt; 15\n    7 --&gt; 15\n    12 --&gt; 11\n    3 --&gt; 11\n    16 --&gt; 11\n    14 --&gt; 16\n    7 --&gt; 16\n    2 --&gt; 4\n    15 --&gt; 4\n    16 --&gt; 4"
+  },
+  {
+    "objectID": "chapter_6/abctree.html",
+    "href": "chapter_6/abctree.html",
+    "title": "ABC Tree",
+    "section": "",
+    "text": "graph TD\n    classDef dotted stroke:#000,stroke-width:2px,stroke-dasharray:5,5;\n    classDef solid stroke:#000,stroke-width:2px;\n    classDef blue fill:#00f,stroke:#fff;\n    \n    3[\"[0+, 0-]\"]:::dotted\n    4[\"[1+, 2-]\"]:::solid\n    2[\"[1+, 2-]\"]\n    6[\"[0+, 0-]\"]:::dotted\n    7[\"[0+, 1-]\"]:::solid\n    5[\"[0+, 1-]\"]\n    1[\"[1+, 3-]\"]:::blue\n    10[\"[2+, 1-]\"]:::solid\n    11[\"[2+, 0-]\"]:::solid\n    9[\"[4+, 1-]\"]:::blue\n    13[\"[0+, 1-]\"]:::blue\n    14[\"[0+, 0-]\"]:::blue:::dotted\n    12[\"[0+, 1-]\"]\n    8[\"[4+, 2-]\"]\n    0[\"[5+, 5-]\"]\n\n    2 --&gt;|ABC| 3\n    2 --&gt;|AB-| 4\n    5 --&gt;|A-C| 6\n    5 --&gt;|A--| 7\n    1 --&gt;|AB| 2\n    1 --&gt;|A-| 5\n    9 --&gt;| -BC| 10\n    9 --&gt;| -B-| 11\n    12 --&gt;|--C| 13\n    12 --&gt;|---| 14\n    8 --&gt;| -B| 9\n    8 --&gt;| --| 12\n    0 --&gt;|A| 1\n    0 --&gt;|-| 8"
+  },
+  {
     "objectID": "chapter_6/ABBA.html",
     "href": "chapter_6/ABBA.html",
     "title": "ABBA",
@@ -98,25 +182,18 @@
     "text": "# Plot and grid\nh &lt;- 500 # height of plot\nw &lt;- 500 # width of plot\ngrid.step &lt;- 100\n\nplot( c(0,w), c(0,h),  \n     xaxs = \"i\",yaxs = \"i\",\n     xaxt = \"n\", yaxt = \"n\",\n     type = \"n\",\n     xlab = \"Negatives\", ylab = \"Positives\")\n     \ngx &lt;- grid.step\nwhile (gx &lt;= w) {\n  abline(v = gx, col=\"gray\", lty=\"dotted\")\n  gx &lt;- gx + grid.step\n}\ngy &lt;- grid.step\nwhile (gy &lt;= h) {\n  abline(h = gy, col=\"gray\", lty=\"dotted\")\n  gy &lt;- gy + grid.step\n}\n\n# Data\n# A: p2; n2,n4,n5\n# B: p1,p2,p3,p4,p5; n1,n2,n5\n\n# Rule-list curve AB\na &lt;- c(0,100,400,500)\nb &lt;- c(0,400,500,500)\ncol &lt;- \"blue\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.8\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\\\\A\",col=col)\n# Predicted probability: 0.25\ntext( (a[2]+a[3])/2-20, (b[2]+b[3])/2-30, \"A\",col=col)\n# Predicted probability: 0\ntext( (a[3]+a[4])/2+20, (b[3]+b[4])/2-20, \"-\",col=col)\n\n# Rule-list curve BA\na &lt;- c(0,300,500)\nb &lt;- c(0,500,500)\ncol &lt;- \"violet\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.625\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\",col=col)\n# Predicted probability: 0\ntext( (a[2]+a[3])/2+20, (b[2]+b[3])/2-20, \"A\\\\B, -\",col=col)\n\n# convex hull segment\nx &lt;- c(0,100,300,500)\ny &lt;- c(0,400,500,500)\ncol &lt;- \"red\"\nlines( x[2:3], y[2:3], lty=\"dotted\",col=col)\ntext( (x[2]+x[3])/2-15, (y[2]+y[3])/2+15, \"\",col=col)"
   },
   {
-    "objectID": "chapter_9/gmm.html",
-    "href": "chapter_9/gmm.html",
-    "title": "GMM",
-    "section": "",
-    "text": "Final means: [56 68]\nFinal variances: [7 6]\nInitial means: [56 68]"
-  },
-  {
     "objectID": "chapter_9/linclass2.html",
     "href": "chapter_9/linclass2.html",
     "title": "Linear Classifier 2",
     "section": "",
-    "text": "Error for BLC: 7\nError for LSC: 8\nOptimization terminated successfully.\n         Current function value: 0.094586\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Wed, 05 Mar 2025   Pseudo R-squ.:                  0.8635\nTime:                        10:10:42   Log-Likelihood:                -18.917\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.022e-52\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          0.2741      0.670      0.409      0.682      -1.038       1.587\nx1             2.1033      0.489      4.299      0.000       1.144       3.062\nx2             4.2211      0.944      4.471      0.000       2.371       6.071\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.17 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 7\nBinary Logistic Regression Error: 0.028329507824345602"
+    "text": "Error for BLC: 6\nError for LSC: 6\nOptimization terminated successfully.\n         Current function value: 0.071676\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Thu, 06 Mar 2025   Pseudo R-squ.:                  0.8966\nTime:                        19:52:18   Log-Likelihood:                -14.335\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.046e-54\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          1.2495      0.920      1.358      0.174      -0.554       3.053\nx1             2.5711      0.664      3.869      0.000       1.269       3.873\nx2             5.6055      1.407      3.984      0.000       2.848       8.363\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.33 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 5\nBinary Logistic Regression Error: 0.02156848115347131"
   },
   {
     "objectID": "chapter_9/logreg.html",
     "href": "chapter_9/logreg.html",
     "title": "Logreg",
     "section": "",
-    "text": "Error Rate Logistic Calibration: 0.0760741981613174\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.07198299064780771"
+    "text": "Error Rate Logistic Calibration: 0.1330725878297716\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.13946314562569734"
   },
   {
     "objectID": "chapter_7/linkernel.html",
