@@ -1,10 +1,37 @@
 ---
-title: "Dolphins-dl-left"
+title: "Items-cc-dolphins"
 ---
 
 ```{mermaid}
+graph TD;
+    1["Length=3 & Gills=no & Beak=yes & Teeth=many"]:::dottedEllipse
+    2["Length=4 & Gills=no & Beak=yes & Teeth=many"]:::dottedEllipse
+    3["Length=3 & Gills=no & Beak=yes & Teeth=few"]:::dottedEllipse
+    4["Length=5 & Gills=no & Beak=yes & Teeth=many"]:::dottedEllipse
+    5["Length=5 & Gills=no & Beak=yes & Teeth=few"]:::dottedEllipse
+    6["Gills=no & Beak=yes & Teeth=many"]:::triangle
+    9["Length=3 & Gills=no & Beak=yes"]:::dashedEllipse
+    12["Gills=no & Beak=yes"]:::pentagon
+    28["Gills=no & Beak=yes & Teeth=few"]:::dashedEllipse
+    37["Length=5 & Gills=no & Beak=yes"]:::dashedEllipse
 
+    6 --> 1
+    9 --> 1
+    12 --> 6
+    12 --> 9
+    6 --> 2
+    28 --> 3
+    9 --> 3
+    12 --> 28
+    6 --> 4
+    37 --> 4
+    12 --> 37
+    28 --> 5
+    37 --> 5
 
-
+    classDef triangle fill:white,stroke:#000;
+    classDef pentagon fill:white,stroke:#000;
+    classDef dashedEllipse fill:none,stroke:#000,stroke-dasharray:5,5;
+    classDef dottedEllipse fill:none,stroke:#000,stroke-dasharray:2,2;
 
 ```

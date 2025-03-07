@@ -1,5 +1,5 @@
 ---
-title: "ML Methods"
+title: "1.7 ML Methods"
 engine: jupyter
 ---
 

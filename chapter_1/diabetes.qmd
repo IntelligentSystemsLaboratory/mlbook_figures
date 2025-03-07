@@ -1,5 +1,5 @@
 ---
-title: "Diabetes"
+title: "1.1 Diabetes"
 engine: jupyter
 ---
 
