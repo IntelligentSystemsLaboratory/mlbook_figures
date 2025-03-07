@@ -4,7 +4,6 @@ title: "Dolphins 2"
 
 ```{mermaid}
 
-```mermaid
 graph TD;
     classDef green fill:#90EE90,stroke:#008000;
     classDef red fill:#FF6347,stroke:#8B0000;
