@@ -233,29 +233,33 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error for BLC: 6
+<pre><code>Error for BLC: 5
 Error for LSC: 8
 Optimization terminated successfully.
-         Current function value: 0.118344
+         Current function value: 0.083420
          Iterations 9
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  200
 Model:                          Logit   Df Residuals:                      197
 Method:                           MLE   Df Model:                            2
-Date:                Fri, 07 Mar 2025   Pseudo R-squ.:                  0.8293
-Time:                        14:17:54   Log-Likelihood:                -23.669
+Date:                Fri, 07 Mar 2025   Pseudo R-squ.:                  0.8796
+Time:                        14:55:17   Log-Likelihood:                -16.684
 converged:                       True   LL-Null:                       -138.63
-Covariance Type:            nonrobust   LLR p-value:                 1.184e-50
+Covariance Type:            nonrobust   LLR p-value:                 1.096e-53
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.3480      0.582      0.597      0.550      -0.794       1.490
-x1             1.6774      0.387      4.334      0.000       0.919       2.436
-x2             3.2565      0.751      4.339      0.000       1.785       4.727
+const          0.5380      0.825      0.653      0.514      -1.078       2.154
+x1             1.9628      0.508      3.861      0.000       0.966       2.959
+x2             4.2366      0.948      4.468      0.000       2.378       6.095
 ==============================================================================
-Error for Logistic Regression: 10
-Binary Logistic Regression Error: 0.034525869911365074</code></pre>
+
+Possibly complete quasi-separation: A fraction 0.13 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+Error for Logistic Regression: 7
+Binary Logistic Regression Error: 0.025949963792308274</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="linclass2_files/figure-html/cell-2-output-2.png" width="422" height="416"></p>
