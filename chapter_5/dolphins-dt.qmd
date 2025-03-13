@@ -1,0 +1,109 @@
+---
+title: "5.3 Dolphins-DT"
+format: html
+execute:
+  echo: false
+  warning: true
+  error: true
+  cache: false
+  result: 'show'
+---
+
+## Dolphins DT right
+
+```{r}
+
+x <- c(0,0,0,0,100,500)
+y <- c(0,200,400,500,500,500)
+
+h <- 500 # height of plot
+w <- 500 # width of plot
+# w <- 360 # width of plot
+grid.step <- 100
+
+# print to a file
+# png(height = h, width = w, filename = "pn-nested.png")
+# windows(height = h, width = w)
+
+plot( c(0,w), c(0,h),  
+     xaxs = "i",yaxs = "i",
+     xaxt = 'n', yaxt = 'n',
+     type = "n",
+     xlab = "Negatives", ylab = "Positives")
+     
+# draw axes
+axis(2,y,labels=c('','p1,p3','p4-5','p1','',''))
+axis(1,x,labels=c('','','','','n5','n1-4'))
+
+# add a grid
+# grid seems to be buggy
+#grid (nx = w/grid.step, ny = h/grid.step)
+gx <- grid.step
+while (gx <= w) {
+  abline(v = gx, col="gray", lty="dotted")
+  gx <- gx + grid.step
+}
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, col="gray", lty="dotted")
+  gy <- gy + grid.step
+}
+
+# draw diagonal
+# abline(c(0,h/w),lty=3)
+
+# label the points
+text( (x[1]+x[6])/2+10, (y[1]+y[6])/2-10, "A")
+text( (x[1]+x[5])/2+10, (y[1]+y[5])/2-10, "B")
+text( (x[5]+x[6])/2, y[6]-15, "C")
+text( x[2]+10, (y[1]+y[2])/2, "D")
+text( (x[3]+x[5])/2+10, (y[3]+y[5])/2-10, "E")
+text( x[3]+10, (y[2]+y[3])/2, "F")
+text( (x[4]+x[5])/2, y[5]-15, "G")
+text( x[4]+10, (y[3]+y[4])/2, "H")
+
+arrows( (x[1]+x[6])/2-10, (y[1]+y[6])/2+10, x[5]+10, y[5]-10, code=2, length=0.1, label="`Gills'" )
+arrows( (x[1]+x[5])/2-10, (y[1]+y[5])/2+10, x[3]+10, y[3]-10, code=2, length=0.1 )
+arrows( (x[3]+x[5])/2-10, (y[3]+y[5])/2+10, x[4]+10, y[4]-10, code=2, length=0.1 )
+
+# draw curve
+lines( x, y, lwd=5, type='o',col='red')
+
+
+# internal nodes
+segments(x[1],y[1],x[6],y[6],lty=3,col="red")
+segments(x[1],y[1],x[5],y[5],lty=3,col="red")
+segments(x[3],y[3],x[5],y[5],lty=3,col="red")
+
+# close file
+#dev.off()
+
+
+```
+
+## Dolphins DT left
+
+```{mermaid}
+
+graph TD;
+    L2["D: [2+, 0−]"]:::filled
+    N1["A: Gills"]
+    N2["B: Length"]
+    N3["E: Teeth"]
+    L1["C: [0+, 4−]"]:::filled
+    L3["F: [2+, 0−]"]:::filled
+    L4["G: [0+, 1−]"]:::filled
+    L5["H: [1+, 0−]"]:::filled
+
+    N1 -- "=no" --> N2
+    N1 -- "=yes" --> L1
+    N2 -- "=5" --> L3
+    N2 -- "=3" --> L2
+    N2 -- "=4" --> N3
+    N3 -- "=few" --> L4
+    N3 -- "=many" --> L5
+
+    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;
+
+
+```
