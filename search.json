@@ -4,7 +4,7 @@
     "href": "chapter_5.html",
     "title": "Chapter 5",
     "section": "",
-    "text": "Clustree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDT Cost\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLabelings\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nRegtree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "5.3 Dolphins-DT\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n5.4 Grow Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n5.6 Pruned Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nClustree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDT Cost\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLabelings\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nRegtree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "chapter_7.html",
@@ -18,7 +18,7 @@
     "href": "chapter_6.html",
     "title": "Chapter 6",
     "section": "",
-    "text": "ABBA\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABBA Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC Set\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nImpurity Rule\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems Dolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems-cc\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems-cc-dolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSubgroups Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nWeighted Covering\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nsubgroups\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "6.2 Rule List\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n6.3 Rule List\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n6.4 Rule List 3\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n6.5 Rule List Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABBA\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABBA Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC Set\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nABC Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins-dl-left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nImpurity Rule\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems Dolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems-cc\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nItems-cc-dolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSubgroups Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nWeighted Covering\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nsubgroups\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -109,14 +109,14 @@
     "href": "chapter_8/twonex.html",
     "title": "Twonex",
     "section": "",
-    "text": "/tmp/ipykernel_277844/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_277844/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_277844/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
+    "text": "/tmp/ipykernel_64781/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_64781/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))\n/tmp/ipykernel_64781/3250587599.py:46: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.\n  scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))"
   },
   {
     "objectID": "chapter_8/randomdendrogram.html",
     "href": "chapter_8/randomdendrogram.html",
     "title": "Random Dendogram",
     "section": "",
-    "text": "Spearman correlation for complete: 0.6325437592935789"
+    "text": "Spearman correlation for complete: 0.6883053732207264"
   },
   {
     "objectID": "chapter_2.html",
@@ -124,6 +124,13 @@
     "title": "Chapter 2",
     "section": "",
     "text": "2.2 Coverage Left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.2 Coverage Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.3 Roc left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.3 Roc right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.5 Covroc left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.5 Covroc right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.7 Covrank left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n2.7 Covrank right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nConvexhull right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nConvexhull right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCovgrad 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCovgrad left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCovgrad right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDecision Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPET\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nRacc unbalanced left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nRacc unbalanced right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nScoring Tree\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nThreshold\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "chapter_4/path.html#path-left",
+    "href": "chapter_4/path.html#path-left",
+    "title": "4.5 Path",
+    "section": "Path left",
+    "text": "Path left\n\n\n\n\ngraph TD;\n    1[\"A: Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::filled\n    2[\"B: Length=[3,4] & Gills=no & Beak=yes & Teeth=many\"]\n    10[\"C: Length=[3,4] & Gills=no & Beak=yes\"]\n    15[\"E: Beak=yes\"]\n    16[\"F: true\"]\n    19[\"D: Length=[3,4] & Beak=yes\"]\n\n    2 --&gt; 1\n    10 --&gt; 2\n    16 --&gt; 15\n    15 --&gt; 19\n    19 --&gt; 10\n\n    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;"
   },
   {
     "objectID": "chapter_4/dolphins3.html",
@@ -145,6 +152,13 @@
     "title": "Concepts closed",
     "section": "",
     "text": "graph TD;\n    25[\"true\"]:::green;\n    25 --&gt;|\" \"| 23;\n    23[\"Teeth=many\"];\n    23 --&gt;|\" \"| 20;\n    20[\"Beak=yes & Teeth=many\"];\n    20 --&gt; 16;\n    16[\"Gills=no & Beak=yes & Teeth=many\"]:::orange;\n    16 --&gt; 11;\n    11[\"Length=[3,4] & Gills=no & Beak=yes & Teeth=many\"];\n    11 --&gt; 1;\n    1[\"Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    11 --&gt; 2;\n    2[\"Length=4 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    16 --&gt; 12;\n    12[\"Length=[3,5] & Gills=no & Beak=yes & Teeth=many\"];\n    12 --&gt; 1;\n    12 --&gt; 4;\n    4[\"Length=5 & Gills=no & Beak=yes & Teeth=many\"]:::green;\n    16 --&gt; 42;\n    42[\"Length=[4,5] & Gills=no & Beak=yes & Teeth=many\"];\n    42 --&gt; 2;\n    42 --&gt; 4;\n    20 --&gt;|\" \"| 17;\n    17[\"Length=[3,4] & Beak=yes & Teeth=many\"];\n    17 --&gt; 11;\n    17 --&gt;|\" \"| 43;\n    43[\"Length=4 & Beak=yes & Teeth=many\"];\n    43 --&gt; 2;\n    43 --&gt;|\" \"| 7;\n    7[\"Length=4 & Gills=yes & Beak=yes & Teeth=many\"]:::red;\n    20 --&gt;|\" \"| 31;\n    31[\"Length=[3,5] & Beak=yes & Teeth=many\"];\n    31 --&gt; 12;\n    31 --&gt;|\" \"| 72;\n    72[\"Length=5 & Beak=yes & Teeth=many\"];\n    72 --&gt; 4;\n    72 --&gt;|\" \"| 6;\n    6[\"Length=5 & Gills=yes & Beak=yes & Teeth=many\"]:::red;\n    20 --&gt;|\" \"| 46;\n    46[\"Length=[4,5] & Beak=yes & Teeth=many\"];\n    46 --&gt; 42;\n    46 --&gt;|\" \"| 43;\n    46 --&gt;|\" \"| 72;\n    46 --&gt;|\" \"| 87;\n    87[\"Length=[4,5] & Gills=yes & Beak=yes & Teeth=many\"];\n    87 --&gt;|\" \"| 6;\n    87 --&gt;|\" \"| 7;\n    25 --&gt;|\" \"| 24;\n    24[\"Beak=yes\"]:::green;\n    24 --&gt;|\" \"| 20;\n    24 --&gt;|\" \"| 22;\n    22[\"Gills=no & Beak=yes\"]:::green;\n    22 --&gt; 16;\n    22 --&gt;|\" \"| 19;\n    19[\"Length=[3,4] & Gills=no & Beak=yes\"];\n    19 --&gt; 11;\n    19 --&gt; 15;\n    15[\"Length=3 & Gills=no & Beak=yes\"];\n    15 --&gt; 1;\n    15 --&gt; 3;\n    3[\"Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    19 --&gt;|\" \"| 45;\n    45[\"Length=4 & Gills=no & Beak=yes\"];\n    45 --&gt; 2;\n    45 --&gt;|\" \"| 10;\n    10[\"Length=4 & Gills=no & Beak=yes & Teeth=few\"]:::red;\n    22 --&gt; 33;\n    33[\"Length=[3,5] & Gills=no & Beak=yes\"]:::orange;\n    33 --&gt; 12;\n    33 --&gt; 15;\n    33 --&gt; 58;\n    58[\"Length=[3,5] & Gills=no & Beak=yes & Teeth=few\"];\n    58 --&gt; 3;\n    58 --&gt; 5;\n    5[\"Length=5 & Gills=no & Beak=yes & Teeth=few\"]:::green;\n    22 --&gt;|\" \"| 48;\n    48[\"Length=[4,5] & Gills=no & Beak=yes\"];\n    48 --&gt; 42;\n    48 --&gt;|\" \"| 45;\n    48 --&gt; 74;\n    74[\"Length=5 & Gills=no & Beak=yes\"];\n    74 --&gt; 4;\n    74 --&gt; 5;\n    25 --&gt;|\" \"| 29;\n    29[\"Length=[3,4]\"];\n    29 --&gt;|\" \"| 27;\n    27[\"Length=[3,4] & Teeth=many\"];\n    27 --&gt;|\" \"| 17;\n    29 --&gt;|\" \"| 28;\n    28[\"Length=[3,4] & Beak=yes\"];\n    28 --&gt;|\" \"| 17;\n    28 --&gt;|\" \"| 19;\n    25 --&gt;|\" \"| 36;\n    36[\"Length=[3,5]\"];\n    36 --&gt;|\" \"| 34;\n    34[\"Length=[3,5] & Teeth=many\"];\n    34 --&gt;|\" \"| 31;\n    34 --&gt;|\" \"| 75;\n    75[\"Length=5 & Teeth=many\"];\n    75 --&gt;|\" \"| 72;\n    75 --&gt;|\" \"| 88;\n    88[\"Length=5 & Gills=yes & Teeth=many\"];\n    88 --&gt;|\" \"| 6;\n    88 --&gt;|\" \"| 8;\n    8[\"Length=5 & Gills=yes & Beak=no & Teeth=many\"]:::red;\n    classDef green fill:#90EE90,stroke:#008000;\n    classDef red fill:#FF6347,stroke:#8B0000;\n    classDef orange fill:#FFA500,stroke:#FF8C00;"
+  },
+  {
+    "objectID": "chapter_4/dolphins4.html#path-left",
+    "href": "chapter_4/dolphins4.html#path-left",
+    "title": "4.6 Dolphins 4",
+    "section": "Path left",
+    "text": "Path left\n\n\n\n\ngraph TD;\n    1[\"A: Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::filled\n    2[\"B: Length=[3,5] & Gills=no & Beak=yes & Teeth=few\"]\n    10[\"C: Length=[3,5] & Gills=no & Beak=yes\"]\n    13[\"D: Gills=no & Beak=yes\"]\n    15[\"E: Gills=no\"]\n    16[\"F: true\"]\n\n    2 --&gt; 1\n    10 --&gt; 2\n    13 --&gt; 10\n    15 --&gt; 13\n    16 --&gt; 15\n\n    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;"
   },
   {
     "objectID": "chapter_4/concepts-full.html",
@@ -189,6 +203,48 @@
     "text": "graph TD;\n    N0[\"Model\"];\n    N11[\"Leslie\"];\n    N12[\"Leslie\"];\n\n    L1[\"f̂(x)=4513\"];\n    L2[\"f̂(x)=77\"];\n    L3[\"f̂(x)=870\"];\n    L4[\"f̂(x)=1900\"];\n    L5[\"f̂(x)=1411\"];\n    L6[\"f̂(x)=625\"];\n    L7[\"f̂(x)=185\"];\n\n    N0 -- \"=A100\" --&gt; N11;\n    N0 -- \"=B3\" --&gt; L1;\n    N0 -- \"=E122\" --&gt; L2;\n    N0 -- \"=M102\" --&gt; L3;\n    N0 -- \"=T202\" --&gt; N12;\n\n    N11 -- \"=yes\" --&gt; L4;\n    N11 -- \"=no\" --&gt; L5;\n    \n    N12 -- \"=yes\" --&gt; L6;\n    N12 -- \"=no\" --&gt; L7;"
   },
   {
+    "objectID": "chapter_5/growtree.html",
+    "href": "chapter_5/growtree.html",
+    "title": "5.4 Grow Tree",
+    "section": "",
+    "text": "Error: object 'p' not found"
+  },
+  {
+    "objectID": "chapter_5/growtree.html#grow-tree-right",
+    "href": "chapter_5/growtree.html#grow-tree-right",
+    "title": "5.4 Grow Tree",
+    "section": "",
+    "text": "Error: object 'p' not found"
+  },
+  {
+    "objectID": "chapter_5/growtree.html#grow-tree-left",
+    "href": "chapter_5/growtree.html#grow-tree-left",
+    "title": "5.4 Grow Tree",
+    "section": "Grow Tree left",
+    "text": "Grow Tree left\n\n\n\n\ngraph TD;\n    N0[\"[50+, 100−]\"]:::red\n    N11[\"[30+, 35−]\"]:::purple\n    N12[\"[20+, 65−]\"]:::purple\n    N21[\"[29+, 10−]\"]:::blue\n    N22[\"[1+, 25−]\"]:::blue\n    N31[\"[15+, 3−]\"]:::blue\n    N32[\"[5+, 62−]\"]:::blue\n\n    N0 -- \"(1)\" --&gt; N11\n    N0 --&gt; N12\n    N11 -- \"(2)\" --&gt; N21\n    N11 --&gt; N22\n    N12 -- \"(3)\" --&gt; N31\n    N12 --&gt; N32\n\n    classDef red fill:#f04030,stroke:#000,stroke-width:1px;\n    classDef purple fill:#804080,stroke:#000,stroke-width:1px;\n    classDef blue fill:#1040f0,stroke:#000,stroke-width:1px;"
+  },
+  {
+    "objectID": "chapter_5/prunedtree.html",
+    "href": "chapter_5/prunedtree.html",
+    "title": "5.6 Pruned Tree",
+    "section": "",
+    "text": "Error: object 'p' not found"
+  },
+  {
+    "objectID": "chapter_5/prunedtree.html#pruned-tree-right",
+    "href": "chapter_5/prunedtree.html#pruned-tree-right",
+    "title": "5.6 Pruned Tree",
+    "section": "",
+    "text": "Error: object 'p' not found"
+  },
+  {
+    "objectID": "chapter_5/prunedtree.html#pruned-tree-left",
+    "href": "chapter_5/prunedtree.html#pruned-tree-left",
+    "title": "5.6 Pruned Tree",
+    "section": "Pruned Tree left",
+    "text": "Pruned Tree left\n\n\n\n\ngraph TD;\n    N0[\"[50+, 100−]\"]:::red\n    N11[\"[30+, 35−]\"]:::purple\n    N12[\"[20+, 65−]\"]:::purple\n    N21[\"[29+, 10−]\"]:::blue\n    N22[\"[1+, 25−]\"]:::blue\n    N31[\"[15+, 3−]\"]:::dottedBlue\n    N32[\"[5+, 62−]\"]:::dottedBlue\n\n    N0 --&gt; N11\n    N0 --&gt; N12\n    N11 --&gt; N21\n    N11 --&gt; N22\n    N12 -.-&gt; N31\n    N12 -.-&gt; N32\n\n    classDef red fill:#f04030,stroke:#000,stroke-width:1px;\n    classDef purple fill:#804080,stroke:#000,stroke-width:1px;\n    classDef blue fill:#1040f0,stroke:#000,stroke-width:1px;\n    classDef dottedBlue fill:#1040f0,stroke:#000,stroke-dasharray:3,stroke-width:1px;"
+  },
+  {
     "objectID": "chapter_5/clustree2.html",
     "href": "chapter_5/clustree2.html",
     "title": "Clustree",
@@ -203,11 +259,32 @@
     "text": "graph TD;\n    N1[\"Gills\"];\n    N2[\"Length\"];\n    N3[\"Teeth\"];\n\n    N1 -- \"=yes\" --&gt; L1[\"ĉ(x) = -ve\"];\n    N1 -- \"=no\" --&gt; N2;\n    N2 -- \"=5\" --&gt; L3[\"ĉ(x) = +ve\"];\n    N2 -- \"=3\" --&gt; L2[\"ĉ(x) = +ve\"];\n    N2 -- \"=4\" --&gt; N3;\n    N3 -- \"=few\" --&gt; L4[\"ĉ(x) = -ve\"];\n    N3 -- \"=many\" --&gt; L5[\"ĉ(x) = +ve\"];"
   },
   {
+    "objectID": "chapter_5/dolphins-dt.html",
+    "href": "chapter_5/dolphins-dt.html",
+    "title": "5.3 Dolphins-DT",
+    "section": "",
+    "text": "Warning in arrows((x[1] + x[6])/2 - 10, (y[1] + y[6])/2 + 10, x[5] + 10, :\n\"label\" is not a graphical parameter"
+  },
+  {
+    "objectID": "chapter_5/dolphins-dt.html#dolphins-dt-right",
+    "href": "chapter_5/dolphins-dt.html#dolphins-dt-right",
+    "title": "5.3 Dolphins-DT",
+    "section": "",
+    "text": "Warning in arrows((x[1] + x[6])/2 - 10, (y[1] + y[6])/2 + 10, x[5] + 10, :\n\"label\" is not a graphical parameter"
+  },
+  {
+    "objectID": "chapter_5/dolphins-dt.html#dolphins-dt-left",
+    "href": "chapter_5/dolphins-dt.html#dolphins-dt-left",
+    "title": "5.3 Dolphins-DT",
+    "section": "Dolphins DT left",
+    "text": "Dolphins DT left\n\n\n\n\ngraph TD;\n    L2[\"D: [2+, 0−]\"]:::filled\n    N1[\"A: Gills\"]\n    N2[\"B: Length\"]\n    N3[\"E: Teeth\"]\n    L1[\"C: [0+, 4−]\"]:::filled\n    L3[\"F: [2+, 0−]\"]:::filled\n    L4[\"G: [0+, 1−]\"]:::filled\n    L5[\"H: [1+, 0−]\"]:::filled\n\n    N1 -- \"=no\" --&gt; N2\n    N1 -- \"=yes\" --&gt; L1\n    N2 -- \"=5\" --&gt; L3\n    N2 -- \"=3\" --&gt; L2\n    N2 -- \"=4\" --&gt; N3\n    N3 -- \"=few\" --&gt; L4\n    N3 -- \"=many\" --&gt; L5\n\n    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;"
+  },
+  {
     "objectID": "chapter_4.html",
     "href": "chapter_4.html",
     "title": "Chapter 4",
     "section": "",
-    "text": "Concepts Full\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nConcepts closed\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins 3\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "4.5 Path\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n4.6 Dolphins 4\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nConcepts Full\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nConcepts closed\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDolphins 3\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "chapter_3.html",
@@ -215,6 +292,27 @@
     "title": "Chapter 3",
     "section": "",
     "text": "ML Methods\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "chapter_6/rulelist3.html",
+    "href": "chapter_6/rulelist3.html",
+    "title": "6.4 Rule List 3",
+    "section": "",
+    "text": "NULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist3.html#rule-list-3-right",
+    "href": "chapter_6/rulelist3.html#rule-list-3-right",
+    "title": "6.4 Rule List 3",
+    "section": "",
+    "text": "NULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist3.html#rule-list-3-left",
+    "href": "chapter_6/rulelist3.html#rule-list-3-left",
+    "title": "6.4 Rule List 3",
+    "section": "Rule List 3 left",
+    "text": "Rule List 3 left\n\n\n\n\ngraph TD;\n    34[\"true&lt;br&gt;[2+, 1-]\"]\n    38[\"Length=3&lt;br&gt;[1+, 0-]\"]:::green\n    76[\"Length=4&lt;br&gt;[0+, 1-]\"]:::red\n    95[\"Length=5&lt;br&gt;[1+, 0-]\"]:::green\n    62[\"Gills=no&lt;br&gt;[2+, 1-]\"]\n    33[\"Beak=yes&lt;br&gt;[2+, 1-]\"]\n    45[\"Teeth=few&lt;br&gt;[2+, 1-]\"]\n\n    34 --&gt; 33\n    34 --&gt; 38\n    34 --&gt; 45\n    34 --&gt; 62\n    34 --&gt; 76\n    34 --&gt; 95\n\n    classDef green fill:#00a000,stroke:#000,stroke-width:1px;\n    classDef red fill:#f04030,stroke:#000,stroke-width:1px;"
   },
   {
     "objectID": "chapter_6/items-dolphins.html",
@@ -252,11 +350,60 @@
     "text": "# Plot and grid\nh &lt;- 500 # height of plot\nw &lt;- 500 # width of plot\ngrid.step &lt;- 100\n\nplot( c(0,w), c(0,h),  \n     xaxs = \"i\",yaxs = \"i\",\n     xaxt = \"n\", yaxt = \"n\",\n     type = \"n\",\n     xlab = \"Negatives\", ylab = \"Positives\")\n     \ngx &lt;- grid.step\nwhile (gx &lt;= w) {\n  abline(v = gx, col=\"gray\", lty=\"dotted\")\n  gx &lt;- gx + grid.step\n}\ngy &lt;- grid.step\nwhile (gy &lt;= h) {\n  abline(h = gy, col=\"gray\", lty=\"dotted\")\n  gy &lt;- gy + grid.step\n}\n\n# Data\n# A: p2; n2,n4,n5\n# B: p1,p2,p3,p4,p5; n1,n2,n5\n\n# Rule-list curve AB\na &lt;- c(0,100,400,500)\nb &lt;- c(0,400,500,500)\ncol &lt;- \"blue\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.8\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\\\\A\",col=col)\n# Predicted probability: 0.25\ntext( (a[2]+a[3])/2-20, (b[2]+b[3])/2-30, \"A\",col=col)\n# Predicted probability: 0\ntext( (a[3]+a[4])/2+20, (b[3]+b[4])/2-20, \"-\",col=col)\n\n# Rule-list curve BA\na &lt;- c(0,300,500)\nb &lt;- c(0,500,500)\ncol &lt;- \"violet\"\nlines( a, b, lwd=3, type=\"o\",col=col)\n# Predicted probability: 0.625\ntext( (a[1]+a[2])/2+20, (b[1]+b[2])/2, \"B\",col=col)\n# Predicted probability: 0\ntext( (a[2]+a[3])/2+20, (b[2]+b[3])/2-20, \"A\\\\B, -\",col=col)\n\n# convex hull segment\nx &lt;- c(0,100,300,500)\ny &lt;- c(0,400,500,500)\ncol &lt;- \"red\"\nlines( x[2:3], y[2:3], lty=\"dotted\",col=col)\ntext( (x[2]+x[3])/2-15, (y[2]+y[3])/2+15, \"\",col=col)"
   },
   {
+    "objectID": "chapter_6/rulelist-tree.html#rule-list-tree-left",
+    "href": "chapter_6/rulelist-tree.html#rule-list-tree-left",
+    "title": "6.5 Rule List Tree",
+    "section": "Rule List Tree left",
+    "text": "Rule List Tree left\n\n\n\n\ngraph TD;\n    L1[\"B: [0+, 4-]\"]:::red\n    L2[\"D: [3+, 0-]\"]:::green\n    L3[\"F: [0+, 1-]\"]:::red\n    N1[\"A: Gills\"]\n    N2[\"C: Teeth\"]\n    N3[\"E: Length\"]\n    L4[\"G: [2+, 0-]\"]:::green\n\n    N1 -- \"≠yes\" --&gt; N2\n    N1 --&gt; L1\n    N2 -- \"≠many\" --&gt; N3\n    N2 --&gt; L2\n    N3 -- \"≠4\" --&gt; L4\n    N3 --&gt; L3\n\n    classDef red fill:#f04030,stroke:#000,stroke-width:1px;\n    classDef green fill:#00a000,stroke:#000,stroke-width:1px;"
+  },
+  {
+    "objectID": "chapter_6/rulelist2.html",
+    "href": "chapter_6/rulelist2.html",
+    "title": "6.3 Rule List",
+    "section": "",
+    "text": "NULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist2.html#rule-list-2-right",
+    "href": "chapter_6/rulelist2.html#rule-list-2-right",
+    "title": "6.3 Rule List",
+    "section": "",
+    "text": "NULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist2.html#rule-list-2-left",
+    "href": "chapter_6/rulelist2.html#rule-list-2-left",
+    "title": "6.3 Rule List",
+    "section": "Rule List 2 left",
+    "text": "Rule List 2 left\n\n\n\n\ngraph TD;\n    34[\"true&lt;br&gt;[5+, 1-]\"]\n    38[\"Length=3&lt;br&gt;[2+, 0-]\"]:::green\n    76[\"Length=4&lt;br&gt;[1+, 1-]\"]\n    95[\"Length=5&lt;br&gt;[2+, 0-]\"]:::green\n    62[\"Gills=no&lt;br&gt;[5+, 1-]\"]\n    33[\"Beak=yes&lt;br&gt;[5+, 1-]\"]\n    32[\"Teeth=many&lt;br&gt;[3+, 0-]\"]:::green\n    45[\"Teeth=few&lt;br&gt;[2+, 1-]\"]\n\n    34 --&gt; 32\n    34 --&gt; 33\n    34 --&gt; 38\n    34 --&gt; 45\n    34 --&gt; 62\n    34 --&gt; 76\n    34 --&gt; 95\n\n    classDef green fill:#00a000,stroke:#000,stroke-width:1px;"
+  },
+  {
     "objectID": "chapter_6/items-cc-dolphins.html",
     "href": "chapter_6/items-cc-dolphins.html",
     "title": "Items-cc-dolphins",
     "section": "",
     "text": "graph TD;\n    1[\"Length=3 & Gills=no & Beak=yes & Teeth=many\"]:::dottedEllipse\n    2[\"Length=4 & Gills=no & Beak=yes & Teeth=many\"]:::dottedEllipse\n    3[\"Length=3 & Gills=no & Beak=yes & Teeth=few\"]:::dottedEllipse\n    4[\"Length=5 & Gills=no & Beak=yes & Teeth=many\"]:::dottedEllipse\n    5[\"Length=5 & Gills=no & Beak=yes & Teeth=few\"]:::dottedEllipse\n    6[\"Gills=no & Beak=yes & Teeth=many\"]:::triangle\n    9[\"Length=3 & Gills=no & Beak=yes\"]:::dashedEllipse\n    12[\"Gills=no & Beak=yes\"]:::pentagon\n    28[\"Gills=no & Beak=yes & Teeth=few\"]:::dashedEllipse\n    37[\"Length=5 & Gills=no & Beak=yes\"]:::dashedEllipse\n\n    6 --&gt; 1\n    9 --&gt; 1\n    12 --&gt; 6\n    12 --&gt; 9\n    6 --&gt; 2\n    28 --&gt; 3\n    9 --&gt; 3\n    12 --&gt; 28\n    6 --&gt; 4\n    37 --&gt; 4\n    12 --&gt; 37\n    28 --&gt; 5\n    37 --&gt; 5\n\n    classDef triangle fill:white,stroke:#000;\n    classDef pentagon fill:white,stroke:#000;\n    classDef dashedEllipse fill:none,stroke:#000,stroke-dasharray:5,5;\n    classDef dottedEllipse fill:none,stroke:#000,stroke-dasharray:2,2;"
+  },
+  {
+    "objectID": "chapter_6/rulelist1.html",
+    "href": "chapter_6/rulelist1.html",
+    "title": "6.2 Rule List",
+    "section": "",
+    "text": "NULL\n\n\nNULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist1.html#rule-list-right",
+    "href": "chapter_6/rulelist1.html#rule-list-right",
+    "title": "6.2 Rule List",
+    "section": "",
+    "text": "NULL\n\n\nNULL\n\n\nNULL"
+  },
+  {
+    "objectID": "chapter_6/rulelist1.html#rule-list-left",
+    "href": "chapter_6/rulelist1.html#rule-list-left",
+    "title": "6.2 Rule List",
+    "section": "Rule List left",
+    "text": "Rule List left\n\n\n\n\ngraph TD;\n    34[\"true&lt;br&gt;[5+, 5-]\"]\n    38[\"Length=3&lt;br&gt;[2+, 0-]\"]:::green\n    76[\"Length=4&lt;br&gt;[1+, 3-]\"]\n    95[\"Length=5&lt;br&gt;[2+, 2-]\"]\n    35[\"Gills=yes&lt;br&gt;[0+, 4-]\"]:::red\n    62[\"Gills=no&lt;br&gt;[5+, 1-]\"]\n    33[\"Beak=yes&lt;br&gt;[5+, 3-]\"]\n    52[\"Beak=no&lt;br&gt;[0+, 2-]\"]:::red\n    32[\"Teeth=many&lt;br&gt;[3+, 4-]\"]\n    45[\"Teeth=few&lt;br&gt;[2+, 1-]\"]\n\n    34 --&gt; 32\n    34 --&gt; 33\n    34 --&gt; 35\n    34 --&gt; 38\n    34 --&gt; 45\n    34 --&gt; 52\n    34 --&gt; 62\n    34 --&gt; 76\n    34 --&gt; 95\n\n    classDef red fill:#f04030,stroke:#000,stroke-width:1px;\n    classDef green fill:#00a000,stroke:#000,stroke-width:1px;"
   },
   {
     "objectID": "chapter_10.html",
@@ -270,21 +417,21 @@
     "href": "chapter_9/gmm.html",
     "title": "GMM",
     "section": "",
-    "text": "(array([55, 66]), array([4.38831451, 4.77911115]), array([58, 69]))"
+    "text": "(array([51, 60]), array([ 0.08127255, 11.19154203]), array([50, 57]))"
   },
   {
     "objectID": "chapter_9/linclass2.html",
     "href": "chapter_9/linclass2.html",
     "title": "Linear Classifier 2",
     "section": "",
-    "text": "Error for BLC: 5\nError for LSC: 8\nOptimization terminated successfully.\n         Current function value: 0.083420\n         Iterations 9\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Fri, 07 Mar 2025   Pseudo R-squ.:                  0.8796\nTime:                        14:55:17   Log-Likelihood:                -16.684\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 1.096e-53\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          0.5380      0.825      0.653      0.514      -1.078       2.154\nx1             1.9628      0.508      3.861      0.000       0.966       2.959\nx2             4.2366      0.948      4.468      0.000       2.378       6.095\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.13 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 7\nBinary Logistic Regression Error: 0.025949963792308274"
+    "text": "Error for BLC: 10\nError for LSC: 10\nOptimization terminated successfully.\n         Current function value: 0.099453\n         Iterations 10\n                           Logit Regression Results                           \n==============================================================================\nDep. Variable:                      y   No. Observations:                  200\nModel:                          Logit   Df Residuals:                      197\nMethod:                           MLE   Df Model:                            2\nDate:                Thu, 13 Mar 2025   Pseudo R-squ.:                  0.8565\nTime:                        16:53:04   Log-Likelihood:                -19.891\nconverged:                       True   LL-Null:                       -138.63\nCovariance Type:            nonrobust   LLR p-value:                 2.706e-52\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          1.1457      0.816      1.404      0.160      -0.454       2.745\nx1             2.3239      0.541      4.299      0.000       1.264       3.383\nx2             4.7530      1.171      4.060      0.000       2.458       7.048\n==============================================================================\n\nPossibly complete quasi-separation: A fraction 0.18 of observations can be\nperfectly predicted. This might indicate that there is complete\nquasi-separation. In this case some parameters will not be identified.\nError for Logistic Regression: 9\nBinary Logistic Regression Error: 0.030507733335994457"
   },
   {
     "objectID": "chapter_9/logreg.html",
     "href": "chapter_9/logreg.html",
     "title": "Logreg",
     "section": "",
-    "text": "Error Rate Logistic Calibration: 0.1202305533280545\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.1230765801417174"
+    "text": "Error Rate Logistic Calibration: 0.079452813206408\nError Rate Isotonic Calibration: 0.0811965811965812\nError Rate Logistic Regression: 0.08162515377399171"
   },
   {
     "objectID": "chapter_7/linkernel.html",
@@ -298,7 +445,7 @@
     "href": "chapter_9.html",
     "title": "Chapter 9",
     "section": "",
-    "text": "Density Left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDensity Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGMM\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLinear Classifier 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLogreg\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "9.3 Bivariate Distribution Visualization\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDensity Left\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nDensity Right\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGMM\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLinear Classifier 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nLogreg\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "chapter_1.html",
@@ -313,12 +460,5 @@
     "title": "1.8 Logcal",
     "section": "",
     "text": "graph TD;\n    N0[\"grading\"] --&gt;|a bit| N1[\"logical\"];\n    N0 --&gt;|a lot| N2[\"geometric\"];\n\n    N1 --&gt;|yes| N11[\"supervised\"];\n    N1 --&gt;|\"not so\\nmuch\"| L12[\"naive\\nBayes\"]:::orange;\n    N11 --&gt;|no| L111[\"association\\nrules\"]:::red;\n    N11 --&gt;|\"yes\"| L112[\"trees & \\nrules\"]:::red;\n\n    N2 --&gt;|yes| N21[\"splitting\"];\n    N2 --&gt;|\"not\\ncom-\\npletely\"| N22[\"supervised\"];\n    \n    N21 --&gt;|\"some\"| N212[\"supervised\"];\n    N21 --&gt;|no| L211[\"linear\\nclassifiers\"]:::purple;\n    N212 --&gt;|no| L2121[\"K-means\"]:::purple;\n    N212 --&gt;|yes| L2122[\"k-NN\"]:::purple;\n\n    N22 --&gt;|no| L221[\"GMM\"]:::orange;\n    N22 --&gt;|yes| L222[\"SVM\"]:::purple;\n\n    classDef red fill:#ff9999,stroke:#000,color:#000;\n    classDef orange fill:#ffcc99,stroke:#000,color:#000;\n    classDef purple fill:#cc99ff,stroke:#000,color:#000;\n\n    class L111,L112 red;\n    class L12,L221 orange;\n    class L211,L2121,L2122,L222 purple;"
-  },
-  {
-    "objectID": "chapter_1/diabetes.html",
-    "href": "chapter_1/diabetes.html",
-    "title": "1.1 Diabetes",
-    "section": "",
-    "text": "/tmp/ipykernel_279600/1892222177.py:30: RuntimeWarning: invalid value encountered in divide\n  p = counts[:, 0] / (counts[:, 0] + counts[:, 0])  # Adjusting indexing to match MATLAB behavior"
   }
 ]

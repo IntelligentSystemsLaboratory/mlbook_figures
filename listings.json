@@ -2,6 +2,9 @@
   {
     "listing": "/chapter_5.html",
     "items": [
+      "/chapter_5/dolphins-dt.html",
+      "/chapter_5/growtree.html",
+      "/chapter_5/prunedtree.html",
       "/chapter_5/clustree2.html",
       "/chapter_5/dt_cost.html",
       "/chapter_5/dolphins-dl-left.html",
@@ -26,6 +29,10 @@
   {
     "listing": "/chapter_6.html",
     "items": [
+      "/chapter_6/rulelist1.html",
+      "/chapter_6/rulelist2.html",
+      "/chapter_6/rulelist3.html",
+      "/chapter_6/rulelist-tree.html",
       "/chapter_6/ABBA.html",
       "/chapter_6/ABBA_right.html",
       "/chapter_6/ABC.html",
@@ -93,6 +100,8 @@
   {
     "listing": "/chapter_4.html",
     "items": [
+      "/chapter_4/path.html",
+      "/chapter_4/dolphins4.html",
       "/chapter_4/concepts-full.html",
       "/chapter_4/concepts-closed.html",
       "/chapter_4/dolphins.html",
@@ -122,6 +131,7 @@
   {
     "listing": "/chapter_9.html",
     "items": [
+      "/chapter_9/bivar.html",
       "/chapter_9/density_left.html",
       "/chapter_9/density_right.html",
       "/chapter_9/gmm.html",
