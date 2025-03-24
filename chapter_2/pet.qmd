@@ -1,5 +1,8 @@
 ---
-title: "PET"
+title: "2.12 PET"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 ```{mermaid}

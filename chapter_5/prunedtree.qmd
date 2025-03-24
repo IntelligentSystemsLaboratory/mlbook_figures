@@ -2,11 +2,12 @@
 title: "5.6 Pruned Tree"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Pruned Tree right
@@ -14,14 +15,10 @@ execute:
 ```{r}
 
 
-h <- 500 # height of plot
-w <- 1000 # width of plot
-# w <- 360 # width of plot
-grid.step <- 100
+h <- 500 
+w <- 1000 
 
-# print to a file
-# png(height = h, width = w, filename = "pn-nested.png")
-# windows(height = h, width = w)
+grid.step <- 100
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -43,13 +40,9 @@ x3 <- c(0,  100,  n1,  380,  n0)
 y4 <- c(0,  150,  440,  490,  p0)
 x4 <- c(0,   30,  130,  750,  n0)
 
-# draw axes
 axis(2,y0,labels=c('0','50'))
 axis(1,x0,labels=c('0','100'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -61,27 +54,6 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# draw diagonal
-# abline(c(0,h/w),lty=3)
-
-# label the points
-# text( xold[1]+10, yold[1]+10, "A")
-# text( xold[2:3]+10, yold[2:3], labels=c("B","C"))
-# text( xold[4]-10, yold[4]-15, "D")
-
-
-# now draw nested grids
-# for (i in 2:4) {
-#   abline(v=x[i],lty='dashed')
-#   abline(h=y[i],lty='dashed')
-# }
-
-# draw curve
-#lines( x0, y0, lty=1, type='o', col=rgb(240,32, 16,maxColorValue=255))
-#lines( x1, y1, lty=1, type='o', col=rgb(144,32,144,maxColorValue=255))
-#lines( x3, y3, lty=2, type='o', col=rgb( 16,32,240,maxColorValue=255))
-#lines( x4, y4, lty=2, type='o', col=rgb( 16,32,240,maxColorValue=255))
-#lines( c(0,100,750,1000), c(0,290,490,500), lty=1, type='o', col=rgb( 16,32,240,maxColorValue=255))
 lines( c(0,100), c(0,290), lty=1, type='o', col=rgb( 16,32,240,maxColorValue=255))
 lines( c(100,750), c(290,490), lty=1, type='o', col=rgb(144,32,144,maxColorValue=255))
 lines( c(750,1000), c(490,500), lty=1, type='o', col=rgb( 16,32,240,maxColorValue=255))
@@ -89,11 +61,6 @@ lines( c(750,1000), c(490,500), lty=1, type='o', col=rgb( 16,32,240,maxColorValu
 lines( c(0,30), c(0,150), lty=3, type='o', col=rgb( 16,32,240,maxColorValue=255))
 lines( c(30,130), c(150,440), lty=1, type='o', col=rgb(16,32,240,maxColorValue=255))
 lines( c(130,750), c(440,490), lty=3, type='o', col=rgb(16,32,240,maxColorValue=255))
-
-
-# close file
-#dev.off()
-
 
 ```
 

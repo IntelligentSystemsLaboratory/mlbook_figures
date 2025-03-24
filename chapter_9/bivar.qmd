@@ -2,11 +2,12 @@
 title: "9.3 Bivariate Distribution Visualization"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ```{python}
@@ -16,31 +17,29 @@ import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
 
 def bivar(graphtype, mupos=None, sigpos=None, rhopos=None, muneg=None, signeg=None, rhoneg=None):
-    # Default settings
+
     if mupos is None:
         mupos = np.array([4, 4])
         sigpos = np.array([1, 1])
         rhopos = 0
         muneg = np.array([2, 2])
-        sigmaneg = np.array([[1, -0.6], [-0.6, 1]])  # Default negative class covariance
+        sigmaneg = np.array([[1, -0.6], [-0.6, 1]])  
     else:
         sigmapos = np.array([[sigpos[0], rhopos * np.sqrt(sigpos[0] * sigpos[1])],
                              [rhopos * np.sqrt(sigpos[0] * sigpos[1]), sigpos[1]]])
 
-        # Ensure sigmaneg is assigned if not passed
         if signeg is None:
-            sigmaneg = np.array([[1, -0.6], [-0.6, 1]])  # Default negative class covariance
+            sigmaneg = np.array([[1, -0.6], [-0.6, 1]])  
         else:
             sigmaneg = signeg
 
     Npos = 100
     Nneg = 100
 
-    # Generate distribution surface data
+
     pos = np.random.multivariate_normal(mupos, sigmapos, Npos)
     neg = np.random.multivariate_normal(muneg, sigmaneg, Nneg)
 
-    # Min and max values for plotting range
     mn = np.min(np.concatenate((pos, neg), axis=0))
     mx = np.max(np.concatenate((pos, neg), axis=0))
     
@@ -61,10 +60,10 @@ def bivar(graphtype, mupos=None, sigpos=None, rhopos=None, muneg=None, signeg=No
     Pb = (1 / (2 * np.pi * np.sqrt(np.linalg.det(sigmapos)))) * np.exp(-1 / 2)
     Ps = (1 / (2 * np.pi * np.sqrt(np.linalg.det(sigmaneg)))) * np.exp(-1 / 2)
 
-    # Plotting
+
     plt.figure(figsize=(8, 8))
     if graphtype == 2:
-        # 2D scatter plots and standard deviation contours
+
         plt.axis('square')
         plt.axis([mn, mx, mn, mx])
 
@@ -78,7 +77,7 @@ def bivar(graphtype, mupos=None, sigpos=None, rhopos=None, muneg=None, signeg=No
         plt.plot([mupos[0], muneg[0]], [mupos[1], muneg[1]], color='k', linestyle=':')
 
     elif graphtype == 3:
-        # 3D surfaces and standard deviation contours
+
         from mpl_toolkits.mplot3d import Axes3D
 
         fig = plt.figure(figsize=(8, 8))
@@ -92,14 +91,13 @@ def bivar(graphtype, mupos=None, sigpos=None, rhopos=None, muneg=None, signeg=No
 
     plt.show()
 
-# Compute probability of (x, y) for a given mu and sigma
+
 def getprob(x, y, mu, sigma):
     vec = np.array([x, y])
     E = 2 * np.pi * np.sqrt(np.linalg.det(sigma))
     P = (1 / E) * np.exp(-0.5 * np.dot(np.dot((vec - mu), np.linalg.inv(sigma)), (vec - mu).T))
     return P
 
-# Example usage:
 bivar(2, mupos=[4, 3], sigpos=[1, 1], rhopos=0, muneg=[2, 2], signeg=[[1, -0.6], [-0.6, 1]], rhoneg=0)
 
 

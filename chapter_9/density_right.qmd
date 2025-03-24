@@ -1,5 +1,8 @@
 ---
-title: "Density Right"
+title: "9.5 Density Right"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
@@ -8,24 +11,14 @@ title: "Density Right"
 
 points <- runif(20,-2,2)
 
-# histogram
 hist(points,xlab='',main='',prob=T)
 
-# add sample on x-axis
 rug(points)
 
-# true gaussian
-#curve(dnorm(x),add=T,lty=3)
-
-# estimated gaussian
 mu = mean(points)
 sigma = sd(points)
 curve(dnorm(x,mean=mu,sd=sigma),add=T,col="blue")
-#abline(v=mu,col="blue",lty=2)
-#abline(v=mu-sigma,col="blue",lty=3)
-#abline(v=mu+sigma,col="blue",lty=3)
 
-# kernel density estimator
 lines(density(points),col="red")
 
 

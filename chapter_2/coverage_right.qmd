@@ -1,42 +1,32 @@
 ---
 title: "2.2 Coverage Right"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 
 A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3.
 
 ```{r}
-#| echo: false
 
-
-
-h <- 750 # height of plot
-w <- 250 # width of plot
+h <- 750 
+w <- 250 
 grid.step <- 50
 
 TP3 <- 600
 FP3 <- 100
-#TP2 <- 20
-#FP2 <- 20
 
-# print to a file
-# png(filename = "coverage-right copy.png")
-# windows(height = h, width = w)
 
 plot( c(0,w), c(0,h), 
-     #asp = h/w, 
      xaxs = "i",yaxs = "i",
      xaxt = 'n', yaxt = 'n',
      type = "n",
      xlab = "Negatives", ylab = "Positives")
 
-# draw axes
 axis(2,c(0,TP3,h),labels=c('0','TP3','Pos'))
 axis(1,c(0,FP3,w),labels=c('0','FP3','Neg'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -48,18 +38,9 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-
-# draw diagonal
-# abline(c(0,h/w),lty=3)
-
-# draw points
 col3 <- "green"
 points( FP3, TP3, col=col3, type="o")
 text( FP3, TP3, "C3", pos=3)
 abline(h=TP3, v=FP3, col=col3, lty="dotted")
 
-
-
-# close file
-# dev.off()
 ```

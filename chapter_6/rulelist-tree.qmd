@@ -2,11 +2,12 @@
 title: "6.5 Rule List Tree"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Rule List Tree right
@@ -16,14 +17,11 @@ execute:
 x <- c(0,400,400,500,500)
 y <- c(0,  0,300,300,500)
 
-h <- 500 # height of plot
-w <- 500 # width of plot
-# w <- 360 # width of plot
+h <- 500 
+w <- 500 
+
 grid.step <- 100
 
-# print to a file
-# png(height = h, width = w, filename = "pn-nested.png")
-# windows(height = h, width = w)
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -31,13 +29,7 @@ plot( c(0,w), c(0,h),
      type = "n",
      xlab = "Negatives", ylab = "Positives")
      
-# draw axes
-#axis(2,y,labels=c('','','p1-2,p4','','p3,p5'))
-#axis(1,x,labels=c('','n1-4','','n5',''))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -61,24 +53,18 @@ plotsplit(1,5,2,c("A","B","C"),c(-10,10),c(0,10),c(10,-10))
 plotsplit(2,5,3,c("","D","E"),c(10,-10),c(-10,-10),c(-10,10))
 plotsplit(3,5,4,c("","F","G"),c(-10,-10),c(0,10),c(-10,-40))
 
-# draw curve
 lines( x[1:2], y[1:2], lwd=5, col='red')
 lines( x[2:3], y[2:3], lwd=3, col='green')
 lines( x[3:4], y[3:4], lwd=3, col='red')
 lines( x[4:5], y[4:5], lwd=5, col='green')
 points(x,y,pch=19,col='black')
 
-# draw ROC curve
 lines( c(0,  0,  0,100,500), c(0,300,500,500,500), lwd=5, type='o',col='blue')
 
 text(  15, 150, col="blue", "D")
 text(  15, 400, col="blue", "G")
 text(  50, 485, col="blue", "F")
 text( 300, 485, col="blue", "B")
-
-# close file
-#dev.off()
-
 
 ```
 

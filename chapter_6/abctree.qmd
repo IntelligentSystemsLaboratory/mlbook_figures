@@ -1,5 +1,8 @@
 ---
-title: "ABC Tree"
+title: "6.12 ABC Tree"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{mermaid}

@@ -1,6 +1,9 @@
 ---
-title: "Random Dendogram"
+title: "8.18 Random Dendogram"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -15,35 +18,29 @@ from scipy.stats import spearmanr
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics import silhouette_samples
 
-# Load the data (simulating load from file here)
 filename = 'randomdendrogram'
-D = np.random.rand(20, 2)  # Example: random data generation if the data is not loaded
-# np.savetxt(filename, D)  # Save data (if needed)
-# D = np.loadtxt(filename)  # Load data from a file if it's already saved
+D = np.random.rand(20, 2)  
 
-# Hierarchical clustering methods
-methods = ['complete']  # Only complete method used as per the original code
-f = 1  # Figure counter
+methods = ['complete']  
+f = 1 
 
-# Loop over clustering methods
+
 for method in methods:
-    # Dendrogram plotting
+    
     plt.figure(f)
     f += 1
     L = linkage(D, method)
     
-    # Cophenetic correlation and Spearman correlation
+    
     PD = pdist(D)
     c, d = cophenet(L, PD)
     r, _ = spearmanr(PD, d)
     print(f'Spearman correlation for {method}: {r}')
-    
-    # Create and plot dendrogram
+
     dendrogram(L, color_threshold='default')
     plt.title(f'{filename}-middle')
     plt.show()
-    
-    # Clustering and scatter plot
+
     plt.figure(f)
     f += 1
     clustering = AgglomerativeClustering(n_clusters=3, linkage=method)
@@ -55,10 +52,9 @@ for method in methods:
         plt.text(D[i, 0] + d, D[i, 1] + d, str(i + 1), fontsize=12)
     plt.title(f'{filename}-left')
     plt.axis([0, 1, 0, 1])
-    plt.gca().set_box_aspect(1)  # Keep aspect ratio square
+    plt.gca().set_box_aspect(1)
     plt.show()
-    
-    # Silhouette plot
+
     plt.figure(f)
     f += 1
     silhouette_vals = silhouette_samples(D, T, metric='euclidean')

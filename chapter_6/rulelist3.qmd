@@ -2,42 +2,32 @@
 title: "6.4 Rule List 3"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Rule List 3 right
 
 ```{r}
 
-#c <- 1  # class ratio dt-cost-left
-c <- 1 # class ratio dt-cost-right
-pos <- c*50  # positive examples
-neg <- 50  # negative examples
+c <- 1 
+pos <- c*50 
+neg <- 50  
 
 rocgrid <- function() {
 	plot( c(0,neg), c(0,pos),
 		 xlim=c(0,neg),ylim=c(0,pos),
-		 #asp = pos/neg,
 		 xaxs = "i",yaxs = "i",
 		 xaxt = 'n', yaxt = 'n',
 		 type = "n",
 		 xlab = "Negatives", ylab = "Positives")
-	
-	# add a grid
-	#grid.step <- 5
+
 	grid (nx = neg/10, ny = pos/10, col = gray(0.5))
 	
-	# draw diagonals
-	#abline(0,pos/neg,lty="dotted")	# ascending
-	#abline(pos,-pos/neg,lty="dotted")	# descending
-	
-	# draw axes
-	#axis(2,c(0,0.2*pos,0.4*pos,0.6*pos,0.8*pos,pos),labels=c('0','20%','40%','60%','80%','100%'))
-	#axis(1,c(0,0.2*neg,0.4*neg,0.6*neg,0.8*neg,neg),labels=c('0','20%','40%','60%','80%','100%'))
 }
 
 box <- function(x0,y0,x1,y1,col) {
@@ -46,8 +36,6 @@ box <- function(x0,y0,x1,y1,col) {
 metric <- function(tp,fp,Pos,Neg,m) {
   if (tp+fp == 0) { return(0) }
   else {
-    #Pos = pos
-    #Neg = neg
     N = Pos+Neg
     TP = tp
     FP = fp
@@ -119,7 +107,6 @@ contours <- function(m,label) {
 }
 
 contour1 <- function(m,col,lty,tp,fp,Pos,Neg) {
-	#v <- metric(tp,fp*(Pos/Neg),Pos,Neg,m)
 	v <- metric(tp,fp,Pos,Neg,m)
 	col=rgb(min(2-2*v,1),v,0)
 	points(fp,tp,col=col,type='p',lwd=3)
@@ -146,15 +133,13 @@ rocgrid()
 d = 1
 method = 'precision'
 colour = 'black'
-#box(0,0,neg,pos,colour)
+
 p = 0; n = 10
 arrows(neg-d,pos-d,n-d,p+d,col='violet',length=0.1,lwd=3)
-#lines(c(0,neg),c(0,0),col='red',lwd=3)
-#lines(c(0,0),c(0,pos),col='green',lwd=3)
+
 contour1(method,'red','solid', p, n, pos, neg)
 contour1(method,'green','solid',10,  0, pos, neg)
 contour1(method,colour,'dotted',20, 10, pos, neg)
-#contour1(method,colour,'dotted', 0,  0, pos, neg)
 
 ```
 

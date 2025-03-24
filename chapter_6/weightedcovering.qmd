@@ -1,19 +1,20 @@
 ---
-title: "Weighted Covering"
+title: "6.16 Weighted Covering"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
 ```{r}
 #| echo: false
 
-# Set the class ratios and example counts
-c <- 1  # class ratio (dt-cost-right)
-pos <- c * 50  # positive examples
-neg <- 50  # negative examples
+c <- 1  
+pos <- c * 50  
+neg <- 50  
 Pos <- pos
 Neg <- neg
 
-# Define the ROC grid for plotting
 rocgrid <- function() {
   plot(c(0, neg), c(0, pos),
        xlim = c(0, neg), ylim = c(0, pos),
@@ -22,11 +23,11 @@ rocgrid <- function() {
        type = "n",
        xlab = "Negatives", ylab = "Positives")
   
-  # Add a grid
+
   grid(nx = neg / 10, ny = pos / 10, col = gray(0.5))
 }
 
-# Metric functions to calculate performance metrics
+
 metric <- function(tp, fp, m) {
   if (tp + fp == 0) { return(0) }
   N <- Pos + Neg
@@ -36,10 +37,8 @@ metric <- function(tp, fp, m) {
   if (m == 'wracc') return(tp / N - (tp + fp) * (tp + FN) / N^2)
   if (m == 'precision') return(tp / (tp + fp))
   if (m == 'f-measure') return(2 * tp / (2 * tp + fp + FN))
-  # Add other metrics as needed
 }
 
-# Define entropy, gini, and other metric helpers
 entropy <- function(P, N) {
   p <- P / (P + N)
   n <- N / (P + N)
@@ -53,7 +52,7 @@ gini <- function(P, N) {
   return(4 * p * n)
 }
 
-# Function to plot the contours
+
 contour1 <- function(m, col, lty, tp, fp) {
   v <- metric(tp, fp, m)
   if (m == 'wracc') {
@@ -80,7 +79,6 @@ contour1 <- function(m, col, lty, tp, fp) {
   contour(x, y, z, level = v, lwd = lwd - 1, add = TRUE, col = col, lty = lty, labels = "")
 }
 
-# Define contour function for two sets of points
 contour2 <- function(m, col, lty, tp, fp, tpc, fpc) {
   Pos1 = Pos; Pos = 50; Neg1 = Neg; Neg = 50
   contour1(m, col, 0, tp, fp)
@@ -98,22 +96,17 @@ contour2 <- function(m, col, lty, tp, fp, tpc, fpc) {
   contour1(m, col, lty, tp1, fp1)
 }
 
-# Plot grid and contours
 rocgrid()
 
-# Choose method and color for plotting
-method <- 'wracc'  # Set the method for calculating metrics
-colour = 'black'  # Color for plotting
+method <- 'wracc' 
+colour = 'black'  
 p = 0; n = 40
 
-# Plot positive and negative examples
 Pos = 45; Neg = 35
 colour = 'blue'
 
-# Drawing a box (boundary for Pos and Neg)
 rect(0, 0, Neg, Pos, border = colour)
 
-# Add some contours (you can adjust parameters as needed)
 contour2(method, colour, 'dotted', 50, 50, 10, 30)
 contour2(method, colour, 'dotted', 50, 30, 10, 20)
 contour2(method, colour, 'dotted', 50, 10, 10, 10)

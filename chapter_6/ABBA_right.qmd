@@ -1,14 +1,16 @@
 ---
-title: "ABBA Right"
+title: "6.6 ABBA Right"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
 ```{r}
 #| echo: false
 
-# Plot and grid
-h <- 500 # height of plot
-w <- 500 # width of plot
+h <- 500 
+w <- 500 
 grid.step <- 100
 
 plot( c(0,w), c(0,h),  
@@ -28,47 +30,26 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# Data
-# A: p2; n2,n4,n5
-# B: p1,p2,p3,p4,p5; n1,n2,n5
-
-# Rule-tree curve
 x <- c(0,100,300,500)
 y <- c(0,400,500,500)
 col <- "red"
 lines( x, y, lwd=5, type="o",col=col)
-# Predicted probability: 0.8
+
 text( (x[1]+x[2])/2+20, (y[1]+y[2])/2, "-B",col=col)
-# Predicted probability: 0.333333
+
 text( (x[2]+x[3])/2+70, (y[2]+y[3])/2+20, "AB",col=col)
-# Predicted probability: 0
+
 text( (x[3]+x[4])/2, (y[3]+y[4])/2-20, "--, A-",col=col)
 
-# Rule-list curve
 a <- c(0,100,400,500)
 b <- c(0,400,500,500)
 col <- "blue"
 lines( a, b, lwd=3, type="o",col=col)
-# Predicted probability: 0.8
-text( (a[1]+a[2])/2+20, (b[1]+b[2])/2-20, "B",col=col)
-# Predicted probability: 0.25
-text( (a[2]+a[3])/2, (b[2]+b[3])/2-20, "A",col=col)
-# Predicted probability: 0
-text( (a[3]+a[4])/2, (b[3]+b[4])/2-20, "-",col=col)
 
-## Rule-set curve
-## Probability estimation: nb without Laplace correction
-#c <- c(0,100,300,400,500,500)
-#d <- c(0,400,500,500,500,500)
-#col <- "red"
-#lines( c, d, lwd=3, type="o",col=col)
-## Predicted probability: 0.875
-#text( (c[1]+c[2])/2+20, (d[1]+d[2])/2-20, "-B",col=col)
-## Predicted probability: 0.71875
-#text( (c[2]+c[3])/2+20, (d[2]+d[3])/2-20, "AB",col=col)
-## Predicted probability: 0.666667
-#text( (c[3]+c[4])/2+20, (d[3]+d[4])/2-20, "--",col=col)
-## Predicted probability: 0.25
-#text( (c[4]+c[5])/2+20, (d[4]+d[5])/2-20, "A-",col=col)
+text( (a[1]+a[2])/2+20, (b[1]+b[2])/2-20, "B",col=col)
+
+text( (a[2]+a[3])/2, (b[2]+b[3])/2-20, "A",col=col)
+
+text( (a[3]+a[4])/2, (b[3]+b[4])/2-20, "-",col=col)
 
 ```

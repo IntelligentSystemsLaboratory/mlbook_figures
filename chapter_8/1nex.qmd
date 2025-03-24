@@ -1,11 +1,12 @@
 ---
-title: "1nex"
+title: "8.7 1nex"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
-
-#| echo: false
 
 
 

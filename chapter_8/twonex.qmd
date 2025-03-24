@@ -1,6 +1,9 @@
 ---
-title: "Twonex"
+title: "8.8 Twonex"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -12,64 +15,47 @@ import matplotlib.pyplot as plt
 from scipy.spatial import Voronoi, voronoi_plot_2d
 from sklearn.neighbors import KNeighborsClassifier
 
-# Training data and labels
 Tr = np.array([[-25, 5], [-11, -23], [17, 19], [5, 0], [25, -30]])
 Cl = np.array([1, 3, 5, 2, 4])
 
-# Number of exemplars
 Nexemplars = Tr.shape[0]
 
-# Boundaries for the grid
 mn = -40
 mx = 40
 N = 2 * (mx - mn)
 
-# Create test points on a grid
 Te = np.zeros(((N + 1) ** 2, 2))
 for i in range(N + 1):
     for j in range(N + 1):
         Te[i * (N + 1) + j, 0] = mn + j * (mx - mn) / N
         Te[i * (N + 1) + j, 1] = mn + i * (mx - mn) / N
 
-# Function for k-NN classification and Voronoi plot
 def knn_voronoi_plot(k, Te, Tr, Cl, title):
-    # Perform k-NN classification
     knn = KNeighborsClassifier(n_neighbors=k)
     knn.fit(Tr, Cl)
     Lb = knn.predict(Te)
     
-    # Create Voronoi diagram
     vor = Voronoi(Tr)
     
-    # Plot the Voronoi diagram
     fig, ax = plt.subplots()
     ax.set_xlim(mn, mx)
     ax.set_ylim(mn, mx)
     ax.set_aspect('equal')
     ax.axis('off')
     
-    # Plot Voronoi tessellation
     voronoi_plot_2d(vor, ax=ax, show_vertices=False, line_colors='m', line_width=1)
     
-    # Scatter plot for test points with their class labels
     scatter = ax.scatter(Te[:, 0], Te[:, 1], c=Lb, s=3, cmap=plt.cm.get_cmap('tab10'))
     
-    # Scatter plot for training points
     ax.scatter(Tr[:, 0], Tr[:, 1], c=Cl, s=150, marker='o', edgecolor='k', linewidth=2)
     
     ax.set_title(title)
     plt.show()
 
-# 1-nearest neighbor plot with Voronoi tessellation
 knn_voronoi_plot(1, Te, Tr, Cl, "1-NN with Voronoi Tessellation")
 
-# 2-nearest neighbor plot with Voronoi tessellation
 knn_voronoi_plot(2, Te, Tr, Cl, "2-NN with Voronoi Tessellation")
 
-# 3-nearest neighbor plot with Voronoi tessellation
 knn_voronoi_plot(3, Te, Tr, Cl, "3-NN with Voronoi Tessellation")
-
-# You can continue for higher values of k as needed
-
 
 ```

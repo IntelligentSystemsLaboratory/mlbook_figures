@@ -1,14 +1,17 @@
 ---
-title: "Impurity Rule"
+title: "6.1 Impurity Rule"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
 ```{r}
 #| echo: false
 
-c <- 1/2  # class ratio
-pos <- c*100  # positive examples
-neg <- 100  # negative examples
+c <- 1/2 
+pos <- c*100 
+neg <- 100 
 
 rocgrid <- function() {
 	plot( c(0,neg), c(0,pos),
@@ -19,15 +22,11 @@ rocgrid <- function() {
 		 type = "n",
 		 xlab = "Negatives", ylab = "Positives")
 	
-	# add a grid
 	grid.step <- 10
 	grid (nx = neg/grid.step, ny = pos/grid.step, col = gray(0.5))
 	
-	# draw diagonals
-	abline(0,pos/(c*neg),lty="1F")	# ascending
-	#abline(pos,-pos/neg,lty="dotted")	# descending
+	abline(0,pos/(c*neg),lty="1F")
 	
-	# draw axes
 	axis(2,c(0,pos),labels=c('0','Pos'))
 	axis(1,c(0,neg),labels=c('0','Neg'))
 }
@@ -144,14 +143,12 @@ p1 <-  c*80; n1 <- 20
 p2 <- c*100; n2 <- 60
 rocgrid()
 values <- c(0.1,0.4)
-#contours('entropy','blue','solid',2)
+
 contour2('entropy','blue','solid',values)
-#contour1('entropy','blue','dotted',p2, n2)
-#contours('giniimp','violet','solid',2)
+
 contour2('giniimp','violet',"2C",values)
-#contour1('giniimp','violet','dotted',p2, n2)
-#contours('dkmimp','red','solid',2)
+
 contour2('minacc','red',"16",values)
-#contour1('dkmimp','red','dotted',p2, n2)
+
 
 ```

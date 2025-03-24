@@ -1,5 +1,7 @@
 ---
-title: "Concepts Full"
+title: "4.1 Concepts Full"
+echo: true
+code-fold: true
 ---
 
 ```{mermaid}

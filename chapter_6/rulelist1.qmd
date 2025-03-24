@@ -2,11 +2,12 @@
 title: "6.2 Rule List"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Rule List right
@@ -14,10 +15,10 @@ execute:
 ```{r}
 
 
-#c <- 1  # class ratio dt-cost-left
-c <- 1 # class ratio dt-cost-right
-pos <- c*50  # positive examples
-neg <- 50  # negative examples
+
+c <- 1 
+pos <- c*50  
+neg <- 50  
 
 rocgrid <- function() {
 	plot( c(0,neg), c(0,pos),
@@ -28,17 +29,8 @@ rocgrid <- function() {
 		 type = "n",
 		 xlab = "Negatives", ylab = "Positives")
 	
-	# add a grid
-	#grid.step <- 5
 	grid (nx = neg/10, ny = pos/10, col = gray(0.5))
 	
-	# draw diagonals
-	#abline(0,pos/neg,lty="dotted")	# ascending
-	#abline(pos,-pos/neg,lty="dotted")	# descending
-	
-	# draw axes
-	#axis(2,c(0,0.2*pos,0.4*pos,0.6*pos,0.8*pos,pos),labels=c('0','20%','40%','60%','80%','100%'))
-	#axis(1,c(0,0.2*neg,0.4*neg,0.6*neg,0.8*neg,neg),labels=c('0','20%','40%','60%','80%','100%'))
 }
 
 metric <- function(tp,fp,m) {
@@ -129,8 +121,6 @@ method = 'precision'
 colour = 'black'
 p =  0; n = 40
 arrows(50-d,50-d,n+d,p+d,col='violet',length=0.1,lwd=3)
-#lines(c(0,neg),c(0,0),col='red',lwd=3)
-#lines(c(0,0),c(0,pos),col='green',lwd=3)
 contour1(method,'red','solid',  p,  n)
 contour1(method,colour,'dotted',10, 30)
 contour1(method,colour,'dotted',20, 20)

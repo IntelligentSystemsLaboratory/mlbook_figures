@@ -1,6 +1,9 @@
 ---
-title: "GMM"
+title: "9.8 GMM"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -23,73 +26,57 @@ def gmm(mu1=55, sigmasq1=9, mu2=65, sigmasq2=16):
     Returns:
         tuple: Final means, variances, and initial means.
     """
-    # Number of samples per Gaussian
     N1 = 5
     N2 = 5
     N = N1 + N2
 
-    # Generate samples from two Gaussian distributions
     samples1 = np.random.normal(mu1, np.sqrt(sigmasq1), N1)
     samples2 = np.random.normal(mu2, np.sqrt(sigmasq2), N2)
     
-    # Combine and sort the samples
     samples = np.sort(np.concatenate([samples1, samples2]))
 
-    # Define the range for plotting the Gaussian distributions
     x = np.arange(40, 80, 0.1)
 
-    # Compute initial Gaussian distributions
     P1 = (1 / np.sqrt(2 * np.pi * sigmasq1)) * np.exp(-((x - mu1) ** 2) / (2 * sigmasq1))
     P2 = (1 / np.sqrt(2 * np.pi * sigmasq2)) * np.exp(-((x - mu2) ** 2) / (2 * sigmasq2))
 
-    # Plot initial data
     plt.figure()
     plt.plot(samples1, np.zeros(len(samples1)), 'k.', label='Samples from Gaussian 1')
     plt.plot(samples2, np.zeros(len(samples2)), 'r.', label='Samples from Gaussian 2')
     plt.plot(x, P1 + P2, label='Initial sum of Gaussians')
 
-    # Initialize means for the two components (mu0)
     mu0 = np.sort(np.random.randint(50, 71, 2))
     mu = mu0.copy()
-    sigmasq = np.array([1.0, 1.0])  # Initial variances
+    sigmasq = np.array([1.0, 1.0])
 
-    # Initialize responsibilities
     z = np.zeros((2, N))
 
-    # Number of iterations for the EM algorithm
     iterations = 20
 
-    # EM algorithm
     for k in range(iterations):
-        # E-step: Compute the responsibilities (posterior probabilities)
         for i in range(N):
             z1 = (1 / np.sqrt(2 * np.pi * sigmasq[0])) * np.exp(-((samples[i] - mu[0]) ** 2) / (2 * sigmasq[0]))
             z2 = (1 / np.sqrt(2 * np.pi * sigmasq[1])) * np.exp(-((samples[i] - mu[1]) ** 2) / (2 * sigmasq[1]))
-            total = z1 + z2 + 1e-10  # Avoid division by zero
+            total = z1 + z2 + 1e-10 
             z[0, i] = z1 / total
             z[1, i] = z2 / total
 
-        # M-step: Update the means
         z1_sum = np.sum(z[0])
         z2_sum = np.sum(z[1])
 
         mu[0] = np.sum(samples * z[0]) / (z1_sum + 1e-10)
         mu[1] = np.sum(samples * z[1]) / (z2_sum + 1e-10)
 
-        # Update the variances
         sigmasq[0] = np.sum(z[0] * (samples - mu[0]) ** 2) / (z1_sum + 1e-10)
         sigmasq[1] = np.sum(z[1] * (samples - mu[1]) ** 2) / (z2_sum + 1e-10)
 
-        # Plot the updated Gaussian distributions
         P1 = (1 / np.sqrt(2 * np.pi * sigmasq[0])) * np.exp(-((x - mu[0]) ** 2) / (2 * sigmasq[0]))
         P2 = (1 / np.sqrt(2 * np.pi * sigmasq[1])) * np.exp(-((x - mu[1]) ** 2) / (2 * sigmasq[1]))
         plt.plot(x, P1 + P2, color=[1, 1 - k / iterations, 0])
 
-    # Show plot
     plt.legend()
     plt.show()
 
-    # Return the final parameters
     return mu, sigmasq, mu0
 
 gmm()

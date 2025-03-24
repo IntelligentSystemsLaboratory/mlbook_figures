@@ -1,6 +1,9 @@
 ---
-title: "Linclass"
+title: "7.6 Linclass"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -10,7 +13,6 @@ engine: jupyter
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Generate random height and weight data
 N = 10
 h = 60 * np.random.rand(N, 1) + 140
 w = (h - 92) * 5 / 6 + np.random.normal(0, 5, (N, 1))
@@ -18,7 +20,6 @@ w = (h - 92) * 5 / 6 + np.random.normal(0, 5, (N, 1))
 mh = np.mean(h)
 mw = np.mean(w)
 
-# Perform linear regression
 p = np.polyfit(h.flatten(), w.flatten(), 1)
 
 hmin, hmax = 140, 200
@@ -33,18 +34,15 @@ plt.plot([hmin, hmax], [(hmin - 92) * 5 / 6, (hmax - 92) * 5 / 6], 'b--')
 plt.plot([mh, mh], [wmin, mw], 'r:', linewidth=1)
 plt.plot([hmin, mh], [mw, mw], 'r:', linewidth=1)
 
-# Create outlier
 w1 = w.copy()
-w1[8] += 10  # Adjusting index to Python (MATLAB index 9 -> Python index 8)
+w1[8] += 10  
 
-# Perform linear regression with outlier
 p1 = np.polyfit(h.flatten(), w1.flatten(), 1)
 plt.scatter(h[8], w1[8], color='g', marker='.')
 plt.plot([hmin, hmax], np.polyval(p1, [hmin, hmax]), 'g', linewidth=1)
 
 plt.show()
 
-# Generate sequence M
 M = np.arange(2, N + 2)
 
 

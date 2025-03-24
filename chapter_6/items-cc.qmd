@@ -1,5 +1,8 @@
 ---
-title: "Items-cc"
+title: "6.18 Items-cc"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{mermaid}

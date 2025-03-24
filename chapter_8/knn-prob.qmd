@@ -1,6 +1,9 @@
 ---
-title: "KNN Prob"
+title: "8.9 KNN Prob"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}

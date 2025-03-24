@@ -1,5 +1,8 @@
 ---
-title: "Dolphins 2"
+title: "4.3 Dolphins 2"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{mermaid}

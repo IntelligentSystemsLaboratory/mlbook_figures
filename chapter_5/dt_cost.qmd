@@ -1,15 +1,17 @@
 ---
-title: "DT Cost"
+title: "5.7 DT Cost"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
 ```{r}
 #| echo: false
 
-#c <- 1  # class ratio dt-cost-left
-c <- 10 # class ratio dt-cost-right
-pos <- c*100  # positive examples
-neg <- 100  # negative examples
+c <- 10 
+pos <- c*100 
+neg <- 100
 
 rocgrid <- function() {
 	plot( c(0,neg), c(0,pos),
@@ -20,17 +22,8 @@ rocgrid <- function() {
 		 type = "n",
 		 xlab = "Negatives", ylab = "Positives")
 	
-	# add a grid
-	#grid.step <- 5
 	grid (nx = neg/20, ny = pos/20, col = gray(0.5))
-	
-	# draw diagonals
-	#abline(0,pos/neg,lty="dotted")	# ascending
-	#abline(pos,-pos/neg,lty="dotted")	# descending
-	
-	# draw axes
-	#axis(2,c(0,0.2*pos,0.4*pos,0.6*pos,0.8*pos,pos),labels=c('0','20%','40%','60%','80%','100%'))
-	#axis(1,c(0,0.2*neg,0.4*neg,0.6*neg,0.8*neg,neg),labels=c('0','20%','40%','60%','80%','100%'))
+
 }
 
 metric <- function(tp,fp,m) {

@@ -1,5 +1,8 @@
 ---
-title: "Decision Tree"
+title: "2.1 Decision Tree"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 ```{mermaid}
@@ -12,6 +15,5 @@ graph TD;
 
     classDef filled fill:#cccccc,stroke:#000,color:#000;
     class L1,L2,L3 filled;
-
 
 ```

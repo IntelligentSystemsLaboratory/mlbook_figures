@@ -1,36 +1,29 @@
 ---
-title: "subgroups"
+title: "6.15 subgroups"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 
 ```{r}
 #| echo: false
 
-#c <- 1  # class ratio dt-cost-left
-c <- 1 # class ratio dt-cost-right
-pos <- c*50  # positive examples
-neg <- 50  # negative examples
+c <- 1 
+pos <- c*50  
+neg <- 50  
 
 rocgrid <- function() {
 	plot( c(0,neg), c(0,pos),
 		 xlim=c(0,neg),ylim=c(0,pos),
-		 #asp = pos/neg,
 		 xaxs = "i",yaxs = "i",
 		 xaxt = 'n', yaxt = 'n',
 		 type = "n",
 		 xlab = "Negatives", ylab = "Positives")
 	
-	# add a grid
-	#grid.step <- 5
+
 	grid (nx = neg/10, ny = pos/10, col = gray(0.5))
 	
-	# draw diagonals
-	#abline(0,pos/neg,lty="dotted")	# ascending
-	#abline(pos,-pos/neg,lty="dotted")	# descending
-	
-	# draw axes
-	#axis(2,c(0,0.2*pos,0.4*pos,0.6*pos,0.8*pos,pos),labels=c('0','20%','40%','60%','80%','100%'))
-	#axis(1,c(0,0.2*neg,0.4*neg,0.6*neg,0.8*neg,neg),labels=c('0','20%','40%','60%','80%','100%'))
 }
 
 metric <- function(tp,fp,m) {
@@ -102,7 +95,7 @@ contour1 <- function(m,col,lty,tp,fp) {
 	if (lty=='solid') {lwd=4} else {lwd=2}
 	points(fp,tp,col=col,type='p',lwd=lwd)
 	if (tp==0 || fp==0) { 
-#		lines(c(0,fp),c(0,tp),col=col,lty=lty,lwd=4)
+
 		return() 
 	}
 	x <- seq(0,fp)
@@ -118,14 +111,12 @@ contour1 <- function(m,col,lty,tp,fp) {
 
 rocgrid()
 d = 1
-method = 'laplace-precision'	# subgroups2-left
-#method = 'wracc'	# subgroups2-right
+method = 'laplace-precision'	
+
 colour = 'black'
 p =  0; n = 40
-#arrows(50-d,50-d,n+d,p+d,col='violet',length=0.1,lwd=3)
-#lines(c(0,neg),c(0,0),col='red',lwd=2)
-#lines(c(0,0),c(0,pos),col='green',lwd=2)
-contour1(method,colour,'dotted',50, 50)	# truecontour1(method,colour,'dotted',50, 30)	# Beak=yescontour1(method,colour,'solid',50, 10)	# Gills=no; Gills=no & Beak=yes
-contour1(method,colour,'dotted',30, 40)	# Teeth=manycontour1(method,colour,'dotted',30, 20)	# Beak=yes & Teeth=manycontour1(method,colour,'solid',30, 00)	# Gills=no & Teeth=many; Gills=no & Beak=yes & Teeth=manycontour1(method,colour,'dotted',20, 20)	# Length=5contour1(method,colour,'dotted',20, 10)	# Teeth=few; Gills=no & Teeth=few; Beak=yes & Teeth=few; Gills=no & Beak=yes & Teeth=fewcontour1(method,colour,'dotted',20, 10)	# Length=5 & Beak=yescontour1(method,colour,'dotted',20, 00)	# Length=5 & Gills=no; Length=5 & Gills=no & Beak=yescontour1(method,colour,'dotted',20, 00)	# Length=3; Length=3 & Gills=no; Length=3 & Beak=yes; Length=3 & Gills=no & Beak=yescontour1(method,colour,'solid',10, 30)	# Length=4contour1(method,colour,'dotted',10, 20)	# Length=4 & Teeth=manycontour1(method,colour,'dotted',10, 20)	# Length=4 & Beak=yescontour1(method,colour,'dotted',10, 20)	# Length=5 & Teeth=manycontour1(method,colour,'dotted',10, 10)	# Length=5 & Beak=yes & Teeth=manycontour1(method,colour,'dotted',10, 10)	# Length=4 & Gills=no; Length=4 & Gills=no & Beak=yescontour1(method,colour,'dotted',10, 10)	# Length=4 & Beak=yes & Teeth=manycontour1(method,colour,'dotted',10, 00)	# Length=5 & Teeth=few; Length=5 & Gills=no & Teeth=few; Length=5 & Gills=no & Beak=yes & Teeth=few; Length=5 & Beak=yes & Teeth=fewcontour1(method,colour,'dotted',10, 00)	# Length=5 & Gills=no & Teeth=many; Length=5 & Gills=no & Beak=yes & Teeth=manycontour1(method,colour,'dotted',10, 00)	# Length=4 & Gills=no & Teeth=many; Length=4 & Gills=no & Beak=yes & Teeth=manycontour1(method,colour,'dotted',10, 00)	# Length=3 & Teeth=many; Length=3 & Gills=no & Teeth=many; Length=3 & Gills=no & Beak=yes & Teeth=many; Length=3 & Beak=yes & Teeth=manycontour1(method,colour,'dotted',10, 00)	# Length=3 & Teeth=few; Length=3 & Gills=no & Teeth=few; Length=3 & Gills=no & Beak=yes & Teeth=few; Length=3 & Beak=yes & Teeth=fewcontour1(method,colour,'solid',00, 40)	# Gills=yes; Gills=yes & Teeth=manycontour1(method,colour,'solid',00, 20)	# Length=5 & Gills=yes; Length=5 & Gills=yes & Teeth=manycontour1(method,colour,'solid',00, 20)	# Length=4 & Gills=yes; Length=4 & Gills=yes & Teeth=manycontour1(method,colour,'solid',00, 20)	# Gills=yes & Beak=yes; Gills=yes & Beak=yes & Teeth=manycontour1(method,colour,'solid',00, 20)	# Beak=no; Beak=no & Teeth=many; Gills=yes & Beak=no; Gills=yes & Beak=no & Teeth=manycontour1(method,colour,'solid',00, 10)	# Length=4 & Beak=no; Length=4 & Beak=no & Teeth=many; Length=4 & Gills=yes & Beak=no; Length=4 & Gills=yes & Beak=no & Teeth=manycontour1(method,colour,'solid',00, 10)	# Length=4 & Gills=yes & Beak=yes; Length=4 & Gills=yes & Beak=yes & Teeth=manycontour1(method,colour,'solid',00, 10)	# Length=4 & Teeth=few; Length=4 & Beak=yes & Teeth=few; Length=4 & Gills=no & Teeth=few; Length=4 & Gills=no & Beak=yes & Teeth=fewcontour1(method,colour,'solid',00, 10)	# Length=5 & Beak=no; Length=5 & Beak=no & Teeth=many; Length=5 & Gills=yes & Beak=no; Length=5 & Gills=yes & Beak=no & Teeth=manycontour1(method,colour,'solid',00, 10)	# Length=5 & Gills=yes & Beak=yes; Length=5 & Gills=yes & Beak=yes & Teeth=many
+
+contour1(method,colour,'dotted',50, 50)	
+contour1(method,colour,'dotted',30, 40)	
 
 ```

@@ -7,6 +7,7 @@ execute:
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Dolphins 4 right
@@ -16,14 +17,11 @@ execute:
 x <- c(0,0,0,0,100,500)
 y <- c(0,100,200,400,500,500)
 
-h <- 500 # height of plot
-w <- 500 # width of plot
-# w <- 360 # width of plot
+h <- 500 
+w <- 500 
+
 grid.step <- 100
 
-# print to a file
-# png(height = h, width = w, filename = "pn-nested.png")
-# windows(height = h, width = w)
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -31,13 +29,9 @@ plot( c(0,w), c(0,h),
      type = "n",
      xlab = "Negatives", ylab = "Positives")
      
-# draw axes
 axis(2,y,labels=c('','p3','p5','p1-2','p4',''))
 axis(1,x,labels=c('','','','','n5','n1-4'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -49,44 +43,13 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# draw diagonal
-# abline(c(0,h/w),lty=3)
-
-# label the points
 text( x[2]+20, y[2], "A")
 text( x[3]+20, y[3], "B")
 text( x[4]+15, y[4]-15, "C")
 text( x[5]+15, y[5]-15, "D,E")
 text( x[6]-10, y[6]-15, "F")
 
-
-# now draw nested grids
-#for (i in 2:3) {
-#  abline(v=x[i],lty='dashed')
-#  abline(h=y[i],lty='dashed')
-#}
-
-# draw curve
 lines( x, y, lwd=5, type='o')
-
-#for (i in 1:11) {
-#	for (j in 1:11) {
-#		if (i<j) {col='red'}
-#		if (i==j) {col='orange'}
-#		if (i>j) {col='green'}
-#		rect(x[i],y[j],x[i+1],y[j+1],col=col)
-#		}
-#}
-
-
-# convex hull
-#segments(x[4],y[4],x[6],y[6],lty=3,col="red")
-#segments(x[6],y[6],x[9],y[9],lty=3,col="red")
-
-# close file
-#dev.off()
-
-
 
 ```
 

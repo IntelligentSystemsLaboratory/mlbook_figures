@@ -1,6 +1,9 @@
 ---
-title: "SLR Class"
+title: "7.4 SLR Class"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -11,11 +14,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm, multivariate_normal
 
-# Parameters
 mupos, muneg = 1, -1
 Pos, Neg = 20, 10
 
-# Generate data
 px = np.random.normal(mupos, 1, Pos)
 nx = np.random.normal(muneg, 1, Neg)
 x = np.concatenate((px, nx))
@@ -24,10 +25,8 @@ y = np.concatenate((np.ones(Pos), -np.ones(Neg)))
 xmin, xmax = np.min(x), np.max(x)
 x = np.column_stack((np.ones_like(x), x))
 
-# Compute estimators
 B = np.linalg.inv(x.T @ x) @ x.T @ y
 
-# Plot results
 plt.figure()
 plt.scatter(x[:, 1], y, color='r', label='Data')
 plt.scatter(np.mean(px), 1, color='r', marker='o')
@@ -41,4 +40,5 @@ plt.axvline(np.mean(x[:, 1]) - np.mean(y) / B[1], linestyle=':', color='k')
 plt.xlim([xmin, xmax])
 plt.ylim([-1, 1])
 plt.show()
+
 ```

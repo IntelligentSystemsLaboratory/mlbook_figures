@@ -1,5 +1,8 @@
 ---
-title: "Scoring Tree"
+title: "2.5 Scoring Tree"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 ```{mermaid}

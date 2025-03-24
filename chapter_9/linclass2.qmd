@@ -1,6 +1,9 @@
 ---
-title: "Linear Classifier 2"
+title: "9.6 Linear Classifier 2"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -12,7 +15,6 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
 def linclass():
-    # Default settings
     mupos = np.array([1, 1])
     sigpos = np.array([0.1, 0.6])
     rhopos = 0.1
@@ -26,7 +28,6 @@ def linclass():
     signeg2 = sigpos2
     rhoneg2 = rhopos2
 
-    # Covariance matrices for positive and negative classes
     covpos = rhopos * np.sqrt(sigpos[0] * sigpos[1])
     sigmapos = np.array([[sigpos[0], covpos], [covpos, sigpos[1]]])
     
@@ -39,20 +40,17 @@ def linclass():
     covneg2 = rhoneg2 * np.sqrt(signeg2[0] * signeg2[1])
     sigmaneg2 = np.array([[signeg2[0], covneg2], [covneg2, signeg2[1]]])
 
-    # Number of samples for positive and negative classes
     Npos = 100
     Npos2 = 5
     Nneg = 100
     Nneg2 = 5
 
-    # Generate data using multivariate normal distribution
     pos = np.vstack([np.random.multivariate_normal(mupos, sigmapos, Npos - Npos2),
                      np.random.multivariate_normal(mupos2, sigmapos2, Npos2)])
     
     neg = np.vstack([np.random.multivariate_normal(muneg, sigmaneg, Nneg - Nneg2),
                      np.random.multivariate_normal(muneg2, sigmaneg2, Nneg2)])
 
-    # Plot data
     plt.figure(1)
     plt.scatter(pos[:, 0], pos[:, 1], c='k', marker='+', label='Positive')
     plt.scatter(neg[:, 0], neg[:, 1], c='k', marker='.', label='Negative')
@@ -60,7 +58,6 @@ def linclass():
     plt.gca().set_aspect('equal', adjustable='box')
     plt.legend()
 
-    # Homogeneous coordinates
     pos1 = np.hstack([np.ones((Npos, 1)), pos])
     neg1 = np.hstack([np.ones((Nneg, 1)), neg])
     x = np.vstack([pos1, neg1])
@@ -68,7 +65,6 @@ def linclass():
 
     xx = 2.8
 
-    # Basic Linear Classifier (BLC)
     emupos1 = np.mean(pos1, axis=0)
     emuneg1 = np.mean(neg1, axis=0)
     blc = (emupos1 - emuneg1)
@@ -80,14 +76,12 @@ def linclass():
     errblc = np.sum(pos1 @ blc < 0) + np.sum(neg1 @ blc > 0)
     print(f'Error for BLC: {errblc}')
 
-    # Least-Squares Classifier (LSC)
     lsc = np.linalg.inv(np.vstack([pos1, neg1]).T @ np.vstack([pos1, neg1])) @ (Npos * emupos1 - Nneg * emuneg1)
     plt.plot([-xx, xx], [(-lsc[0] + xx * lsc[1]) / lsc[2], (-lsc[0] - xx * lsc[1]) / lsc[2]], 'y-', lw=2)
     errlsc = np.sum(pos1 @ lsc < 0) + np.sum(neg1 @ lsc > 0)
     print(f'Error for LSC: {errlsc}')
 
-    # Logistic Regression
-    x_logit = sm.add_constant(x)  # Add constant for intercept
+    x_logit = sm.add_constant(x)
     log_reg = sm.Logit(y, x_logit).fit()
     print(log_reg.summary())
 
@@ -97,13 +91,11 @@ def linclass():
     errblr = np.sum(pos1 @ log_reg.params < 0) + np.sum(neg1 @ log_reg.params > 0)
     print(f'Error for Logistic Regression: {errblr}')
 
-    # Calculate probabilities
     Plr = log_reg.predict(x_logit)
     BSlr = np.mean((Plr - y) ** 2)
     print(f'Binary Logistic Regression Error: {BSlr}')
 
     plt.show()
 
-# Call the function to execute the logic
 linclass()
 ```

@@ -1,5 +1,8 @@
 ---
-title: "Thresholding RIght"
+title: "3.10 Thresholding RIght"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{r}

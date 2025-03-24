@@ -1,23 +1,21 @@
 ---
-title: "Covgrad right"
+title: "2.9 Covgrad right"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 
 ```{r}
-#| echo: false
 
 ranking <- c(1,1,1,0,1,0,0,1,0,0)
 x <- c(0,0,0,0,100,100,200,300,300,400,500)
 y <- c(0,100,200,300,300,400,400,400,500,500,500)
 
-h <- 500 # height of plot
-w <- 500 # width of plot
-# w <- 360 # width of plot
-grid.step <- 100
+h <- 500 
+w <- 500 
 
-# print to a file
-# png(height = h, width = w, filename = "pn-nested.png")
-# windows(height = h, width = w)
+grid.step <- 100
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -25,13 +23,9 @@ plot( c(0,w), c(0,h),
      type = "n",
      xlab = "Negatives", ylab = "Positives")
      
-# draw axes
 axis(2,y,labels=c('','p1','p2','p3','','p4','','','p5','',''))
 axis(1,x,labels=c('','','','','n1','','n2','n3','','n4','n5'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -43,24 +37,6 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# draw diagonal
-# abline(c(0,h/w),lty=3)
-
-# label the points
-#text( x[4]+10, y[4]-15, "A", col="red")
-#text( x[6]+10, y[6]-15, "B", col="red")
-#text( x[9]+10, y[9]-15, "C", col="red")
-
-
-# now draw nested grids
-#for (i in 2:3) {
-#  abline(v=x[i],lty='dashed')
-#  abline(h=y[i],lty='dashed')
-#}
-
-# draw curve
-#lines( x, y, lty=1, type='o')
-
 for (i in 1:11) {
 	for (j in 1:11) {
 		if (i<j) {col='red'}
@@ -70,12 +46,5 @@ for (i in 1:11) {
 		}
 }
 
-
-# convex hull
-#segments(x[4],y[4],x[6],y[6],lty=3,col="red")
-#segments(x[6],y[6],x[9],y[9],lty=3,col="red")
-
-# close file
-#dev.off()
 
 ```

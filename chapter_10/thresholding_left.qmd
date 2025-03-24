@@ -1,5 +1,8 @@
 ---
-title: "Thresholding Left"
+title: "10.3 Thresholding Left"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{r}

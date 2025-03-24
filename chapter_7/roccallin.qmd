@@ -1,6 +1,7 @@
 ---
 title: "Roc Callin"
 engine: jupyter
+code-fold: true
 ---
 
 ```{python}

@@ -1,0 +1,15 @@
+---
+title: "10.4 RP Middle"
+execute: 
+    echo: true
+code-fold: true
+---
+
+
+```{r}
+#| echo: false
+
+
+
+
+```

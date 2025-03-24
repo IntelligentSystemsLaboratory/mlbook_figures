@@ -1,15 +1,17 @@
 ---
 title: "2.5 Covroc right"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set.
 
 
 ```{r}
-#| echo: false
 
-h <- 75 # height of plot
-w <- 75 # width of plot
+h <- 75
+w <- 75 
 grid.step <- 15
 
 tpr1 <- 45
@@ -19,9 +21,6 @@ fpr2 <- 20
 tpr3 <- 60
 fpr3 <- 30
 
-# print to a file
-# pdf(height = h, width = w, file = "coverage-left.pdf")
-# windows(height = h, width = w)
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -29,13 +28,9 @@ plot( c(0,w), c(0,h),
      type = "n",
      xlab = "Negatives", ylab = "Positives")
 
-# draw axes
 axis(2,c(0,tpr1,tpr2,h),labels=c('0','tpr1','tpr2-3','Pos'))
 axis(1,c(0,fpr1,fpr2,fpr3,w),labels=c('0','fpr1','fpr2','fpr3','Neg'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -47,14 +42,11 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# draw diagonal
 abline(c(0,h/w),col="gray")
 
-# draw isometrics
-abline(c(30,1),lty=2) # average recall
-abline(c(0,3),lty=2) # accuracy
+abline(c(30,1),lty=2) 
+abline(c(0,3),lty=2)
 
-# draw points
 col1 <- "blue"
 points( fpr1, tpr1, col=col1, type="o")
 text( fpr1, tpr1, "C1", pos=3)
@@ -70,7 +62,4 @@ points( fpr3, tpr3, col=col3, type="o")
 text( fpr3, tpr3, "C3", pos=3)
 abline(h=tpr3, v=fpr3, col=col3, lty="dotted")
 
-
-# close file
-# dev.off()
 ```

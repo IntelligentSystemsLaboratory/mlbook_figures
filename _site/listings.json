@@ -1,0 +1,156 @@
+[
+  {
+    "listing": "/chapter_5.html",
+    "items": [
+      "/chapter_5/dolphins-dl-left.html",
+      "/chapter_5/dolphins-dl-right.html",
+      "/chapter_5/dolphins-dt.html",
+      "/chapter_5/growtree.html",
+      "/chapter_5/labelings.html",
+      "/chapter_5/prunedtree.html",
+      "/chapter_5/dt_cost.html",
+      "/chapter_5/regtree.html",
+      "/chapter_5/clustree2.html"
+    ]
+  },
+  {
+    "listing": "/chapter_7.html",
+    "items": [
+      "/chapter_7/slr.html",
+      "/chapter_7/logcallin.html",
+      "/chapter_7/linkernel.html",
+      "/chapter_7/slr1.html",
+      "/chapter_7/regression.html",
+      "/chapter_7/slrclass.html",
+      "/chapter_7/linclass.html",
+      "/chapter_7/roccallin.html"
+    ]
+  },
+  {
+    "listing": "/chapter_6.html",
+    "items": [
+      "/chapter_6/impurity_rule.html",
+      "/chapter_6/rules1a.html",
+      "/chapter_6/ABC_set.html",
+      "/chapter_6/abctree.html",
+      "/chapter_6/ABC.html",
+      "/chapter_6/xy.html",
+      "/chapter_6/subgroups_right.html",
+      "/chapter_6/subgroups.html",
+      "/chapter_6/weightedcovering.html",
+      "/chapter_6/items.html",
+      "/chapter_6/items-cc.html",
+      "/chapter_6/items-dolphins.html",
+      "/chapter_6/rulelist1.html",
+      "/chapter_6/items-cc-dolphins.html",
+      "/chapter_6/rulelist2.html",
+      "/chapter_6/rulelist3.html",
+      "/chapter_6/rulelist-tree.html",
+      "/chapter_6/ABBA.html",
+      "/chapter_6/ABBA_right.html",
+      "/chapter_6/rules1.html",
+      "/chapter_6/rules2.html",
+      "/chapter_6/rules3.html"
+    ]
+  },
+  {
+    "listing": "/chapter_8.html",
+    "items": [
+      "/chapter_8/mlmethods2-complete.html",
+      "/chapter_8/mlkmeans3.html",
+      "/chapter_8/nonmondendrogram.html",
+      "/chapter_8/randomdendrogram.html",
+      "/chapter_8/medoids.html",
+      "/chapter_8/blcdis.html",
+      "/chapter_8/1nex.html",
+      "/chapter_8/twonex.html",
+      "/chapter_8/knn-prob.html",
+      "/chapter_8/kmeans.html",
+      "/chapter_8/knn-probdist.html",
+      "/chapter_8/kmeans-sub.html",
+      "/chapter_8/silhouette.html"
+    ]
+  },
+  {
+    "listing": "/chapter_2.html",
+    "items": [
+      "/chapter_2/decisiontree.html",
+      "/chapter_2/covgrad2.html",
+      "/chapter_2/threshold.html",
+      "/chapter_2/pet.html",
+      "/chapter_2/convexhull_left.html",
+      "/chapter_2/convexhull_right.html",
+      "/chapter_2/coverage_left.html",
+      "/chapter_2/coverage_right.html",
+      "/chapter_2/roc_left.html",
+      "/chapter_2/roc_right.html",
+      "/chapter_2/covroc_left.html",
+      "/chapter_2/covroc_right.html",
+      "/chapter_2/scoringtree.html",
+      "/chapter_2/covrank_left.html",
+      "/chapter_2/covrank_right.html",
+      "/chapter_2/racc_unbalanced_left.html",
+      "/chapter_2/racc_unbalanced_right.html",
+      "/chapter_2/covgrad_left.html",
+      "/chapter_2/covgrad_right.html"
+    ]
+  },
+  {
+    "listing": "/chapter_11.html",
+    "items": [
+      "/chapter_11/bagging.html",
+      "/chapter_11/boosting.html"
+    ]
+  },
+  {
+    "listing": "/chapter_4.html",
+    "items": [
+      "/chapter_4/concepts-full.html",
+      "/chapter_4/dolphins.html",
+      "/chapter_4/dolphins2.html",
+      "/chapter_4/dolphins3.html",
+      "/chapter_4/path.html",
+      "/chapter_4/dolphins4.html",
+      "/chapter_4/concepts-closed.html"
+    ]
+  },
+  {
+    "listing": "/chapter_3.html",
+    "items": [
+      "/chapter_3/clustering.html"
+    ]
+  },
+  {
+    "listing": "/chapter_10.html",
+    "items": [
+      "/chapter_10/thresholding_left.html",
+      "/chapter_10/rp_left.html",
+      "/chapter_10/rp_middle.html",
+      "/chapter_10/rp_right.html",
+      "/chapter_10/logcal.html",
+      "/chapter_10/thresholding_right.html",
+      "/chapter_10/roccal.html",
+      "/chapter_10/isocal.html"
+    ]
+  },
+  {
+    "listing": "/chapter_9.html",
+    "items": [
+      "/chapter_9/bivar.html",
+      "/chapter_9/density_left.html",
+      "/chapter_9/density_right.html",
+      "/chapter_9/linclass2.html",
+      "/chapter_9/logreg.html",
+      "/chapter_9/gmm.html"
+    ]
+  },
+  {
+    "listing": "/chapter_1.html",
+    "items": [
+      "/chapter_1/diabetes.html",
+      "/chapter_1/kernel.html",
+      "/chapter_1/mlmethods.html",
+      "/chapter_1/mlmethodstree1.html"
+    ]
+  }
+]

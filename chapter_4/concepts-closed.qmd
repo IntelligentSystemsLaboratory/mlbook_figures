@@ -1,5 +1,8 @@
 ---
-title: "Concepts closed"
+title: "4.7 Concepts closed"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 ```{mermaid}

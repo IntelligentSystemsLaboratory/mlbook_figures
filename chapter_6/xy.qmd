@@ -1,0 +1,95 @@
+---
+title: "6.14 XY"
+format: html
+execute:
+  echo: true
+  warning: true
+  error: true
+  cache: false
+  result: 'show'
+code-fold: true
+---
+
+## XY right
+
+```{r}
+
+h <- 500 
+w <- 500 
+grid.step <- 100
+
+plot( c(0,w), c(0,h),  
+     xaxs = "i",yaxs = "i",
+     xaxt = "n", yaxt = "n",
+     type = "n",
+     xlab = "Negatives", ylab = "Positives")
+     
+gx <- grid.step
+while (gx <= w) {
+  abline(v = gx, col="gray", lty="dotted")
+  gx <- gx + grid.step
+}
+gy <- grid.step
+while (gy <= h) {
+  abline(h = gy, col="gray", lty="dotted")
+  gy <- gy + grid.step
+}
+
+
+x <- c(0,0,100,300,500,500)
+y <- c(0,200,400,500,500,500)
+col <- "red"
+lines( x, y, lwd=5, type="o",col=col)
+
+text( (x[1]+x[2])/2+10, (y[1]+y[2])/2-10, "XY",col=col)
+
+text( (x[2]+x[3])/2-20, (y[2]+y[3])/2-0, "X-",col=col)
+
+text( (x[3]+x[4])/2-10, (y[3]+y[4])/2+10, "-Y",col=col)
+
+text( (x[4]+x[5])/2+10, (y[4]+y[5])/2-10, "--",col=col)
+
+
+a <- c(0,100,300,500,500)
+b <- c(0,400,500,500,500)
+col <- "violet"
+lines( a, b, lwd=3, type="o",col=col)
+
+text( (a[1]+a[2])/2+10, (b[1]+b[2])/2-10, "X",col=col)
+
+text( (a[2]+a[3])/2+10, (b[2]+b[3])/2-10, "Y\\X",col=col)
+
+a <- c(0,100,300,500,500)
+b <- c(0,200,500,500,500)
+col <- "violet"
+lines( a, b, lwd=3, type="o",col=col)
+
+text( (a[1]+a[2])/2+10, (b[1]+b[2])/2-10, "X\\Y",col=col)
+
+text( (a[2]+a[3])/2+10, (b[2]+b[3])/2-10, "Y",col=col)
+
+
+```
+
+## XY left
+
+```{mermaid}
+
+graph TD;
+    2["[2+, 0-]"];
+    3["[2+, 1-]"];
+    1["[4+, 1-]"];
+    5["[1+, 2-]"];
+    6["[0+, 2-]"];
+    4["[1+, 4-]"];
+    0["[5+, 5-]"];
+    
+    1 -->|"XY"| 2;
+    1 -->|"X-"| 3;
+    4 -->|"-Y"| 5;
+    4 -->|"--"| 6;
+    0 -->|"X"| 1;
+    0 -->|"-"| 4;
+
+
+```

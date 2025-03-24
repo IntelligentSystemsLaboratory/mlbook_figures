@@ -1,10 +1,12 @@
 ---
-title: "Covgrad left"
+title: "2.9 Covgrad left"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 
 ```{r}
-#| echo: false
 
 
 

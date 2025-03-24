@@ -1,5 +1,8 @@
 ---
-title: "Regtree"
+title: "5.8 Regtree"
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{mermaid}

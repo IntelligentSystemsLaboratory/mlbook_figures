@@ -1,8 +1,11 @@
 ---
-title: "1.8 Logcal"
+title: "1.8 mlmethodstree"
+echo: true
+code-fold: true
 ---
 
 ```{mermaid}
+
 graph TD;
     N0["grading"] -->|a bit| N1["logical"];
     N0 -->|a lot| N2["geometric"];

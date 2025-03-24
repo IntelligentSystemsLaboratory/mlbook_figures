@@ -1,6 +1,9 @@
 ---
-title: "Nonmondendogram"
+title: "8.17 Nonmondendogram"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -12,39 +15,35 @@ import matplotlib.pyplot as plt
 from scipy.spatial.distance import pdist
 from scipy.cluster.hierarchy import linkage, dendrogram
 
-# Data setup
 filename = 'nonmondendrogram'
 
 x = 2
 d = 0.1
 y = np.sqrt((3/4) * x**2 + d * (2 * x + d))
 
-D = np.array([[0, 0], [x, 0], [x / 2, y]]) + 1  # Add 1 to the coordinates
+D = np.array([[0, 0], [x, 0], [x / 2, y]]) + 1  
 
-# Method for hierarchical clustering
 methods = ['centroid']
 
-# Loop over methods and generate dendrograms
+
 for m in methods:
-    plt.figure(2)  # Create a figure for dendrogram
+    plt.figure(2) 
     method = m
-    L = linkage(D, method)  # Hierarchical clustering
-    PD = pdist(D)  # Pairwise distance matrix
+    L = linkage(D, method)  
+    PD = pdist(D)  
     
-    # Create and plot dendrogram
+
     dendrogram(L, color_threshold='default')
     plt.ylim([0, 2.2])
     plt.title(f'{filename}-right')
     plt.show()
     
-    # Plot scatter of data points
     plt.figure(3)
     plt.scatter(D[:, 0], D[:, 1], s=20, c='blue', label='Points', marker='o')
     plt.axis([0, 4, 0, 4])
-    plt.gca().set_box_aspect(1)  # Ensure aspect ratio is equal
+    plt.gca().set_box_aspect(1) 
     plt.title(f'{filename}-left')
     
-    # Annotate points with their indices
     for i in range(len(D)):
         plt.text(D[i, 0] + 0.05, D[i, 1] + 0.05, str(i + 1), fontsize=12)
     

@@ -1,6 +1,7 @@
 ---
 title: "Roccal"
 engine: jupyter
+code-fold: true
 ---
 
 ```{python}

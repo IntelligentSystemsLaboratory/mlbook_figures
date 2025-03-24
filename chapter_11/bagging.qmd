@@ -1,6 +1,9 @@
 ---
-title: "Bagging"
+title: "11.1 Bagging"
 engine: jupyter
+execute: 
+  echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -10,7 +13,6 @@ engine: jupyter
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Generate data
 mupos = [1, 1]
 sigpos = [10, 5]
 rhopos = 0
@@ -32,15 +34,13 @@ pi1 = Nneg / N
 pos = np.random.multivariate_normal(mupos, sigmapos, Npos)
 neg = np.random.multivariate_normal(muneg, sigmaneg, Nneg)
 
-# Generate second set of data
 mupos2 = [-1, -1]
 sigpos2 = [0.2, 0.2]
 rhopos2 = 0
 muneg2 = [1, -1]
 signeg2 = [0.6, 0.1]
-rhoneg2 = 0.1  # Define rhoneg2 as it was missing
+rhoneg2 = 0.1  
 
-# Covariance calculations for the second set of data
 covpos2 = rhopos2 * np.sqrt(sigpos2[0] * sigpos2[1])
 sigmapos2 = np.array([[sigpos2[0], covpos2], [covpos2, sigpos2[1]]])
 covneg2 = rhoneg2 * np.sqrt(signeg2[0] * signeg2[1])
@@ -49,7 +49,6 @@ sigmaneg2 = np.array([[signeg2[0], covneg2], [covneg2, signeg2[1]]])
 Npos2 = 10
 Nneg2 = 10
 
-# Generate the data for second set
 pos = np.vstack([
     np.random.multivariate_normal(mupos, sigmapos, Npos - Npos2),
     np.random.multivariate_normal(mupos2, sigmapos2, Npos2)
@@ -60,7 +59,6 @@ neg = np.vstack([
     np.random.multivariate_normal(muneg2, sigmaneg2, Nneg2)
 ])
 
-# Create grid for decision boundary
 xy = np.vstack([pos, neg])
 xmin = np.min(xy[:, 0])
 xmax = np.max(xy[:, 0])
@@ -73,57 +71,41 @@ T = 5
 blc = np.zeros((T, 2))
 x0blc = np.zeros((T, 2))
 
-# Create bootstrap samples for bagging
 posBS = np.zeros_like(pos)
 negBS = np.zeros_like(neg)
 
-# Bagging and training
 for t in range(T):
-    # Create bootstrap sample for positive and negative class
     for i in range(Npos):
         posBS[i, :] = pos[np.random.randint(Npos), :]
     for i in range(Nneg):
         negBS[i, :] = neg[np.random.randint(Nneg), :]
 
-    # Train Basic Linear Classifier (BLC)
     blc[t, :] = np.mean(posBS, axis=0) - np.mean(negBS, axis=0)
     x0blc[t, :] = (np.mean(posBS, axis=0) + np.mean(negBS, axis=0)) / 2
 
-# Testing
 Ntest = 50000
 Te = np.tile(xymin, (Ntest, 1)) + np.tile(np.array(xymax) - np.array(xymin), (Ntest, 1)) * np.random.rand(Ntest, 2)
 
-# Plot voting decision regions
 plt.figure(figsize=(8, 8))
 plt.axis([xmin, xmax, ymin, ymax])
 votes = np.zeros(Ntest)
 
-# Voting process for the bagging classifiers
 for t in range(T):
-    # Decision boundary lines
     yleft = -(blc[t, 0] / blc[t, 1]) * (xmin - x0blc[t, 0]) + x0blc[t, 1]
     yright = -(blc[t, 0] / blc[t, 1]) * (xmax - x0blc[t, 0]) + x0blc[t, 1]
 
-    # Ensure RGB values are valid (between 0 and 1)
     color = [(t) / (T - 1), 0, (T - t) / (T - 1)]
-    color = np.clip(color, 0, 1)  # This ensures color values are valid
+    color = np.clip(color, 0, 1)  
 
-    # Plot the decision line for each classifier
     plt.plot([xmin, xmax], [yleft, yright], linestyle='-', color=color, linewidth=2)
 
-    # Update votes
     votes += np.sign((Te - np.tile(x0blc[t, :], (Ntest, 1))) @ blc[t, :])
 
-# Final decision boundary
 Lb = (np.sign(votes) + 1) / 2
 plt.scatter(Te[:, 0], Te[:, 1], s=1, c=Lb, marker='.')
 plt.scatter(pos[:, 0], pos[:, 1], color='r', marker='+')
 plt.scatter(neg[:, 0], neg[:, 1], color='k', marker='.')
 plt.show()
-
-# Save the results if necessary
-# np.save('bagging.npy', {'blc': blc, 'x0blc': x0blc, 'pos': pos, 'neg': neg})
-
 
 
 ```

@@ -2,11 +2,12 @@
 title: "4.5 Path"
 format: html
 execute:
-  echo: false
+  echo: true
   warning: true
   error: true
   cache: false
   result: 'show'
+code-fold: true
 ---
 
 ## Path right
@@ -16,14 +17,10 @@ execute:
 x <- c(0,0,0,0,100)
 y <- c(0,100,200,300,300)
 
-h <- 300 # height of plot
-w <- 100 # width of plot
-# w <- 360 # width of plot
-grid.step <- 100
+h <- 300
+w <- 100
 
-# print to a file
-# png(height = h, width = w, filename = "pn-nested.png")
-# windows(height = h, width = w)
+grid.step <- 100
 
 plot( c(0,w), c(0,h),  
      xaxs = "i",yaxs = "i",
@@ -31,13 +28,9 @@ plot( c(0,w), c(0,h),
      type = "n",
      xlab = "Negatives", ylab = "Positives")
      
-# draw axes
 axis(2,y,labels=c('','p1','p2','p3',''))
 axis(1,x,labels=c('','','','','n1'))
 
-# add a grid
-# grid seems to be buggy
-#grid (nx = w/grid.step, ny = h/grid.step)
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col="gray", lty="dotted")
@@ -49,42 +42,12 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# draw diagonal
-# abline(c(0,h/w),lty=3)
-
-# label the points
 text( x[2]+10, y[2], "A")
 text( x[3]+10, y[3], "B")
 text( x[4]+10, y[4]-10, "C,D")
 text( x[5]-10, y[5]-10, "E,F")
 
-
-# now draw nested grids
-#for (i in 2:3) {
-#  abline(v=x[i],lty='dashed')
-#  abline(h=y[i],lty='dashed')
-#}
-
-# draw curve
 lines( x, y, lwd=5, type='o')
-
-#for (i in 1:11) {
-#	for (j in 1:11) {
-#		if (i<j) {col='red'}
-#		if (i==j) {col='orange'}
-#		if (i>j) {col='green'}
-#		rect(x[i],y[j],x[i+1],y[j+1],col=col)
-#		}
-#}
-
-
-# convex hull
-#segments(x[4],y[4],x[6],y[6],lty=3,col="red")
-#segments(x[6],y[6],x[9],y[9],lty=3,col="red")
-
-# close file
-#dev.off()
-
 
 ```
 

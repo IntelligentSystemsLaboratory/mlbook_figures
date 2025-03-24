@@ -1,6 +1,9 @@
 ---
-title: "ML Kmeans 3"
+title: "8.13 ML Kmeans 3"
 engine: jupyter
+execute: 
+    echo: true
+code-fold: true
 ---
 
 ```{python}
@@ -14,26 +17,21 @@ from sklearn.mixture import GaussianMixture
 from sklearn.metrics import silhouette_samples, silhouette_score
 from scipy.stats import multivariate_normal
 
-# Define file name and sigma
 filename = 'mlkmeans3'
 sigma = np.array([[1, 0], [0, 1]]) / 10
 N = 100
 
-# Generate Gaussian data
 left = np.random.multivariate_normal([1, 0], sigma, N)
 right = np.random.multivariate_normal([-1, 0], sigma, N)
 data1 = np.vstack((left, right))
 data2 = np.tile(np.array([1, 5]), (2 * N, 1)) * data1
 
-# K-means clustering with k = 2
 k = 2
 
-# Perform k-means clustering
 kmeans1 = KMeans(n_clusters=k, n_init=10, random_state=0).fit(data1)
 labels1 = kmeans1.labels_
 means1 = kmeans1.cluster_centers_
 
-# Plot data and k-means centroids for data1
 plt.figure(1)
 plt.axis('square')
 plt.scatter(data1[:, 0], data1[:, 1], c=labels1, cmap='viridis')
@@ -41,19 +39,16 @@ plt.scatter(means1[:, 0], means1[:, 1], c='black', marker='x', s=100)
 plt.title(f'{filename}-left')
 plt.show()
 
-# Silhouette plot for data1
 plt.figure(2)
 silhouette_vals1 = silhouette_samples(data1, labels1, metric='euclidean')
 plt.hist(silhouette_vals1, bins=20)
 plt.title('Silhouette - left')
 plt.show()
 
-# Perform k-means clustering for data2
 kmeans2 = KMeans(n_clusters=k, n_init=10, random_state=0).fit(data2)
 labels2 = kmeans2.labels_
 means2 = kmeans2.cluster_centers_
 
-# Plot data and k-means centroids for data2
 plt.figure(3)
 plt.axis('square')
 plt.scatter(data2[:, 0], data2[:, 1], c=labels2, cmap='viridis')
@@ -61,7 +56,6 @@ plt.scatter(means2[:, 0], means2[:, 1], c='black', marker='x', s=100)
 plt.title(f'{filename}-right')
 plt.show()
 
-# Silhouette plot for data2
 plt.figure(4)
 silhouette_vals2 = silhouette_samples(data2, labels2, metric='euclidean')
 plt.hist(silhouette_vals2, bins=20)

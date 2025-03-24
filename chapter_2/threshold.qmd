@@ -1,36 +1,33 @@
 ---
-title: "Threshold"
+title: "2.11 Threshold"
+execute: 
+  echo: true
+code-fold: true
 ---
 
 
 ```{r}
-#| echo: false
 
-# Data definition
 ranking <- c(1, 1, 1, 0, 1, 0, 0, 1, 0, 0)
 x <- c(0, 0, 0, 300, 300, 300, 600, 600, 600, 900, 1200)
 y <- c(0, 200, 400, 400, 600, 800, 800, 1000, 1200, 1200, 1200)
 
-# Plot dimensions
-h <- 1200 # height of plot
-w <- 1200 # width of plot
+h <- 1200
+w <- 1200 
 grid.step <- 120
 
-# Initialize the plot
 plot(
   c(0, w), c(0, h),
-  xaxs = "i", yaxs = "i", # Inner plotting area
-  xaxt = 'n', yaxt = 'n', # Suppress default axes
-  type = "n",             # Empty canvas
+  xaxs = "i", yaxs = "i", 
+  xaxt = 'n', yaxt = 'n', 
+  type = "n",             
   xlab = "False positive rate", 
   ylab = "True positive rate"
 )
 
-# Draw axes with custom labels
 axis(1, at = x, labels = c('', '', '', '0.25', '', '', '0.50', '', '', '0.75', '1.00'))
 axis(2, at = y, labels = c('', '0.17', '0.33', '', '0.50', '0.67', '', '0.83', '1.00', '', ''))
 
-# Add a grid
 gx <- grid.step
 while (gx <= w) {
   abline(v = gx, col = "gray", lty = "dotted")
@@ -43,28 +40,14 @@ while (gy <= h) {
   gy <- gy + grid.step
 }
 
-# Draw curve connecting points
-lines(x, y, lty = 1, type = 'o') # 'o' for points and lines
+lines(x, y, lty = 1, type = 'o')
 
-# Add isometric lines
 segments(x[3], y[3], x[9], y[9], lty = 3, col = "red")
 segments(x[1], y[6], x[9], y[9], lty = 3, col = "red")
 
-# Draw descending diagonal
 abline(a = 1200, b = -h / w, lty = 3, col = "blue")
 
-# Add extra horizontal segments
 segments(0, 960, 240, 960, lty = 3, col = "blue")
 segments(0, 12000 / 14, 4800 / 14, 12000 / 14, lty = 3, col = "blue")
-
-# Annotations (if needed, uncomment and adjust positions)
-# text(x[4] + 10, y[4] - 15, "A", col = "red")
-# text(x[6] + 10, y[6] - 15, "B", col = "red")
-# text(x[9] + 10, y[9] - 15, "C", col = "red")
-
-# Save to a file (optional, uncomment to enable)
-# png(height = h, width = w, filename = "pn-nested.png")
-# dev.off()
-
 
 ```
