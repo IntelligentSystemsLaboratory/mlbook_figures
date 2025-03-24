@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MLbook Figures - Linear Classifier 2</title>
+<title>MLbook Figures - 9.6 Linear Classifier 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Linear Classifier 2</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">9.6 Linear Classifier 2</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Linear Classifier 2</h1>
+<h1 class="title">9.6 Linear Classifier 2</h1>
 </div>
 
 
@@ -233,33 +233,29 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error for BLC: 10
-Error for LSC: 10
+<pre><code>Error for BLC: 9
+Error for LSC: 9
 Optimization terminated successfully.
-         Current function value: 0.099453
-         Iterations 10
+         Current function value: 0.126251
+         Iterations 9
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  200
 Model:                          Logit   Df Residuals:                      197
 Method:                           MLE   Df Model:                            2
-Date:                Thu, 13 Mar 2025   Pseudo R-squ.:                  0.8565
-Time:                        16:53:04   Log-Likelihood:                -19.891
+Date:                Mon, 24 Mar 2025   Pseudo R-squ.:                  0.8179
+Time:                        16:35:18   Log-Likelihood:                -25.250
 converged:                       True   LL-Null:                       -138.63
-Covariance Type:            nonrobust   LLR p-value:                 2.706e-52
+Covariance Type:            nonrobust   LLR p-value:                 5.755e-50
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          1.1457      0.816      1.404      0.160      -0.454       2.745
-x1             2.3239      0.541      4.299      0.000       1.264       3.383
-x2             4.7530      1.171      4.060      0.000       2.458       7.048
+const          0.3514      0.551      0.638      0.523      -0.728       1.431
+x1             1.8206      0.384      4.738      0.000       1.068       2.574
+x2             3.0477      0.634      4.810      0.000       1.806       4.290
 ==============================================================================
-
-Possibly complete quasi-separation: A fraction 0.18 of observations can be
-perfectly predicted. This might indicate that there is complete
-quasi-separation. In this case some parameters will not be identified.
-Error for Logistic Regression: 9
-Binary Logistic Regression Error: 0.030507733335994457</code></pre>
+Error for Logistic Regression: 8
+Binary Logistic Regression Error: 0.03281653031511782</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="linclass2_files/figure-html/cell-2-output-2.png" width="422" height="416"></p>
