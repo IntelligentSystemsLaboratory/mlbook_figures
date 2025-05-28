@@ -311,6 +311,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="convexhull_right_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">13</span>, <span class="dv">24</span>, <span class="dv">32</span>, <span class="dv">42</span>, <span class="dv">49</span>, <span class="dv">63</span>, <span class="dv">71</span>, <span class="dv">74</span>, <span class="dv">80</span>, <span class="dv">89</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">100</span>, <span class="dv">100</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> [<span class="dv">33</span>, <span class="dv">33</span>, <span class="dv">60</span>, <span class="dv">60</span>, <span class="dv">60</span>, <span class="dv">60</span>, <span class="dv">60</span>, <span class="dv">60</span>, <span class="dv">67</span>, <span class="dv">67</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>grid_step <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>lwd <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 100.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 100.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([v <span class="op">/</span> <span class="dv">100</span> <span class="cf">for</span> v <span class="kw">in</span> x])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="dv">0</span>, h <span class="op">+</span> <span class="dv">1</span>, grid_step))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([v <span class="op">/</span> <span class="dv">100</span> <span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, h <span class="op">+</span> <span class="dv">1</span>, grid_step)])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> gx <span class="kw">in</span> <span class="bu">range</span>(grid_step, w <span class="op">+</span> <span class="dv">1</span>, grid_step):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ax.axvline(x<span class="op">=</span>gx, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'None'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> gy <span class="kw">in</span> <span class="bu">range</span>(grid_step, h <span class="op">+</span> <span class="dv">1</span>, grid_step):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span>gy, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'None'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'None'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, x[<span class="dv">1</span>]], [y[<span class="dv">0</span>], y[<span class="dv">1</span>]], linewidth<span class="op">=</span><span class="dv">4</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">1</span>], x[<span class="dv">2</span>]], [y[<span class="dv">1</span>], y[<span class="dv">2</span>]], linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">2</span>], x[<span class="dv">7</span>]], [y[<span class="dv">2</span>], y[<span class="dv">7</span>]], linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">7</span>], x[<span class="dv">8</span>]], [y[<span class="dv">7</span>], y[<span class="dv">8</span>]], linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">8</span>], <span class="dv">100</span>], [y[<span class="dv">8</span>], y[<span class="dv">9</span>]], linewidth<span class="op">=</span><span class="dv">4</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y1, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'None'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, x[<span class="dv">1</span>]], [y1[<span class="dv">0</span>], y1[<span class="dv">1</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">1</span>], x[<span class="dv">2</span>]], [y1[<span class="dv">1</span>], y1[<span class="dv">2</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">2</span>], x[<span class="dv">7</span>]], [y1[<span class="dv">2</span>], y1[<span class="dv">7</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">7</span>], x[<span class="dv">8</span>]], [y1[<span class="dv">7</span>], y1[<span class="dv">8</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">8</span>], <span class="dv">100</span>], [y1[<span class="dv">8</span>], y1[<span class="dv">9</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span>lwd, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Original score"</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Calibrated probability"</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="convexhull_right_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 

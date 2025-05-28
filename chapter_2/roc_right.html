@@ -243,7 +243,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-figure" id="toc-r-figure" class="nav-link active" data-scroll-target="#r-figure">R figure</a>
+  <ul class="collapse">
+  <li><a href="#python-figure" id="toc-python-figure" class="nav-link" data-scroll-target="#python-figure">Python figure</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -265,7 +274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall.</p>
+<section id="r-figure" class="level2">
+<h2 class="anchored" data-anchor-id="r-figure">R figure</h2>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -323,8 +333,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="roc_right_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<section id="python-figure" class="level3">
+<h3 class="anchored" data-anchor-id="python-figure">Python figure</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>grid_step <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tpr1 <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fpr1 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>tpr2 <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>fpr2 <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>tpr3 <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>fpr3 <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 50.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 50.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"False positive rate"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"True positive rate"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, fpr1, fpr2, w])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="dv">0</span>, <span class="st">"fpr1"</span>, <span class="st">"fpr2-3"</span>, <span class="st">"1"</span>])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ax.set_yticks([<span class="dv">0</span>, tpr2, tpr1, tpr3, h])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="dv">0</span>, <span class="st">"tpr2"</span>, <span class="st">"tpr1"</span>, <span class="st">"tpr3"</span>, <span class="st">"1"</span>])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>gx <span class="op">=</span> grid_step</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> gx <span class="op">&lt;=</span> w:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    ax.axvline(x<span class="op">=</span>gx, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    gx <span class="op">+=</span> grid_step</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>gy <span class="op">=</span> grid_step</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> gy <span class="op">&lt;=</span> h:</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span>gy, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    gy <span class="op">+=</span> grid_step</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>tpr2, linestyle<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>col1 <span class="op">=</span> <span class="st">"blue"</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ax.plot(fpr1, tpr1, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span>col1)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax.text(fpr1, tpr1, <span class="st">"C1"</span>, verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>tpr1, color<span class="op">=</span>col1, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span>fpr1, color<span class="op">=</span>col1, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>col2 <span class="op">=</span> <span class="st">"red"</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>ax.plot(fpr2, tpr2, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span>col2)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>ax.text(fpr2, tpr2, <span class="st">"C2"</span>, verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>tpr2, color<span class="op">=</span>col2, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span>fpr2, color<span class="op">=</span>col2, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>col3 <span class="op">=</span> <span class="st">"green"</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>ax.plot(fpr3, tpr3, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span>col3)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>ax.text(fpr3, tpr3, <span class="st">"C3"</span>, verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span>tpr3, color<span class="op">=</span>col3, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span>fpr3, color<span class="op">=</span>col3, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="roc_right_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
