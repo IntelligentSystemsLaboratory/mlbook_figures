@@ -48,3 +48,51 @@ segments(x[8], y1[8], x[9], y1[9], lty = lty, lwd = lwd, col = col)
 segments(x[9], y1[9], 100, y1[10], lty = lty, lwd = lwd, col = col)
 
 ```
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+x = [13, 24, 32, 42, 49, 63, 71, 74, 80, 89]
+y = [0, 0, 67, 67, 67, 67, 67, 67, 100, 100]
+y1 = [33, 33, 60, 60, 60, 60, 60, 60, 67, 67]
+
+h = 100
+w = 100
+grid_step = 10
+lwd = 2
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+
+ax.set_xticks(x)
+ax.set_xticklabels([v / 100 for v in x])
+ax.set_yticks(range(0, h + 1, grid_step))
+ax.set_yticklabels([v / 100 for v in range(0, h + 1, grid_step)])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, color='gray', linestyle='None')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, color='gray', linestyle='None')
+
+ax.plot(x, y, marker='o', linestyle='None', color='red')
+ax.plot([0, x[1]], [y[0], y[1]], linewidth=4, color='red')
+ax.plot([x[1], x[2]], [y[1], y[2]], linewidth=lwd, color='red')
+ax.plot([x[2], x[7]], [y[2], y[7]], linewidth=lwd, color='red')
+ax.plot([x[7], x[8]], [y[7], y[8]], linewidth=lwd, color='red')
+ax.plot([x[8], 100], [y[8], y[9]], linewidth=4, color='red')
+
+ax.plot(x, y1, marker='o', linestyle='None', color='blue')
+ax.plot([0, x[1]], [y1[0], y1[1]], linestyle='dashed', linewidth=lwd, color='blue')
+ax.plot([x[1], x[2]], [y1[1], y1[2]], linestyle='dashed', linewidth=lwd, color='blue')
+ax.plot([x[2], x[7]], [y1[2], y1[7]], linestyle='dashed', linewidth=lwd, color='blue')
+ax.plot([x[7], x[8]], [y1[7], y1[8]], linestyle='dashed', linewidth=lwd, color='blue')
+ax.plot([x[8], 100], [y1[8], y1[9]], linestyle='dashed', linewidth=lwd, color='blue')
+
+ax.set_xlabel("Original score")
+ax.set_ylabel("Calibrated probability")
+plt.show()
+
+
+```

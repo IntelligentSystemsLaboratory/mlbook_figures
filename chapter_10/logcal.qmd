@@ -7,7 +7,6 @@ code-fold: true
 
 ```{python}
 
-#| echo: false
 
 import numpy as np
 import matplotlib.pyplot as plt

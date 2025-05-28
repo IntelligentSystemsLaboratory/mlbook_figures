@@ -250,7 +250,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dolphins-dt-right" id="toc-dolphins-dt-right" class="nav-link active" data-scroll-target="#dolphins-dt-right">Dolphins DT right</a></li>
+  <li><a href="#dolphins-dt-right" id="toc-dolphins-dt-right" class="nav-link active" data-scroll-target="#dolphins-dt-right">Dolphins DT right</a>
+  <ul class="collapse">
+  <li><a href="#r-figure" id="toc-r-figure" class="nav-link" data-scroll-target="#r-figure">R Figure</a></li>
+  <li><a href="#python-figure" id="toc-python-figure" class="nav-link" data-scroll-target="#python-figure">Python Figure</a></li>
+  </ul></li>
   <li><a href="#dolphins-dt-left" id="toc-dolphins-dt-left" class="nav-link" data-scroll-target="#dolphins-dt-left">Dolphins DT left</a></li>
   </ul>
 </nav>
@@ -277,6 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="dolphins-dt-right" class="level2">
 <h2 class="anchored" data-anchor-id="dolphins-dt-right">Dolphins DT right</h2>
+<section id="r-figure" class="level3">
+<h3 class="anchored" data-anchor-id="r-figure">R Figure</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -339,30 +345,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="python-figure" class="level3">
+<h3 class="anchored" data-anchor-id="python-figure">Python Figure</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">500</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">500</span>, <span class="dv">500</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>grid_step <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 500.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 500.0)</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">''</span>, <span class="st">''</span>, <span class="st">''</span>, <span class="st">''</span>, <span class="st">'n5'</span>, <span class="st">'n1-4'</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">''</span>, <span class="st">'p1,p3'</span>, <span class="st">'p4-5'</span>, <span class="st">'p1'</span>, <span class="st">''</span>, <span class="st">''</span>])</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>gx <span class="op">=</span> grid_step</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> gx <span class="op">&lt;=</span> w:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    ax.axvline(x<span class="op">=</span>gx, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    gx <span class="op">+=</span> grid_step</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>gy <span class="op">=</span> grid_step</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> gy <span class="op">&lt;=</span> h:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    ax.axhline(y<span class="op">=</span>gy, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'dotted'</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    gy <span class="op">+=</span> grid_step</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.text((x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">5</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="dv">5</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, <span class="st">"A"</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>ax.text((x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, <span class="st">"B"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.text((x[<span class="dv">4</span>] <span class="op">+</span> x[<span class="dv">5</span>]) <span class="op">/</span> <span class="dv">2</span>, y[<span class="dv">5</span>] <span class="op">-</span> <span class="dv">15</span>, <span class="st">"C"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax.text(x[<span class="dv">1</span>] <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="dv">1</span>]) <span class="op">/</span> <span class="dv">2</span>, <span class="st">"D"</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ax.text((x[<span class="dv">2</span>] <span class="op">+</span> x[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">2</span>] <span class="op">+</span> y[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, <span class="st">"E"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>ax.text(x[<span class="dv">2</span>] <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">1</span>] <span class="op">+</span> y[<span class="dv">2</span>]) <span class="op">/</span> <span class="dv">2</span>, <span class="st">"F"</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>ax.text((x[<span class="dv">3</span>] <span class="op">+</span> x[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span>, y[<span class="dv">4</span>] <span class="op">-</span> <span class="dv">15</span>, <span class="st">"G"</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>ax.text(x[<span class="dv">3</span>] <span class="op">+</span> <span class="dv">10</span>, (y[<span class="dv">2</span>] <span class="op">+</span> y[<span class="dv">3</span>]) <span class="op">/</span> <span class="dv">2</span>, <span class="st">"H"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(x[<span class="dv">4</span>] <span class="op">+</span> <span class="dv">10</span>, y[<span class="dv">4</span>] <span class="op">-</span> <span class="dv">10</span>), xytext<span class="op">=</span>((x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">5</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="dv">5</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>))</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(x[<span class="dv">2</span>] <span class="op">+</span> <span class="dv">10</span>, y[<span class="dv">2</span>] <span class="op">-</span> <span class="dv">10</span>), xytext<span class="op">=</span>((x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>),</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>))</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(x[<span class="dv">3</span>] <span class="op">+</span> <span class="dv">10</span>, y[<span class="dv">3</span>] <span class="op">-</span> <span class="dv">10</span>), xytext<span class="op">=</span>((x[<span class="dv">2</span>] <span class="op">+</span> x[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span>, (y[<span class="dv">2</span>] <span class="op">+</span> y[<span class="dv">4</span>]) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>),</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>))</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, linewidth<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">'red'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">0</span>], x[<span class="dv">5</span>]], [y[<span class="dv">0</span>], y[<span class="dv">5</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">0</span>], x[<span class="dv">4</span>]], [y[<span class="dv">0</span>], y[<span class="dv">4</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>ax.plot([x[<span class="dv">2</span>], x[<span class="dv">4</span>]], [y[<span class="dv">2</span>], y[<span class="dv">4</span>]], linestyle<span class="op">=</span><span class="st">'dashed'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Negatives"</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Positives"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="dolphins-dt_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
 <section id="dolphins-dt-left" class="level2">
 <h2 class="anchored" data-anchor-id="dolphins-dt-left">Dolphins DT left</h2>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>graph TD;</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    L2["D: [2+, 0−]"]:::filled</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    N1["A: Gills"]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    N2["B: Length"]</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    N3["E: Teeth"]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    L1["C: [0+, 4−]"]:::filled</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    L3["F: [2+, 0−]"]:::filled</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    L4["G: [0+, 1−]"]:::filled</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    L5["H: [1+, 0−]"]:::filled</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    N1 -- "=no" --&gt; N2</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    N1 -- "=yes" --&gt; L1</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    N2 -- "=5" --&gt; L3</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    N2 -- "=3" --&gt; L2</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    N2 -- "=4" --&gt; N3</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    N3 -- "=few" --&gt; L4</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    N3 -- "=many" --&gt; L5</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>graph TD;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    L2["D: [2+, 0−]"]:::filled</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    N1["A: Gills"]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    N2["B: Length"]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    N3["E: Teeth"]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    L1["C: [0+, 4−]"]:::filled</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    L3["F: [2+, 0−]"]:::filled</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    L4["G: [0+, 1−]"]:::filled</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    L5["H: [1+, 0−]"]:::filled</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    N1 -- "=no" --&gt; N2</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    N1 -- "=yes" --&gt; L1</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    N2 -- "=5" --&gt; L3</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    N2 -- "=3" --&gt; L2</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    N2 -- "=4" --&gt; N3</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    N3 -- "=few" --&gt; L4</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    N3 -- "=many" --&gt; L5</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    classDef filled fill:#f0f0f0,stroke:#000,stroke-width:1px;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>

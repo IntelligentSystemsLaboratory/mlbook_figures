@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -51,6 +52,52 @@ while (gy <= h) {
   abline(h = gy, lty = "dotted")
   gy <- gy + grid.step
 }
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 500
+w = 500
+grid_step = 10
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xticks([0, w])
+ax.set_xticklabels(['0', 'Neg'])
+ax.set_yticks([0, h])
+ax.set_yticklabels(['0', 'Pos'])
+
+x = [0, w/3, 2*w/3, w]
+y = [0, h/3, 2*h/3, h]
+
+for i in range(3):
+    for j in range(3):
+        if i < j:
+            color = 'red'
+        elif i == j:
+            color = 'orange'
+        else:
+            color = 'green'
+        ax.add_patch(plt.Rectangle((x[i], y[j]), x[i+1]-x[i], y[j+1]-y[j], color=color))
+
+x_curve = [0, 50, 100, 500]
+y_curve = [0, 200, 300, 500]
+ax.plot(x_curve, y_curve, linestyle='dashed', color='black')
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, linestyle='dotted', color='gray')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, linestyle='dotted', color='gray')
+
+ax.set_xlabel("Negatives sorted on decreasing score")
+ax.set_ylabel("Positives sorted on decreasing score")
+plt.show()
 
 
 ```

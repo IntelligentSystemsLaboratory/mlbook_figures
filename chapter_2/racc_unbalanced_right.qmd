@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -42,5 +43,51 @@ for (i in 2:3) {
 }
 
 lines( x, y, lty=1, type='o')
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+h = 500
+w = 500
+grid_step = 50
+
+x = [0, 50, 100, 500]
+y = [0, 200, 300, 500]
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+
+ax.set_xticks(x)
+ax.set_xticklabels(['0', 'fpr1', 'fpr2', '1'])
+ax.set_yticks(y)
+ax.set_yticklabels(['0', 'tpr1', 'tpr2', '1'])
+
+gx = grid_step / 2
+while gx <= w:
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+    gx += grid_step / 2
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+for i in [1, 2]:
+    ax.axvline(x=x[i], linestyle='dashed')
+    ax.axhline(y=y[i], linestyle='dashed')
+
+ax.plot(x, y, marker='o', linestyle='solid')
+
+ax.set_xlabel("False positive rate")
+ax.set_ylabel("True positive rate")
+plt.show()
+
 
 ```

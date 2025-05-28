@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 #| echo: false
@@ -131,3 +132,5 @@ contour1('dkm','red','solid', p1, n1)
 contour1('dkm','red','dotted',p2, n2)
 
 ```
+
+### Python figure

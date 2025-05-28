@@ -12,8 +12,9 @@ code-fold: true
 
 ## Grow Tree right
 
-```{r}
+### R figure
 
+```{r}
 
 h <- 500 
 w <- 1000 
@@ -59,6 +60,66 @@ lines( x0, y0, lty=1, type='o', col=rgb(240,32, 16,maxColorValue=255))
 lines( x1, y1, lty=1, type='o', col=rgb(144,32,144,maxColorValue=255))
 lines( x3, y3, lty=2, type='o', col=rgb( 16,32,240,maxColorValue=255))
 lines( x4, y4, lty=1, type='o', col=rgb( 16,32,240,maxColorValue=255))
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 500
+w = 1000
+grid_step = 50
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+ax.set_xticks([])
+ax.set_yticks([])
+
+p0 = 500
+n0 = 1000
+p1 = 300
+n1 = 350
+
+y0 = [0, p0]
+x0 = [0, n0]
+y1 = [0, p1, p0]
+x1 = [0, n1, n0]
+y3 = [0, 290, p1, 450, p0]
+x3 = [0, 100, n1, 380, n0]
+y4 = [0, 150, 440, 490, p0]
+x4 = [0, 30, 130, 750, n0]
+
+ax.set_yticks(y0)
+ax.set_yticklabels(['0', '50'])
+ax.set_xticks(x0)
+ax.set_xticklabels(['0', '100'])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(gx, color='gray', linestyle='dotted')
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+def rgb(r, g, b):
+    return (r/255, g/255, b/255)
+
+ax.plot(x0, y0, linestyle='-', marker='o', color=rgb(240, 32, 16))
+ax.plot(x1, y1, linestyle='-', marker='o', color=rgb(144, 32, 144))
+ax.plot(x3, y3, linestyle='--', marker='o', color=rgb(16, 32, 240))
+ax.plot(x4, y4, linestyle='-', marker='o', color=rgb(16, 32, 240))
+
+plt.show()
+
 
 ```
 

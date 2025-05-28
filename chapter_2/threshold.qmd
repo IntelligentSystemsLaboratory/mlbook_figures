@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -49,5 +50,59 @@ abline(a = 1200, b = -h / w, lty = 3, col = "blue")
 
 segments(0, 960, 240, 960, lty = 3, col = "blue")
 segments(0, 12000 / 14, 4800 / 14, 12000 / 14, lty = 3, col = "blue")
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+ranking = [1, 1, 1, 0, 1, 0, 0, 1, 0, 0]
+x = [0, 0, 0, 300, 300, 300, 600, 600, 600, 900, 1200]
+y = [0, 200, 400, 400, 600, 800, 800, 1000, 1200, 1200, 1200]
+
+h = 1200
+w = 1200
+grid_step = 120
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+
+ax.set_xticks(x)
+ax.set_xticklabels(['', '', '', '0.25', '', '', '0.50', '', '', '0.75', '1.00'])
+ax.set_yticks(y)
+ax.set_yticklabels(['', '0.17', '0.33', '', '0.50', '0.67', '', '0.83', '1.00', '', ''])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+ax.plot(x, y, linestyle='solid', marker='o')
+
+ax.plot([x[2], x[8]], [y[2], y[8]], linestyle='dashed', color='red')
+ax.plot([x[0], x[5]], [y[5], y[8]], linestyle='dashed', color='red')
+
+slope = -h / w
+intercept = 1200
+x_vals = np.array([0, w])
+y_vals = intercept + slope * x_vals
+ax.plot(x_vals, y_vals, linestyle='dashed', color='blue')
+
+ax.plot([0, 240], [960, 960], linestyle='dashed', color='blue')
+ax.plot([0, 4800 / 14], [12000 / 14, 12000 / 14], linestyle='dashed', color='blue')
+
+ax.set_xlabel("False positive rate")
+ax.set_ylabel("True positive rate")
+plt.show()
 
 ```

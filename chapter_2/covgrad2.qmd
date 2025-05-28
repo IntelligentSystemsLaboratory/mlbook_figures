@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -47,5 +48,46 @@ lines( x, y, lty=1, type='o')
 
 segments(x[4],y[4],x[6],y[6],lty=3,col="red")
 segments(x[6],y[6],x[9],y[9],lty=3,col="red")
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+ranking = [1,1,1,0,1,0,0,1,0,0]
+x = [0,0,0,0,100,100,200,300,300,400,500]
+y = [0,100,200,300,300,400,400,400,500,500,500]
+
+h = 500
+w = 500
+grid_step = 50
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xticks(x)
+ax.set_xticklabels(['','','','','n1','','n2','n3','','n4','n5'])
+ax.set_yticks(y)
+ax.set_yticklabels(['','p1','p2','p3','','p4','','','p5','',''])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+
+ax.text(x[3]+10, y[3]-15, "A", color="red")
+ax.text(x[5]+10, y[5]-15, "B", color="red")
+ax.text(x[8]+10, y[8]-15, "C", color="red")
+
+ax.plot(x, y, linestyle='solid', marker='o')
+ax.plot([x[3], x[5]], [y[3], y[5]], linestyle='dashed', color="red")
+ax.plot([x[5], x[8]], [y[5], y[8]], linestyle='dashed', color="red")
+
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+plt.show()
 
 ```

@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -41,5 +42,46 @@ for (i in 2:3) {
 }
 
 lines( x, y, lty=1, type='o')
+
+```
+
+### Python figure 
+
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+h = 500
+w = 1000
+grid_step = 50
+
+x = [0, 100, 200, 1000]
+y = [0, 200, 300, 500]
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+
+ax.set_xticks(x)
+ax.set_xticklabels(['0', 'FP1', 'FP2', 'Neg'])
+ax.set_yticks(y)
+ax.set_yticklabels(['0', 'TP1', 'TP2', 'Pos'])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+
+for i in [1, 2]:
+    ax.axvline(x=x[i], linestyle='dashed')
+    ax.axhline(y=y[i], linestyle='dashed')
+
+ax.plot(x, y, marker='o', linestyle='solid')
+
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+plt.show()
+
 
 ```

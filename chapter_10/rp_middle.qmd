@@ -7,7 +7,6 @@ code-fold: true
 
 
 ```{r}
-#| echo: false
 
 
 

@@ -7,6 +7,8 @@ code-fold: true
 
 In a coverage plot, accuracy isometrics have a slope of 1, and average recall isometrics are parallel to the ascending diagonal. In the corresponding ROC plot, average recall isometrics have a slope of 1; the accuracy isometric here has a slope of 3, corresponding to the ratio of negatives to positives in the data set.
 
+### R figure
+
 ```{r}
 
 h <- 25 
@@ -59,5 +61,70 @@ col3 <- "green"
 points( FP3, TP3, col=col3, type="o")
 text( FP3, TP3, "C3", pos=3)
 abline(h=TP3, v=FP3, col=col3, lty="dotted")
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+h = 25
+w = 75
+grid_step = 5
+
+TP1 = 15
+FP1 = 15
+TP2 = 20
+FP2 = 20
+TP3 = 20
+FP3 = 30
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xticks([0, FP1, FP2, FP3, w])
+ax.set_xticklabels(['0', 'FP1', 'FP2', 'FP3', 'Neg'])
+ax.set_yticks([0, TP1, TP2, h])
+ax.set_yticklabels(['0', 'TP1', 'TP2-3', 'Pos'])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, linestyle='dotted', color='gray')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, linestyle='dotted', color='gray')
+
+x_diag = np.array([0, w])
+y_diag = (h / w) * x_diag
+ax.plot(x_diag, y_diag, color='gray')
+
+x_diag2 = np.array([0, w])
+y_diag2 = x_diag2
+ax.plot(x_diag2, y_diag2, linestyle='dashed', color='black')
+
+x_diag3 = np.array([0, w])
+y_diag3 = (h / w) * (x_diag3 - 10)
+ax.plot(x_diag3, y_diag3, linestyle='dashed', color='black')
+
+ax.plot(FP1, TP1, marker='o', color='blue')
+ax.text(FP1, TP1, "C1", va='bottom', ha='center')
+ax.axhline(y=TP1, color='blue', linestyle='dotted')
+ax.axvline(x=FP1, color='blue', linestyle='dotted')
+
+ax.plot(FP2, TP2, marker='o', color='red')
+ax.text(FP2, TP2, "C2", va='bottom', ha='center')
+ax.axhline(y=TP2, color='red', linestyle='dotted')
+ax.axvline(x=FP2, color='red', linestyle='dotted')
+
+ax.plot(FP3, TP3, marker='o', color='green')
+ax.text(FP3, TP3, "C3", va='bottom', ha='center')
+ax.axhline(y=TP3, color='green', linestyle='dotted')
+ax.axvline(x=FP3, color='green', linestyle='dotted')
+
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+plt.show()
+
 
 ```

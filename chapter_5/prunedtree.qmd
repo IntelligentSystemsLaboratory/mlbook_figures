@@ -12,8 +12,10 @@ code-fold: true
 
 ## Pruned Tree right
 
-```{r}
 
+### R figure
+
+```{r}
 
 h <- 500 
 w <- 1000 
@@ -61,6 +63,63 @@ lines( c(750,1000), c(490,500), lty=1, type='o', col=rgb( 16,32,240,maxColorValu
 lines( c(0,30), c(0,150), lty=3, type='o', col=rgb( 16,32,240,maxColorValue=255))
 lines( c(30,130), c(150,440), lty=1, type='o', col=rgb(16,32,240,maxColorValue=255))
 lines( c(130,750), c(440,490), lty=3, type='o', col=rgb(16,32,240,maxColorValue=255))
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 500
+w = 1000
+grid_step = 100
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+
+p0 = 500
+n0 = 1000
+p1 = 300
+n1 = 350
+
+y0 = [0, p0]
+x0 = [0, n0]
+y1 = [0, p1, p0]
+x1 = [0, n1, n0]
+y3 = [0, 290, p1, 450, p0]
+x3 = [0, 100, n1, 380, n0]
+y4 = [0, 150, 440, 490, p0]
+x4 = [0, 30, 130, 750, n0]
+
+ax.set_yticks(y0)
+ax.set_yticklabels(['0', '50'])
+ax.set_xticks(x0)
+ax.set_xticklabels(['0', '100'])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(gx, color="gray", linestyle="dotted")
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(gy, color="gray", linestyle="dotted")
+    gy += grid_step
+
+ax.plot([0, 100], [0, 290], linestyle='-', marker='o', color=(16/255,32/255,240/255))
+ax.plot([100, 750], [290, 490], linestyle='-', marker='o', color=(144/255,32/255,144/255))
+ax.plot([750, 1000], [490, 500], linestyle='-', marker='o', color=(16/255,32/255,240/255))
+
+ax.plot([0, 30], [0, 150], linestyle=':', marker='o', color=(16/255,32/255,240/255))
+ax.plot([30, 130], [150, 440], linestyle='-', marker='o', color=(16/255,32/255,240/255))
+ax.plot([130, 750], [440, 490], linestyle=':', marker='o', color=(16/255,32/255,240/255))
+
+plt.show()
 
 ```
 

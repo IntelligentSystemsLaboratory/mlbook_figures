@@ -5,8 +5,7 @@ execute:
 code-fold: true
 ---
 
-
-C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall.
+## R figure
 
 ```{r}
 
@@ -59,6 +58,70 @@ col3 <- "green"
 points( fpr3, tpr3, col=col3, type="o")
 text( fpr3, tpr3, "C3", pos=3)
 abline(h=tpr3, v=fpr3, col=col3, lty="dotted")
+
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 50
+w = 50
+
+grid_step = 10
+
+tpr1 = 30
+fpr1 = 10
+tpr2 = 20
+fpr2 = 20
+tpr3 = 40
+fpr3 = 20
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xlabel("False positive rate")
+ax.set_ylabel("True positive rate")
+
+ax.set_xticks([0, fpr1, fpr2, w])
+ax.set_xticklabels([0, "fpr1", "fpr2-3", "1"])
+ax.set_yticks([0, tpr2, tpr1, tpr3, h])
+ax.set_yticklabels([0, "tpr2", "tpr1", "tpr3", "1"])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+ax.axhline(y=tpr2, linestyle='dashed')
+
+col1 = "blue"
+ax.plot(fpr1, tpr1, marker='o', color=col1)
+ax.text(fpr1, tpr1, "C1", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=tpr1, color=col1, linestyle='dotted')
+ax.axvline(x=fpr1, color=col1, linestyle='dotted')
+
+col2 = "red"
+ax.plot(fpr2, tpr2, marker='o', color=col2)
+ax.text(fpr2, tpr2, "C2", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=tpr2, color=col2, linestyle='dotted')
+ax.axvline(x=fpr2, color=col2, linestyle='dotted')
+
+col3 = "green"
+ax.plot(fpr3, tpr3, marker='o', color=col3)
+ax.text(fpr3, tpr3, "C3", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=tpr3, color=col3, linestyle='dotted')
+ax.axvline(x=fpr3, color=col3, linestyle='dotted')
+
+plt.show()
 
 
 ```

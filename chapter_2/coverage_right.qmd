@@ -8,6 +8,8 @@ code-fold: true
 
 A coverage plot depicting the two contingency tables in Table 2.2. The plot is square because the class distribution is uniform (right). Coverage plot for Example 2.1, with a class ratio clr=3.
 
+### R figure
+
 ```{r}
 
 h <- 750 
@@ -42,5 +44,50 @@ col3 <- "green"
 points( FP3, TP3, col=col3, type="o")
 text( FP3, TP3, "C3", pos=3)
 abline(h=TP3, v=FP3, col=col3, lty="dotted")
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 750
+w = 250
+grid_step = 50
+
+TP3 = 600
+FP3 = 100
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+
+ax.set_xticks([0, FP3, w])
+ax.set_xticklabels([0, "FP3", "Neg"])
+ax.set_yticks([0, TP3, h])
+ax.set_yticklabels([0, "TP3", "Pos"])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+col3 = "green"
+ax.plot(FP3, TP3, marker='o', color=col3)
+ax.text(FP3, TP3, "C3", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=TP3, color=col3, linestyle='dotted')
+ax.axvline(x=FP3, color=col3, linestyle='dotted')
+
+plt.show()
+
 
 ```

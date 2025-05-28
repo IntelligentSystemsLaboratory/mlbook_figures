@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 
@@ -45,6 +46,52 @@ for (i in 1:11) {
 		rect(x[i],y[j],x[i+1],y[j+1],col=col)
 		}
 }
+
+
+```
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+ranking = [1,1,1,0,1,0,0,1,0,0]
+x = [0,0,0,0,100,100,200,300,300,400,500,500]
+y = [0,100,200,300,300,400,400,400,500,500,500,500]
+
+h = 500
+w = 500
+grid_step = 100
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xticks(x[:-1])
+ax.set_xticklabels(['','','','','n1','','n2','n3','','n4','n5'])
+ax.set_yticks(y[:-1])
+ax.set_yticklabels(['','p1','p2','p3','','p4','','','p5','',''])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+
+for i in range(11):
+    for j in range(11):
+        if i < j:
+            color = 'red'
+        elif i == j:
+            color = 'orange'
+        else:
+            color = 'green'
+        rect = patches.Rectangle((x[i], y[j]), x[i+1]-x[i], y[j+1]-y[j], facecolor=color)
+        ax.add_patch(rect)
+
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+plt.show()
 
 
 ```

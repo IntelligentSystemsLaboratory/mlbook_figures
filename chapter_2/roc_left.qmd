@@ -5,8 +5,7 @@ execute:
 code-fold: true
 ---
 
-
-C1 and C3 both dominate C2, but neither dominates the other. The diagonal line indicates that C1 and C3 achieve equal accuracy.The same plot with normalised axes. We can interpret this plot as a merger of the two coverage plots in coverage, employing normalisation to deal with the different class distributions. The diagonal line now indicates that C1 and C3 have the same average recall.
+## R figure
 
 ```{r}
 
@@ -58,5 +57,68 @@ col3 <- "green"
 points( FP3, TP3, col=col3, type="o")
 text( FP3, TP3, "C3", pos=3)
 abline(h=TP3, v=FP3, col=col3, lty="dotted")
+
+```
+
+## Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+h = 50
+w = 50
+
+grid_step = 10
+
+TP1 = 30
+FP1 = 10
+TP2 = 20
+FP2 = 20
+TP3 = 40
+FP3 = 20
+
+fig, ax = plt.subplots()
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+
+ax.set_xticks([0, FP1, FP2, w])
+ax.set_xticklabels([0, "FP1", "FP2-3", "Neg"])
+ax.set_yticks([0, TP2, TP1, TP3, h])
+ax.set_yticklabels([0, "TP2", "TP1", "TP3", "Pos"])
+
+gx = grid_step
+while gx <= w:
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+    gx += grid_step
+
+gy = grid_step
+while gy <= h:
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+    gy += grid_step
+
+ax.axhline(y=TP2, linestyle='dashed')
+
+col1 = "blue"
+ax.plot(FP1, TP1, marker='o', color=col1)
+ax.text(FP1, TP1, "C1", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=TP1, color=col1, linestyle='dotted')
+ax.axvline(x=FP1, color=col1, linestyle='dotted')
+
+col2 = "red"
+ax.plot(FP2, TP2, marker='o', color=col2)
+ax.text(FP2, TP2, "C2", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=TP2, color=col2, linestyle='dotted')
+ax.axvline(x=FP2, color=col2, linestyle='dotted')
+
+col3 = "green"
+ax.plot(FP3, TP3, marker='o', color=col3)
+ax.text(FP3, TP3, "C3", verticalalignment='bottom', horizontalalignment='center')
+ax.axhline(y=TP3, color=col3, linestyle='dotted')
+ax.axvline(x=FP3, color=col3, linestyle='dotted')
+
+plt.show()
 
 ```
