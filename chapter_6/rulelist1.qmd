@@ -12,9 +12,9 @@ code-fold: true
 
 ## Rule List right
 
+### R figure 
+
 ```{r}
-
-
 
 c <- 1 
 pos <- c*50  
@@ -133,6 +133,144 @@ contour1(method,colour,'dotted',20, 10)
 
 
 ```
+
+
+### Python figure
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+
+c = 1
+pos = c * 50
+neg = 75
+
+def rocgrid():
+    plt.figure(figsize=(6, 6))
+    plt.xlim(0, neg)
+    plt.ylim(0, pos)
+    plt.xlabel("Negatives")
+    plt.ylabel("Positives")
+    plt.xticks([])
+    plt.yticks([])
+    plt.gca().set_aspect('equal')
+    plt.grid(True, which='both', color='gray', linestyle='-', linewidth=0.5)
+    plt.minorticks_on()
+
+def entropy(P, N):
+    if P == 0 or N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return -p * math.log2(p) - n * math.log2(n)
+
+def gini(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return 4 * p * n
+
+def dkm(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return 2 * math.sqrt(p * n)
+
+def minacc(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return min(p, n)
+
+def metric(tp, fp, m):
+    if tp + fp == 0:
+        return 0
+    Pos = pos
+    Neg = neg
+    N = Pos + Neg
+    TP = tp
+    FP = fp
+    FN = Pos - TP
+    TN = Neg - FP
+
+    if m == 'accuracy':
+        return (TP + TN) / N
+    if m == 'wracc':
+        return TP / N - (TP + FP) * (TP + FN) / N**2
+    if m == 'confirmation':
+        num = (TP + FP) * (FP + TN) / N**2 - FP / N
+        den = math.sqrt((TP + FP) * (FP + TN) / N**2) - (TP + FP) * (FP + TN) / N**2
+        return num / den if den != 0 else 0
+    if m == 'generality':
+        return (TP + FP) / N
+    if m == 'precision':
+        return TP / (TP + FP)
+    if m == 'laplace-precision':
+        return (TP + 10) / (TP + FP + 20)
+    if m == 'f-measure':
+        return 2 * TP / (2 * TP + FP + FN)
+    if m == 'g-measure':
+        return TP / (FP + Pos)
+    if m == 'precision*recall':
+        return TP**2 / ((TP + FP) * (TP + FN))
+    if m == 'avg-precision-recall':
+        return TP / (2 * (TP + FP)) + TP / (2 * (TP + FN))
+    if m == 'aucsplit':
+        return (TP * Neg + Pos * TN) / (2 * Pos * Neg)
+    if m == 'balanced-aucsplit':
+        return TP / Pos - FP / Neg
+    if m == 'chi2':
+        return ((TP * TN - FP * FN)**2) / ((TP + FP) * (TP + FN) * (FP + TN) * (FN + TN))
+    if m == 'info-gain':
+        return entropy(Pos, Neg) - (TP + FP) / N * entropy(TP, FP) - (FN + TN) / N * entropy(FN, TN)
+    if m == 'gini':
+        return gini(Pos, Neg) - (TP + FP) / N * gini(TP, FP) - (FN + TN) / N * gini(FN, TN)
+    if m == 'dkm':
+        return dkm(Pos, Neg) - (TP + FP) / N * dkm(TP, FP) - (FN + TN) / N * dkm(FN, TN)
+    if m == 'entropy':
+        return entropy(TP, FP) / 2
+    if m == 'giniimp':
+        return gini(TP, FP)
+    if m == 'dkmimp':
+        return dkm(TP, FP)
+    if m == 'minacc':
+        return minacc(TP, FP)
+
+def contour1(m, col, lty, tp, fp):
+    v = metric(tp, fp, m)
+    col_val = (min(2 - 2 * v, 1), v, 0)
+    color = (col_val[0], col_val[1], col_val[2])
+    plt.plot(fp, tp, 'o', color=color, linewidth=3)
+    if tp == 0 or fp == 0:
+        plt.plot([0, fp], [0, tp], color=color, linestyle=lty, linewidth=4)
+        return
+    x = np.arange(0, fp + 1)
+    y = np.arange(0, tp + 1)
+    X, Y = np.meshgrid(x, y)
+    Z = np.vectorize(lambda tp, fp: metric(tp, fp, m))(Y, X)
+    plt.contour(X, Y, Z, levels=[v], linewidths=2, colors=[color], linestyles=[lty])
+
+rocgrid()
+d = 1
+method = 'precision'
+colour = 'black'
+p = 0
+n = 40
+
+plt.arrow(50 - d, 50 - d, n + d - (50 - d), p + d - (50 - d), color='violet', width=0.2, head_width=1.5)
+
+contour1(method, 'red', 'solid', p, n)
+contour1(method, colour, 'dotted', 10, 30)
+contour1(method, colour, 'dotted', 20, 20)
+contour1(method, 'green', 'solid', 20, 0)
+contour1(method, colour, 'dotted', 50, 10)
+contour1(method, colour, 'dotted', 50, 30)
+contour1(method, 'red', 'solid', 0, 20)
+contour1(method, colour, 'dotted', 30, 40)
+contour1(method, colour, 'dotted', 20, 10)
+
+plt.show()
+
+```
+
 
 ## Rule List left
 

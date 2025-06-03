@@ -12,6 +12,8 @@ code-fold: true
 
 ## Rules 2 right
 
+### R figure
+
 ```{r}
 
 c <- 1 

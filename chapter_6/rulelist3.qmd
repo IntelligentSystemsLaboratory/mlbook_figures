@@ -12,6 +12,8 @@ code-fold: true
 
 ## Rule List 3 right
 
+### R figure
+
 ```{r}
 
 c <- 1 
@@ -140,6 +142,123 @@ arrows(neg-d,pos-d,n-d,p+d,col='violet',length=0.1,lwd=3)
 contour1(method,'red','solid', p, n, pos, neg)
 contour1(method,'green','solid',10,  0, pos, neg)
 contour1(method,colour,'dotted',20, 10, pos, neg)
+
+```
+
+### Python figure
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+c = 1
+pos = c * 50
+neg = 50
+
+def rocgrid(pos, neg):
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.set_xlim(0, neg)
+    ax.set_ylim(0, pos)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_xlabel("Negatives")
+    ax.set_ylabel("Positives")
+    ax.set_aspect('auto')
+    ax.grid(which='both', linestyle='--', linewidth=0.5, color='gray', alpha=0.5)
+    return ax
+
+def metric(tp, fp, Pos, Neg, m):
+    if tp + fp == 0:
+        return 0
+    N = Pos + Neg
+    TP = tp
+    FP = fp
+    FN = Pos - TP
+    TN = Neg - FP
+    if m == 'accuracy': return (TP + TN) / N
+    if m == 'wracc': return TP / N - (TP + FP) * (TP + FN) / N ** 2
+    if m == 'confirmation':
+        num = ((TP + FP) * (FP + TN)) / N ** 2 - FP / N
+        den = np.sqrt((TP + FP) * (FP + TN)) / N - ((TP + FP) * (FP + TN)) / N ** 2
+        return num / den if den != 0 else 0
+    if m == 'generality': return (TP + FP) / N
+    if m == 'precision': return TP / (TP + FP)
+    if m == 'laplace-precision': return (TP + 10) / (TP + FP + 20)
+    if m == 'f-measure': return 2 * TP / (2 * TP + FP + FN)
+    if m == 'g-measure': return TP / (FP + Pos)
+    if m == 'precision*recall': return TP ** 2 / ((TP + FP) * (TP + FN))
+    if m == 'avg-precision-recall': return TP / (2 * (TP + FP)) + TP / (2 * (TP + FN))
+    if m == 'aucsplit': return (TP * Neg + Pos * TN) / (2 * Pos * Neg)
+    if m == 'balanced-aucsplit': return TP / Pos - FP / Neg
+    if m == 'chi2': return (TP * TN - FP * FN) ** 2 / ((TP + FP) * (TP + FN) * (FP + TN) * (FN + TN))
+    if m == 'info-gain': return entropy(Pos, Neg) - (TP + FP) / N * entropy(TP, FP) - (FN + TN) / N * entropy(FN, TN)
+    if m == 'gini': return gini(Pos, Neg) - (TP + FP) / N * gini(TP, FP) - (FN + TN) / N * gini(FN, TN)
+    if m == 'dkm': return dkm(Pos, Neg) - (TP + FP) / N * dkm(TP, FP) - (FN + TN) / N * dkm(FN, TN)
+    if m == 'entropy': return entropy(TP, FP) / 2
+    if m == 'giniimp': return gini(TP, FP)
+    if m == 'dkmimp': return dkm(TP, FP)
+    if m == 'minacc': return minacc(TP, FP)
+
+def entropy(P, N):
+    if P == 0 or N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return -p * np.log2(p) - n * np.log2(n)
+
+def gini(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return 4 * p * n
+
+def dkm(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return 2 * np.sqrt(p * n)
+
+def minacc(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return min(p, n)
+
+def contour1(ax, m, col, lty, tp, fp, Pos, Neg):
+    v = metric(tp, fp, Pos, Neg, m)
+    r = min(2 - 2 * v, 1)
+    color = (r, v, 0)
+    ax.plot(fp, tp, marker='o', color=color, markersize=8)
+    if tp == 0 or fp == 0:
+        ax.plot([0, fp], [0, tp], linestyle=lty, color=color, linewidth=2)
+        return
+    Pos = tp
+    Neg = fp
+    x = np.arange(0, Neg + 1)
+    y = np.arange(0, Pos + 1)
+    z = np.zeros((len(y), len(x)))
+    for i in range(len(x)):
+        for j in range(len(y)):
+            z[j, i] = metric(y[j], x[i], Pos, Neg, m)
+    cs = ax.contour(x, y, z, levels=[v], colors=[color], linestyles=[lty])
+
+pos = 20
+neg = 10
+d = 1
+method = 'precision'
+colour = 'black'
+p = 0
+n = 10
+
+ax = rocgrid(pos, neg)
+ax.arrow(neg - d, pos - d, n - neg + d, p - pos + d, 
+         head_width=0.8, head_length=1.5, fc='violet', ec='violet', linewidth=2)
+
+contour1(ax, method, 'red', 'solid', p, n, pos, neg)
+contour1(ax, method, 'green', 'solid', 10, 0, pos, neg)
+contour1(ax, method, colour, 'dotted', 20, 10, pos, neg)
+
+plt.title('ROC Grid - Métrica: ' + method)
+plt.tight_layout()
+plt.show()
 
 ```
 

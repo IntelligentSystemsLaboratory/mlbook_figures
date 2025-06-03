@@ -250,7 +250,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rule-list-2-right" id="toc-rule-list-2-right" class="nav-link active" data-scroll-target="#rule-list-2-right">Rule List 2 right</a></li>
+  <li><a href="#rule-list-2-right" id="toc-rule-list-2-right" class="nav-link active" data-scroll-target="#rule-list-2-right">Rule List 2 right</a>
+  <ul class="collapse">
+  <li><a href="#r-figure" id="toc-r-figure" class="nav-link" data-scroll-target="#r-figure">R figure</a></li>
+  <li><a href="#python-figure" id="toc-python-figure" class="nav-link" data-scroll-target="#python-figure">Python figure</a></li>
+  </ul></li>
   <li><a href="#rule-list-2-left" id="toc-rule-list-2-left" class="nav-link" data-scroll-target="#rule-list-2-left">Rule List 2 left</a></li>
   </ul>
 </nav>
@@ -277,6 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="rule-list-2-right" class="level2">
 <h2 class="anchored" data-anchor-id="rule-list-2-right">Rule List 2 right</h2>
+<section id="r-figure" class="level3">
+<h3 class="anchored" data-anchor-id="r-figure">R figure</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -429,30 +435,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="python-figure" class="level3">
+<h3 class="anchored" data-anchor-id="python-figure">Python figure</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parâmetros iniciais</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>neg <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Funções de métrica</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> precision(tp, fp):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tp <span class="op">/</span> (tp <span class="op">+</span> fp) <span class="cf">if</span> (tp <span class="op">+</span> fp) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Geração do grid e cálculo da métrica</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_metric_grid(metric_func, pos, neg):</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.arange(<span class="dv">0</span>, neg <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.arange(<span class="dv">0</span>, pos <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.zeros((<span class="bu">len</span>(y), <span class="bu">len</span>(x)))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, tp <span class="kw">in</span> <span class="bu">enumerate</span>(y):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, fp <span class="kw">in</span> <span class="bu">enumerate</span>(x):</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            z[i, j] <span class="op">=</span> metric_func(tp, fp)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, y, z</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de desenho principal</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_plot():</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="dv">0</span>, neg)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="dv">0</span>, pos)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'Negatives'</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Positives'</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">'both'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    p, n <span class="op">=</span> <span class="dv">30</span>, <span class="dv">0</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    ax.arrow(neg <span class="op">-</span> <span class="dv">1</span>, pos <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> (neg <span class="op">-</span> <span class="dv">1</span>), p <span class="op">-</span> (pos <span class="op">-</span> <span class="dv">1</span>), </span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>             color<span class="op">=</span><span class="st">'violet'</span>, head_width<span class="op">=</span><span class="fl">0.3</span>, length_includes_head<span class="op">=</span><span class="va">True</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> draw_contour(tp, fp, color, style<span class="op">=</span><span class="st">'solid'</span>):</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> precision(tp, fp)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> tp <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> fp <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            ax.plot([<span class="dv">0</span>, fp], [<span class="dv">0</span>, tp], color<span class="op">=</span>color, linestyle<span class="op">=</span>style, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        sub_pos <span class="op">=</span> tp</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        sub_neg <span class="op">=</span> fp</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        x, y, z <span class="op">=</span> compute_metric_grid(precision, sub_pos, sub_neg)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        cs <span class="op">=</span> ax.contour(x, y, z, levels<span class="op">=</span>[v], colors<span class="op">=</span>[color], linestyles<span class="op">=</span>[style])</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    draw_contour(<span class="dv">30</span>, <span class="dv">0</span>, <span class="st">'green'</span>)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    draw_contour(<span class="dv">20</span>, <span class="dv">0</span>, <span class="st">'green'</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    draw_contour(<span class="dv">10</span>, <span class="dv">10</span>, <span class="st">'black'</span>, <span class="st">'dotted'</span>)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    draw_contour(<span class="dv">50</span>, <span class="dv">10</span>, <span class="st">'black'</span>, <span class="st">'dotted'</span>)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    draw_contour(<span class="dv">20</span>, <span class="dv">10</span>, <span class="st">'black'</span>, <span class="st">'dotted'</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'ROC Grid with Precision Contours'</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>draw_plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="rulelist2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+</section>
+</section>
 <section id="rule-list-2-left" class="level2">
 <h2 class="anchored" data-anchor-id="rule-list-2-left">Rule List 2 left</h2>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>graph TD;</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    34["true&lt;br&gt;[5+, 1-]"]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    38["Length=3&lt;br&gt;[2+, 0-]"]:::green</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    76["Length=4&lt;br&gt;[1+, 1-]"]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    95["Length=5&lt;br&gt;[2+, 0-]"]:::green</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    62["Gills=no&lt;br&gt;[5+, 1-]"]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    33["Beak=yes&lt;br&gt;[5+, 1-]"]</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    32["Teeth=many&lt;br&gt;[3+, 0-]"]:::green</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    45["Teeth=few&lt;br&gt;[2+, 1-]"]</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 32</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 33</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 38</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 45</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 62</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 76</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 95</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    classDef green fill:#00a000,stroke:#000,stroke-width:1px;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>graph TD;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    34["true&lt;br&gt;[5+, 1-]"]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    38["Length=3&lt;br&gt;[2+, 0-]"]:::green</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    76["Length=4&lt;br&gt;[1+, 1-]"]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    95["Length=5&lt;br&gt;[2+, 0-]"]:::green</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    62["Gills=no&lt;br&gt;[5+, 1-]"]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    33["Beak=yes&lt;br&gt;[5+, 1-]"]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    32["Teeth=many&lt;br&gt;[3+, 0-]"]:::green</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    45["Teeth=few&lt;br&gt;[2+, 1-]"]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 32</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 33</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 38</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 45</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 62</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 76</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    34 --&gt; 95</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    classDef green fill:#00a000,stroke:#000,stroke-width:1px;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>

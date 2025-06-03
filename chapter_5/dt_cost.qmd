@@ -134,3 +134,133 @@ contour1('dkm','red','dotted',p2, n2)
 ```
 
 ### Python figure
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+c = 10
+pos = c * 100
+neg = 100
+
+def rocgrid():
+    plt.figure(figsize=(6, 6))
+    plt.xlim(0, neg)
+    plt.ylim(0, pos)
+    plt.xlabel("Negatives")
+    plt.ylabel("Positives")
+    plt.grid(True, which='both', color='gray', linewidth=0.5)
+    plt.xticks([])
+    plt.yticks([])
+
+def entropy(P, N):
+    if P == 0 or N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return -p * np.log2(p) - n * np.log2(n)
+
+def gini(P, N):
+    if P + N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return 4 * p * n
+
+def dkm(P, N):
+    if P + N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return 2 * np.sqrt(p * n)
+
+def metric(tp, fp, m):
+    if tp + fp == 0:
+        return 0
+    Pos = pos
+    Neg = neg
+    N = Pos + Neg
+    TP = tp
+    FP = fp
+    FN = Pos - TP
+    TN = Neg - FP
+    if m == 'accuracy': return (TP + TN) / N
+    if m == 'wracc': return TP / N - (TP + FP) * (TP + FN) / N ** 2
+    if m == 'confirmation':
+        base = (TP + FP) * (FP + TN) / N ** 2
+        return (base - FP / N) / (np.sqrt(base) - base) if base != 0 else 0
+    if m == 'generality': return (TP + FP) / N
+    if m == 'precision': return TP / (TP + FP)
+    if m == 'laplace-precision': return (TP + 1) / (TP + FP + 2)
+    if m == 'f-measure': return 2 * TP / (2 * TP + FP + FN)
+    if m == 'g-measure': return TP / (FP + Pos)
+    if m == 'precision*recall': return TP ** 2 / ((TP + FP) * (TP + FN))
+    if m == 'avg-precision-recall': return TP / (2 * (TP + FP)) + TP / (2 * (TP + FN))
+    if m == 'aucsplit': return (TP * Neg + Pos * TN) / (2 * Pos * Neg)
+    if m == 'balanced-aucsplit': return TP / Pos - FP / Neg
+    if m == 'chi2':
+        num = (TP * TN - FP * FN) ** 2
+        den = (TP + FP) * (TP + FN) * (FP + TN) * (FN + TN)
+        return num / den if den != 0 else 0
+    if m == 'info-gain': return entropy(Pos, Neg) - (TP + FP) / N * entropy(TP, FP) - (FN + TN) / N * entropy(FN, TN)
+    if m == 'gini': return gini(Pos, Neg) - (TP + FP) / N * gini(TP, FP) - (FN + TN) / N * gini(FN, TN)
+    if m == 'dkm': return dkm(Pos, Neg) - (TP + FP) / N * dkm(TP, FP) - (FN + TN) / N * dkm(FN, TN)
+    if m == 'entropy': return (TP + FP) / N * entropy(TP, FP)
+    if m == 'giniimp': return (TP + FP) / N * gini(TP, FP)
+    if m == 'dkmimp': return dkm(TP, FP)
+    return 0
+
+x = np.arange(0, neg + 1)
+y = np.arange(0, pos + 1)
+z = np.zeros((len(y), len(x)))
+
+save = False
+colour1 = "red" if not save else "black"
+colour2 = "blue" if not save else "black"
+
+def contours(m, method):
+    for i in range(len(x)):
+        for j in range(len(y)):
+            z[j, i] = metric(y[j], x[i], m)
+    plt.contour(x, y, z, levels=10, colors=colour1, linestyles="solid")
+
+def contour1(m, col, lty, tp, fp):
+    for i in range(len(x)):
+        for j in range(len(y)):
+            z[j, i] = metric(y[j], x[i], m)
+    v = metric(tp, fp, m)
+    plt.plot(fp, tp, 'o', color=col)
+    plt.contour(x, y, z, levels=[v], colors=col, linestyles=lty)
+
+def plotmetric(m, method):
+    rocgrid()
+    contours(m, method)
+    if save:
+        plt.savefig(f"{m}.png", dpi=300)
+
+def plotmetrics():
+    plotmetric('accuracy', "edge")
+    plotmetric('precision', "edge")
+    plotmetric('f-measure', "edge")
+    plotmetric('precision*recall', "edge")
+    plotmetric('info-gain', "flattest")
+    plotmetric('gini', "flattest")
+    plotmetric('dkm', "flattest")
+
+p1 = c * 80
+n1 = 20
+p2 = c * 100
+n2 = 60
+
+rocgrid()
+contour1('info-gain', 'blue', 'solid', p1, n1)
+contour1('info-gain', 'blue', 'dotted', p2, n2)
+contour1('gini', 'violet', 'solid', p1, n1)
+contour1('gini', 'violet', 'dotted', p2, n2)
+contour1('dkm', 'red', 'solid', p1, n1)
+contour1('dkm', 'red', 'dotted', p2, n2)
+
+plt.show()
+
+```

@@ -5,6 +5,7 @@ execute:
 code-fold: true
 ---
 
+### R figure
 
 ```{r}
 #| echo: false
@@ -150,5 +151,124 @@ contour2('giniimp','violet',"2C",values)
 
 contour2('minacc','red',"16",values)
 
+
+```
+
+### Python figure
+
+```{python}
+
+#| echo: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+c = 1 / 2
+pos = c * 100
+neg = 100
+
+def entropy(P, N):
+    if P == 0 or N == 0:
+        return 0
+    p = P / (P + N)
+    n = N / (P + N)
+    return -p * np.log2(p) - n * np.log2(n)
+
+def gini(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return 2 * p * n
+
+def dkm(P, N):
+    return np.sqrt(gini(P, N))
+
+def minacc(P, N):
+    p = P / (P + N)
+    n = N / (P + N)
+    return min(p, n)
+
+def metric(tp, fp, m):
+    if tp + fp == 0:
+        return 0
+    Pos = pos
+    Neg = neg
+    N = Pos + Neg
+    TP = tp
+    FP = fp
+    FN = Pos - TP
+    TN = Neg - FP
+    if m == 'accuracy': return (TP + TN) / N
+    if m == 'wracc': return TP / N - (TP + FP) * (TP + FN) / N**2
+    if m == 'confirmation':
+        A = (TP + FP) * (FP + TN) / N**2
+        B = FP / N
+        C = np.sqrt((TP + FP) * (FP + TN) / N**2)
+        return (A - B) / (C - A)
+    if m == 'generality': return (TP + FP) / N
+    if m == 'precision': return TP / (TP + FP)
+    if m == 'laplace-precision': return (TP + 1) / (TP + FP + 2)
+    if m == 'f-measure': return 2 * TP / (2 * TP + FP + FN)
+    if m == 'g-measure': return TP / (FP + Pos)
+    if m == 'precision*recall': return TP**2 / ((TP + FP) * (TP + FN))
+    if m == 'avg-precision-recall': return TP / (2 * (TP + FP)) + TP / (2 * (TP + FN))
+    if m == 'aucsplit': return (TP * Neg + Pos * TN) / (2 * Pos * Neg)
+    if m == 'balanced-aucsplit': return TP / Pos - FP / Neg
+    if m == 'chi2':
+        return (TP * TN - FP * FN)**2 / ((TP + FP) * (TP + FN) * (FP + TN) * (FN + TN))
+    if m == 'info-gain':
+        return entropy(Pos, Neg) - (TP + FP) / N * entropy(TP, FP) - (FN + TN) / N * entropy(FN, TN)
+    if m == 'gini':
+        return gini(Pos, Neg) - (TP + FP) / N * gini(TP, FP) - (FN + TN) / N * gini(FN, TN)
+    if m == 'dkm':
+        return dkm(Pos, Neg) - (TP + FP) / N * dkm(TP, FP) - (FN + TN) / N * dkm(FN, TN)
+    if m == 'entropy': return entropy(TP, FP) / 2
+    if m == 'giniimp': return gini(TP, FP)
+    if m == 'dkmimp': return dkm(TP, FP)
+    if m == 'minacc': return minacc(TP, FP)
+
+x = np.arange(0, neg + 1)
+y = np.arange(0, pos + 1)
+X, Y = np.meshgrid(x, y)
+
+def rocgrid():
+    plt.figure(figsize=(6, 6))
+    plt.xlim(0, neg)
+    plt.ylim(0, pos)
+    plt.xlabel("Negatives")
+    plt.ylabel("Positives")
+    plt.xticks([0, neg], ['0', 'Neg'])
+    plt.yticks([0, pos], ['0', 'Pos'])
+    plt.gca().set_aspect('auto')
+    for gx in np.arange(0, neg + 1, 10):
+        plt.axvline(x=gx, color='gray', linestyle='dotted')
+    for gy in np.arange(0, pos + 1, 10):
+        plt.axhline(y=gy, color='gray', linestyle='dotted')
+    slope = pos / (c * neg)
+    x_vals = np.array([0, neg])
+    plt.plot(x_vals, slope * x_vals, linestyle='solid', color='black')
+
+def compute_z(m):
+    z = np.zeros_like(X, dtype=float)
+    for i in range(X.shape[0]):
+        for j in range(X.shape[1]):
+            z[i, j] = metric(Y[i, j], X[i, j], m)
+    return z
+
+def contour2(m, col, lty, levels):
+    Z = compute_z(m)
+    plt.contour(X, Y, Z, levels=levels, colors=col, linestyles=lty)
+
+p1 = c * 80
+n1 = 20
+p2 = c * 100
+n2 = 60
+
+rocgrid()
+values = [0.1, 0.4]
+contour2('entropy', 'blue', 'solid', values)
+contour2('giniimp', 'violet', 'dashed', values)
+contour2('minacc', 'red', 'dashdot', values)
+
+plt.show()
 
 ```

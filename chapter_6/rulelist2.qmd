@@ -12,6 +12,8 @@ code-fold: true
 
 ## Rule List 2 right
 
+### R figure
+
 ```{r}
 
 c <- 1 
@@ -146,6 +148,67 @@ contour1(method,colour,'dotted',10, 10, pos, neg)
 contour1(method,colour,'dotted',50, 10, pos, neg)
 contour1(method,colour,'dotted',20, 10, pos, neg)
 
+```
+
+### Python figure
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parâmetros iniciais
+pos = 50
+neg = 10
+
+# Funções de métrica
+def precision(tp, fp):
+    return tp / (tp + fp) if (tp + fp) > 0 else 0
+
+# Geração do grid e cálculo da métrica
+def compute_metric_grid(metric_func, pos, neg):
+    x = np.arange(0, neg + 1)
+    y = np.arange(0, pos + 1)
+    z = np.zeros((len(y), len(x)))
+    for i, tp in enumerate(y):
+        for j, fp in enumerate(x):
+            z[i, j] = metric_func(tp, fp)
+    return x, y, z
+
+# Função de desenho principal
+def draw_plot():
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.set_xlim(0, neg)
+    ax.set_ylim(0, pos)
+    ax.set_xlabel('Negatives')
+    ax.set_ylabel('Positives')
+    ax.grid(True, which='both', linestyle='--', color='gray', alpha=0.5)
+
+    p, n = 30, 0
+    ax.arrow(neg - 1, pos - 1, n - (neg - 1), p - (pos - 1), 
+             color='violet', head_width=0.3, length_includes_head=True, linewidth=2)
+
+    def draw_contour(tp, fp, color, style='solid'):
+        v = precision(tp, fp)
+        if tp == 0 or fp == 0:
+            ax.plot([0, fp], [0, tp], color=color, linestyle=style, linewidth=1)
+            return
+        sub_pos = tp
+        sub_neg = fp
+        x, y, z = compute_metric_grid(precision, sub_pos, sub_neg)
+        cs = ax.contour(x, y, z, levels=[v], colors=[color], linestyles=[style])
+    
+    draw_contour(30, 0, 'green')
+    draw_contour(20, 0, 'green')
+    draw_contour(10, 10, 'black', 'dotted')
+    draw_contour(50, 10, 'black', 'dotted')
+    draw_contour(20, 10, 'black', 'dotted')
+
+    plt.title('ROC Grid with Precision Contours')
+    plt.tight_layout()
+    plt.show()
+
+draw_plot()
 
 
 ```
