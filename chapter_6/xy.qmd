@@ -12,6 +12,8 @@ code-fold: true
 
 ## XY right
 
+### R figure
+
 ```{r}
 
 h <- 500 
@@ -67,6 +69,58 @@ lines( a, b, lwd=3, type="o",col=col)
 text( (a[1]+a[2])/2+10, (b[1]+b[2])/2-10, "X\\Y",col=col)
 
 text( (a[2]+a[3])/2+10, (b[2]+b[3])/2-10, "Y",col=col)
+
+
+```
+
+
+### Python figure
+
+```{python}
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+h = 500
+w = 500
+grid_step = 100
+
+fig, ax = plt.subplots(figsize=(6, 6))
+ax.set_xlim(0, w)
+ax.set_ylim(0, h)
+ax.set_xticks([])
+ax.set_yticks([])
+
+for gx in range(grid_step, w + 1, grid_step):
+    ax.axvline(x=gx, color='gray', linestyle='dotted')
+
+for gy in range(grid_step, h + 1, grid_step):
+    ax.axhline(y=gy, color='gray', linestyle='dotted')
+
+x = [0, 0, 100, 300, 500, 500]
+y = [0, 200, 400, 500, 500, 500]
+ax.plot(x, y, color='red', linewidth=5, marker='o')
+ax.text((x[0] + x[1]) / 2 + 10, (y[0] + y[1]) / 2 - 10, "XY", color='red')
+ax.text((x[1] + x[2]) / 2 - 20, (y[1] + y[2]) / 2, "X-", color='red')
+ax.text((x[2] + x[3]) / 2 - 10, (y[2] + y[3]) / 2 + 10, "-Y", color='red')
+ax.text((x[3] + x[4]) / 2 + 10, (y[3] + y[4]) / 2 - 10, "--", color='red')
+
+a = [0, 100, 300, 500, 500]
+b = [0, 400, 500, 500, 500]
+ax.plot(a, b, color='violet', linewidth=3, marker='o')
+ax.text((a[0] + a[1]) / 2 + 10, (b[0] + b[1]) / 2 - 10, "X", color='violet')
+ax.text((a[1] + a[2]) / 2 + 10, (b[1] + b[2]) / 2 - 10, "Y\\X", color='violet')
+
+a = [0, 100, 300, 500, 500]
+b = [0, 200, 500, 500, 500]
+ax.plot(a, b, color='violet', linewidth=3, marker='o')
+ax.text((a[0] + a[1]) / 2 + 10, (b[0] + b[1]) / 2 - 10, "X\\Y", color='violet')
+ax.text((a[1] + a[2]) / 2 + 10, (b[1] + b[2]) / 2 - 10, "Y", color='violet')
+
+ax.set_xlabel("Negatives")
+ax.set_ylabel("Positives")
+
+plt.show()
 
 
 ```
